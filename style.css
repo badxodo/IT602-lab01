@@ -1,0 +1,287 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 3rem;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+
+header h1{
+  font-size: 1.3rem;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: 'Poppins', sans-serif;
+  color: #0D0D0D;
+}
+
+.navigation-button{
+  position: relative;
+  display: flex;
+  gap: 8rem;
+  margin-right: 7rem;
+}
+
+.navigation-button a {
+  position: relative;
+  font-size: 1rem;
+  text-decoration: none;
+  font-weight: normal;
+  font-family: 'Poppins', sans-serif;
+  color: #101010;
+  padding-bottom: 0.2rem;
+}
+
+.nav-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 1px;
+  width: 0;
+  background: #000;
+  transition: transform 0.3s ease, width 0.3s ease;
+}
+
+.About-Section{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 3rem;
+}
+
+.About-Section h1{
+  font-size: 5rem;
+  margin: 7rem 13rem;
+  text-decoration: none;
+  font-weight:900;
+  font-family: 'Gabarito', sans-serif;
+  color: #454545;
+}
+
+.developer-detail {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-decoration: none;
+  font-weight: normal;
+  font-family: 'Poppins', sans-serif;
+  gap: 1.5rem;
+  margin: 0 17rem;
+}
+
+#separator{
+  align-self: stretch;
+  background-color: #6b6464;
+  width: 2px;
+}
+
+.detail{
+  text-decoration: none;
+  font-weight: normal;
+  font-size: .9rem;
+  font-family: 'Poppins', sans-serif;
+  text-align: justify;
+}
+
+.detail span{
+  font-weight: 600;
+  font-size: 1rem;
+  font-style: italic;
+}
+
+#picture-border {
+  background-color: #0D0D0D;
+  padding: .3rem;
+  border-radius: 90%;
+}
+
+#picture {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  display: block;
+  border-radius: 90%;
+}
+
+@media (max-width: 1300px) {
+  header {
+    padding: 0 2.5rem;
+    transition: 0.5s;
+  }
+
+  .navigation-button {
+    gap: 6rem;
+    margin-right: 5rem;
+    transition: 0.5s;
+  }
+
+  header h1 {
+    font-size: 1.2rem;
+    transition: 0.5s;
+  }
+
+  .navigation-button a {
+    font-size: 0.95rem;
+    transition: 0.5s;
+  }
+
+  .About-Section h1{
+    font-size: 4.5rem;
+    margin: 5rem 10rem;
+    transition: 0.5s;
+  }
+
+  .developer-detail {
+    margin: 0 10rem;
+    transition: 0.5s;
+  }
+}
+
+@media (max-width: 1024px) {
+  header {
+    padding: 0 2rem;
+    transition: 0.5s;
+  }
+
+  .navigation-button {
+    gap: 4rem;
+    margin-right: 3rem;
+    transition: 0.5s;
+  }
+
+  header h1 {
+    font-size: 1.1rem;
+    transition: 0.5s;
+  }
+
+  .navigation-button a {
+    font-size: 0.9rem;
+    transition: 0.5s;
+  }
+
+  .About-Section h1{
+    font-size: 4rem;
+    margin: 5rem 8rem;
+    transition: 0.5s;
+  }
+
+  .developer-detail {
+    margin: 0 4rem;
+    transition: 0.5s;
+  }
+}
+
+
+.fa-bars {
+  font-size: 24px;
+  color: #000;
+  visibility: hidden;
+}
+
+.fa-bars:hover {
+  cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .navigation-button a {
+    visibility: hidden;
+  }
+
+  .nav-indicator {
+    visibility: hidden;
+  }
+
+  .About-Section h1{
+    font-size: 3rem;
+    margin: 2.5rem 1rem;
+    transition: 0.5s;
+  }
+
+  .developer-detail {
+    margin: 0 1rem;
+    flex-direction: column;
+    transition: 0.5s;
+  }
+
+  .detail{
+  font-size: .8rem;
+  }
+
+  .detail span{
+    font-size: .9rem;
+  }
+
+  #picture {
+    width: 150px;
+    height: 150px;
+    transition: 0.5s;
+  }
+
+  .fa-bars {
+    visibility:visible;
+  }
+}
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background: white;
+
+  display: flex;                 /* keep flex so animation works */
+  flex-direction: column;
+  justify-content: center;
+  gap: 2rem;
+  transform: translateX(100%);
+  pointer-events: none;
+
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  z-index: 9999;
+
+  font-family: 'Poppins', sans-serif;
+}
+
+.menu span{
+  width: 100%;
+  height: 1px;
+  align-self: stretch;
+  background-color: #6b6464;
+}
+
+.menu.active {
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+.menu a {
+  padding-left: 2rem;
+  text-decoration: none;
+  color: #5F5F5F;
+  font-weight: 500;
+  font-size: 2.5rem;
+}
+
+#menu-close {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #333;
+}
+
+.menu a.activel {
+  font-weight: 900;
+}

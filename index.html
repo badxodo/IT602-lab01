@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <title>Jake</title>
+</head>
+<body>
+
+  <nav class="menu" id="menu">
+    <i class="fa-solid fa-xmark" id="menu-close"></i>
+
+    <a href="#" class="activel">HOME</a>
+    <span></span>
+    <a href="#">SKILLS</a>
+    <span></span>
+    <a href="#">PROJECTS</a>
+    <span></span>
+    <a href="#">CONTACT</a>
+    <span></span>
+  </nav>
+
+  <header>
+    <h1>Jake</h1>
+    <section class="navigation-button">
+      
+      <span class="nav-indicator"></span>
+
+      <a href="#" class="active">HOME</a>
+      <a href="#">SKILLS</a>
+      <a href="#">PROJECTS</a>
+      <a href="#">CONTACT</a>
+
+      <i class="fa-solid fa-bars" id="menu-toggle"></i>
+
+    </section>
+  </header>
+
+  <section class="About-Section">
+    <h1>UX DESIGN & FULL-STACK WEB DEVELOPER</h1>
+
+    <section class="developer-detail">
+      <div id="picture-border">
+        <img src="pme.png" alt="" id="picture">
+      </div>
+
+      <span id="separator"></span>
+
+      <section class="detail">
+        <span>I'm Jake Julius Maunas</span>
+        <p>
+          with a strong foundation in building responsive, user-friendly applications 
+          from front end to back end. I work with modern web technologies such as HTML, 
+          CSS, JavaScript, and frameworks for both client-side and server-side development, 
+          allowing me to design clean interfaces while ensuring efficient system logic 
+          and data handling behind the scenes. I enjoy turning ideas into functional solutions, 
+          focusing on performance, usability, and scalability. With a problem-solving mindset 
+          and a willingness to continuously learn, I aim to create web applications that are 
+          practical, reliable, and aligned with real-world user needs.
+        </p>
+      </section>
+    </section>
+
+  </section>
+
+  <footer>
+
+  </footer>
+
+  <script>
+    const nav = document.querySelector('.navigation-button');
+    const links = nav.querySelectorAll('.navigation-button a');
+    const indicator = nav.querySelector('.nav-indicator');
+
+    function moveIndicator(el) {
+      indicator.style.width = el.offsetWidth + 'px';
+      indicator.style.transform = `translateX(${el.offsetLeft}px)`;
+    }
+
+    let activeLink = nav.querySelector('.active') || links[0];
+    moveIndicator(activeLink);
+
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        links.forEach(l => l.classList.remove('active'));
+        links.forEach(l => {l.style.fontWeight = "normal";});
+        link.classList.add('active');
+        link.style.fontWeight = "bold";
+        activeLink = link;
+        moveIndicator(activeLink);
+      });
+    });
+
+    window.addEventListener('resize', () => {
+      moveIndicator(nav.querySelector('.active'));
+    });
+
+    const toggle = document.getElementById("menu-toggle");
+    const menu = document.getElementById("menu");
+    const closeBtn = document.getElementById("menu-close");
+
+    toggle.addEventListener("click", () => {
+      menu.classList.toggle("active");
+    });
+    closeBtn.addEventListener("click", () => {
+      menu.classList.remove("active");
+    });
+
+    menu.addEventListener("click", (e) => {
+      if (e.target === menu) {
+        menu.classList.remove("active");
+      }
+    });
+
+
+
+    const nav1 = document.getElementById("menu");
+    const links1 = nav1.querySelectorAll("a");
+    let activeLink1 = nav1.querySelector(".activel") || links[0];
+    activeLink1.style.fontWeight = "900";
+
+    links1.forEach(link => {
+    link.addEventListener("click", () => {
+      links1.forEach(l => {
+        l.classList.remove("activel");
+        l.style.fontWeight = "500";
+      });
+
+      link.classList.add("activel");
+      link.style.fontWeight = "900";
+      activeLink1 = link;
+
+      menu.classList.remove("active");
+    });
+    });
+
+  </script>
+</body>
+</html>
