@@ -195,10 +195,12 @@ header h1{
 @media (max-width: 700px) {
   .navigation-button a {
     visibility: hidden;
+    width: 0;
   }
 
   .navigation-button{
     margin-right: 3rem;
+    gap: 0;
   }
 
   .nav-indicator {
@@ -233,7 +235,6 @@ header h1{
 
   .fa-bars {
     visibility:visible;
-    margin-right: 2rem;
   }
 }
 
