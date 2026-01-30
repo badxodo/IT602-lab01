@@ -41,6 +41,11 @@ header h1{
   padding-bottom: 0.2rem;
 }
 
+.navigation-button a.active {
+  font-weight: bold;
+}
+
+
 .nav-indicator {
   position: absolute;
   bottom: 0;
