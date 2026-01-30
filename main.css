@@ -1,0 +1,139 @@
+:root {
+    --primary-color: black;
+    --secondary-color: #00ff88;
+    --accent-color: #1a1a1a;
+
+    --primary-text: white;
+    --secondary-text: black;
+}
+
+body {
+    margin: 0;
+    pad: 0;
+    font-family: "Bungee", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.nav-content {
+    color: var(--primary-text);
+    cursor: pointer;
+}
+
+.nav-content li {
+    position: relative;
+    padding: 10px 0;
+    list-style: none;
+    transition:
+        color 0.5s ease,
+        transform 0.5s ease-in-out;
+}
+
+.nav-content li:hover {
+    color: var(--secondary-color);
+    transform: translateY(-5px);
+}
+
+.nav-content li::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--secondary-color);
+    animation: left 0.2s ease;
+}
+
+.nav-content li:hover::after {
+    width: 50%;
+    left: 25%;
+}
+.flip span {
+    display: inline-block;
+    opacity: 0;
+    transform-origin: center bottom;
+    animation: flipUp 0.6s ease forwards;
+    animation-delay: calc(var(--i) * 0.08s);
+}
+.flip span:nth-child(1) {
+    animation-delay: 0.05s;
+}
+.flip span:nth-child(2) {
+    animation-delay: 0.1s;
+}
+.flip span:nth-child(3) {
+    animation-delay: 0.15s;
+}
+.flip span:nth-child(4) {
+    animation-delay: 0.2s;
+}
+.flip span:nth-child(5) {
+    animation-delay: 0.25s;
+}
+.flip span:nth-child(6) {
+    animation-delay: 0.3s;
+}
+.flip span:nth-child(7) {
+    animation-delay: 0.35s;
+}
+.flip span:nth-child(8) {
+    animation-delay: 0.4s;
+}
+.flip span:nth-child(9) {
+    animation-delay: 0.45s;
+}
+.flip span:nth-child(10) {
+    animation-delay: 0.5s;
+}
+.flip span:nth-child(11) {
+    animation-delay: 0.55s;
+}
+.flip span:nth-child(12) {
+    animation-delay: 0.6s;
+}
+.flip span:nth-child(13) {
+    animation-delay: 0.65s;
+}
+.flip span:nth-child(14) {
+    animation-delay: 0.7s;
+}
+.flip span:nth-child(15) {
+    animation-delay: 0.75s;
+}
+
+@keyframes flipUp {
+    0% {
+        transform: rotateX(90deg);
+        opacity: 0;
+    }
+    100% {
+        transform: rotateX(0deg);
+        opacity: 1;
+    }
+}
+
+.cta-hero button {
+    transition: transform 0.5s ease-in-out;
+}
+
+.cta-hero button:nth-child(2):hover {
+    transform: translateY(-5px);
+    animation: ctaAnimate 1s ease-in-out infinite;
+}
+
+.cta-hero button:first-child {
+    animation: ctaAnimate 1s ease-in-out infinite;
+}
+
+@keyframes ctaAnimate {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
