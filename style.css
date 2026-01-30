@@ -197,6 +197,10 @@ header h1{
     visibility: hidden;
   }
 
+  .navigation-button{
+    margin-right: 3rem;
+  }
+
   .nav-indicator {
     visibility: hidden;
   }
@@ -231,6 +235,7 @@ header h1{
     visibility:visible;
   }
 }
+
 .menu {
   position: fixed;
   top: 0;
