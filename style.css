@@ -233,6 +233,7 @@ header h1{
 
   .fa-bars {
     visibility:visible;
+    margin-right: 2rem;
   }
 }
 
