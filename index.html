@@ -121,16 +121,19 @@
     const links1 = nav1.querySelectorAll("a");
     let activeLink1 = nav1.querySelector(".activel") || links[0];
     activeLink1.style.fontWeight = "900";
+    activeLink1.style.color = "#000"
 
     links1.forEach(link => {
     link.addEventListener("click", () => {
       links1.forEach(l => {
         l.classList.remove("activel");
-        l.style.fontWeight = "500";
+        l.style.fontWeight = "400";
+        l.style.color = "#5F5F5F";
       });
 
       link.classList.add("activel");
       link.style.fontWeight = "900";
+      link.style.color = "#000"
       activeLink1 = link;
 
       menu.classList.remove("active");
