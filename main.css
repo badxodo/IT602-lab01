@@ -1,0 +1,73 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    height: 100vh;
+    background-image: url(src/black.jpg);
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+}
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px 60px;
+    min-height: 85vh;
+}
+
+.nav {
+    color: white;
+}
+
+.hero h1 {
+    color: white;
+    font-size: 60px;
+    font-family: Arial, Helvetica, sans-serif;   
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+
+.introduction h2 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    margin-left: 120px;
+    color: white;
+}
+
+.navbar {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+   color : white;
+}
+
+
+.roles {
+    font-size: 15px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    margin-left: 120px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;   
+}
+
+.description {
+    font-size: 14px;
+    color: white;
+    line-height: 1.6;   
+    font-family: Arial, Helvetica, sans-serif;   
+    margin-left: 120px;
+   
+}
