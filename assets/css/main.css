@@ -217,13 +217,16 @@ body.no-scroll {
     }
     .hero-text-container {
         left: 30px;
-        bottom: 40px;
+        bottom: 90px;
     }
 }
 
 @media (min-width: 601px) and (max-width: 900px) {
     .hero-title {
         font-size: 48px;
+    }
+    .hero-text-container {
+        bottom: 110px;
     }
 }
 
@@ -279,12 +282,20 @@ body.no-scroll {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     background-color: #000000;
-    padding: 32px 60px 20px 60px;
-    border-radius: 32px 32px 0 0;
+    padding: 20px 40px 12px 40px;
+    border-radius: 20px 20px 0 0;
     z-index: 20;
     box-shadow: 0 -10px 30px rgba(0,0,0,0.5);
+}
+
+@media (min-width: 901px) {
+    .scroll-indicator {
+        padding: 32px 60px 20px 60px;
+        border-radius: 32px 32px 0 0;
+        gap: 8px;
+    }
 }
 
 .scroll-indicator::before,
@@ -292,35 +303,67 @@ body.no-scroll {
     content: '';
     position: absolute;
     bottom: 0;
-    width: 32px;
-    height: 32px;
+    width: 20px;
+    height: 20px;
     background: transparent;
     z-index: 1;
 }
 
 .scroll-indicator::before {
-    left: -32px;
-    border-bottom-right-radius: 32px;
-    box-shadow: 6px 6px 0 6px #000000;
+    left: -20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 4px 4px 0 4px #000000;
 }
 
 .scroll-indicator::after {
-    right: -32px;
-    border-bottom-left-radius: 32px;
-    box-shadow: -6px 6px 0 6px #000000;
+    right: -20px;
+    border-bottom-left-radius: 20px;
+    box-shadow: -4px 4px 0 4px #000000;
+}
+
+@media (min-width: 901px) {
+    .scroll-indicator::before,
+    .scroll-indicator::after {
+        width: 32px;
+        height: 32px;
+    }
+    
+    .scroll-indicator::before { 
+        left: -32px;
+        border-bottom-right-radius: 32px;
+        box-shadow: 6px 6px 0 6px #000000;
+    }
+    
+    .scroll-indicator::after {
+        right: -32px;
+        border-bottom-left-radius: 32px;
+        box-shadow: -6px 6px 0 6px #000000;
+    }
 }
 
 .scroll-text {
-    font-size: 12px;
+    font-size: 10px;
     letter-spacing: 0.02em;
     color: var(--text-secondary);
 }
 
+@media (min-width: 901px) {
+    .scroll-text {
+        font-size: 12px;
+    }
+}
+
 .scroll-line {
     width: 2px;
-    height: 22px;
+    height: 16px;
     background-color: var(--text-secondary);
     border-radius: 2px;
+}
+
+@media (min-width: 901px) {
+    .scroll-line {
+        height: 22px;
+    }
 }
 
 .bottom-bar {
@@ -383,6 +426,11 @@ body.no-scroll {
     pointer-events: auto;
 }
 
+.menu-overlay.active ~ .hero-section .scroll-indicator {
+    opacity: 0;
+    visibility: hidden;
+}
+
 .menu-content {
     flex: 1;
     display: flex;
@@ -392,11 +440,12 @@ body.no-scroll {
     height: 100%; 
     gap: 20px;
     overflow: hidden;
+    
 }
 
 .menu-visual {
     flex: 0 0 auto;
-    height: 45%;
+    height: 32%;
     width: 100%;
     display: flex;
     align-items: center; 
@@ -409,6 +458,7 @@ body.no-scroll {
     .menu-content {
         flex-direction: row; 
         gap: 40px;
+        height: 100%;
     }
     
     .menu-nav {
@@ -416,19 +466,22 @@ body.no-scroll {
     }
     
     .menu-visual {
+        flex: 1;
         height: 100%;
         width: 45%;
-        flex: 1;
+        align-self: stretch;
     }
     
     .menu-image {
          object-position: center;
+         height: 100%;
     }
     
     .menu-nav-container {
         padding: 42px 48px; 
         width: 50%; 
-        justify-content: center; 
+        justify-content: center;
+        height: 100%;
     }
 }
 
@@ -444,8 +497,20 @@ body.no-scroll {
     flex: 1;
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 20px 20px 10px 20px;
     overflow: hidden;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.menu-nav-container::-webkit-scrollbar {
+    display: none;
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+    .menu-nav-container {
+        padding: 32px 36px 16px 36px;
+    }
 }
 
 .menu-nav {
@@ -462,10 +527,17 @@ body.no-scroll {
     justify-content: space-between;
     align-items: center;
     padding: 12px 0;
+    min-height: 48px;
     border-bottom: 1px solid rgba(255,255,255,0.1);
     color: #555; 
     text-decoration: none;
     transition: color 0.3s;
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+    .menu-link {
+        padding: 16px 0;
+    }
 }
 
 .menu-link:hover {
@@ -483,6 +555,12 @@ body.no-scroll {
     font-weight: 500;
     letter-spacing: 0.02em;
     flex: 1;
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+    .link-text {
+        font-size: 28px;
+    }
 }
 
 @media (min-width: 900px) {
@@ -528,4 +606,36 @@ body.no-scroll {
 
 .footer-link:hover {
     color: #fff;
+}
+
+/* Tablet-specific menu overlay improvements */
+@media (min-width: 601px) and (max-width: 900px) {
+    .menu-overlay {
+        inset: 20px;
+    }
+    
+    .menu-content {
+        gap: 24px;
+    }
+    
+    .menu-visual {
+        height: 28%;
+    }
+}
+
+/* Landscape tablet layout */
+@media (min-width: 601px) and (max-width: 900px) and (orientation: landscape) {
+    .menu-content {
+        flex-direction: row;
+        gap: 30px;
+    }
+    
+    .menu-visual {
+        height: 100%;
+        width: 40%;
+    }
+    
+    .menu-nav-container {
+        width: 60%;
+    }
 }
