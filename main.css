@@ -11,6 +11,22 @@ body {
     background-image: url(src/BlackBack.png);
     background-size: cover;
     background-position: center;
+
+}
+
+section#hero{
+    height: calc(100vh - 60px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+}
+
+#hero h3{
+    font-size: 2.5rem;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 li {
@@ -85,14 +101,31 @@ header{
 .dropdown_menu{
     position: absolute;
     right: 2rem;
+    display: none;
     top: 60px;
+    height: 0;
     width: 300px;
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(15px);
+    border-radius: 10px;
     overflow: hidden;
+    transition: height 0.2s cubic-bezier(0.215, 0.610, 0.355, 1);
 }
 
 
+
+.dropdown_menu li{
+    padding: 0.07rem;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.dropdown_menu .action_btn{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
 
 @media (max-width: 992px){
     .navbar .links
@@ -101,6 +134,10 @@ header{
     }
 
     .navbar .toggle_btn{
+        display: block;
+    }
+
+    .dropdown_menu{
         display: block;
     }
 }
