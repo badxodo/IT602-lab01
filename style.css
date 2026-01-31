@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif; /* You can use 'Montserrat' for a closer match */
+}
+
+body {
+    background-color: #111;
+    color: #fff;
+    overflow: hidden; /* Keeps it a single-screen landing page */
+}
+
+/* Navigation */
+.navbar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 60px;
+    z-index: 10;
+}
+
+.logo {
+    font-size: 0.9rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #ccc;
+    font-size: 0.8rem;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #fff;
+}
+
+.menu-icon span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background: #fff;
+    margin: 5px 0;
+}
+
+/* Hero Section Layout */
+.hero-container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+
+.image-section {
+    flex: 1;
+    overflow: hidden;
+}
+
+.image-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(100%);
+}
+
+.content-section {
+    flex: 1;
+    background-color: #1a1a1a;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 10%;
+    position: relative;
+}
+
+/* Typography */
+h1 {
+    font-size: 5rem;
+    line-height: 1;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.line {
+    display: inline-block;
+    width: 150px;
+    height: 2px;
+    background-color: #fff;
+    vertical-align: middle;
+    margin-left: 20px;
+}
+
+p {
+    font-size: 0.9rem;
+    color: #aaa;
+    line-height: 1.6;
+    max-width: 450px;
+    margin-bottom: 40px;
+}
+
+/* Buttons */
+.cta-buttons {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.btn-primary {
+    background-color: #fff;
+    color: #000;
+    text-decoration: none;
+    padding: 12px 35px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    border-radius: 2px;
+}
+
+.btn-video {
+    text-decoration: none;
+    color: #fff;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.play-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    font-size: 0.6rem;
+}
+
+.page-number {
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    font-size: 0.7rem;
+    color: #666;
+}
