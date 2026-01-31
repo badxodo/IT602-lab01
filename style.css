@@ -1,0 +1,265 @@
+:root {
+    --primary: #5B2D8B;
+    --accent: #F4C430;
+    --bg-main: #cabfe0;
+    --text-dark: #1F1F1F;
+    --text-gray: #555555;
+  }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  body {
+    background: var(--bg-main);
+    min-height: 100vh;
+  }
+  
+  /* for navigation bar */
+  .navbar {
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(12px);
+    padding: 20px 50px;
+    margin: 30px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  }
+  
+  .logo {
+    color: var(--primary);
+  }
+  
+  .navbar nav a {
+    position: relative;
+    margin: 0 15px;
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar nav a:hover,
+  .navbar nav a.active { color: var(--primary); }
+  
+  .navbar nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0%;
+    height: 2px;
+    background: var(--accent);
+    transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+  
+  .navbar nav a:hover::after,
+  .navbar nav a.active::after { width: 100%; }
+  
+  .chat-btn {
+    background: linear-gradient(45deg, var(--primary), #7b3fc7);
+    color: white;
+    border: none;
+    padding: 10px 22px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .chat-btn:hover {
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(91,45,139,0.3);
+  }
+  
+  /* hero section part */
+  .hero {
+    background: white;
+    margin: 30px;
+    padding: 60px;
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .hero-text {
+    max-width: 520px;
+    animation: fadeUp 1s ease forwards;
+  }
+  
+  .small-title {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--text-gray);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s forwards;
+    animation-delay: 0.2s;
+  }
+  
+  .hero-text h1 {
+    font-size: 42px;
+    margin-top: 10px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s forwards;
+    animation-delay: 0.4s;
+  }
+  .hero-text h1 span {
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .role {
+    margin: 12px 0;
+    color: var(--accent);
+    font-weight: 600;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s forwards;
+    animation-delay: 0.6s;
+  }
+  
+  .hero-text p {
+    margin: 20px 0;
+    color: var(--text-gray);
+    line-height: 1.6;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s forwards;
+    animation-delay: 0.8s;
+  }
+  
+  .buttons {
+    display: flex;
+    gap: 15px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s forwards;
+    animation-delay: 1s;
+  }
+  
+  .primary-btn {
+    background: linear-gradient(45deg, var(--primary), #7b3fc7);
+    color: white;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .primary-btn:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 12px 30px rgba(91,45,139,0.4);
+  }
+  
+  .secondary-btn {
+    background: transparent;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    padding: 12px 22px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .secondary-btn:hover {
+    background: var(--primary);
+    color: white;
+    transform: scale(1.05);
+  }
+  
+  /* sa socials */
+  .socials {
+    margin-top: 25px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s forwards;
+    animation-delay: 1.2s;
+  }
+  .socials a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    margin-right: 12px;
+    border: 1px solid var(--primary);
+    border-radius: 50%;
+    color: var(--primary);
+    font-size: 16px;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+  }
+  .socials a:hover {
+    transform: scale(1.2);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    color: white;
+  }
+  .socials a:nth-child(1):hover { background: #000; }      /* sa TikTok color */
+  .socials a:nth-child(2):hover { background: #E1306C; }   /* sa Instagram color */
+  .socials a:nth-child(3):hover { background: #1877F2; }   /* sa Facebook color */
+  .socials a:nth-child(4):hover { background: #FF0000; }   /* sa YouTube color */
+  
+  /* katong picture/image */
+  .circle {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    padding: 6px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+  }
+  
+  .circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    background: white;
+  }
+  
+  /* Subtle hover */
+  .circle:hover {
+    transform: scale(1.03);
+  }
+  
+  
+  /* Animations */
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  @keyframes gradientShift {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(360deg); }
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+  }
+  
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  /* responsive/interactive */
+  @media (max-width: 950px) {
+    .hero {
+      flex-direction: column;
+      text-align: center;
+    }
+    .hero-image {
+      margin-top: 40px;
+    }
+  }
+  
