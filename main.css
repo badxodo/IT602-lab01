@@ -1,143 +1,227 @@
 * {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    font-family: 'Open Sans', sans-serif;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+}
+
+html{
+    font-size: 62.5%;
 }
 
 body {
+    width: 100%;
     height: 100vh;
+    overflow: hidden;
     background-color: #000;
-    background-image: url(src/BlackBack.png);
-    background-size: cover;
-    background-position: center;
 
-}
-
-section#hero{
-    height: calc(100vh - 60px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
     color: #fff;
 }
 
-#hero h3{
-    font-size: 2.5rem;
-    font-family: Arial, Helvetica, sans-serif;
-}
 
-li {
-    list-style: none;
-}
-
-a {
-    text-decoration: none;
-    color: #fff;
-    font-size: 1rem;
-
-}
-
-a:hover {
-    color: orange;
-}
 
 header{
-    position: relative;
-    padding: 0 2rem;
-}
-
-.navbar{
+    margin-top: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 60px;
-    max-width: 1200px;
-    margin: 0 auto;
+    padding: 1rem 9%;
+    background-color: transparent;
+    filter: drop-shadow(10px);
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: space-around;
+    z-index: 100;
 }
 
-.navbar .logo a{
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.navbar .links{
-    display: flex;
-    gap: 2rem;
-}
-
-.navbar .toggle_btn{
-    color: #fff;
-    font-size: 1.5rem;
+.logo{
+    font-size: 3rem;
+    color: skyblue;
+    font-weight: 800;
     cursor: pointer;
-    display: none;
+    transition: 0.5s ease;
 }
 
-.action_btn {
-    background-color: orange;
-    color: #fff;
-    padding: 0.5rem 1rem;
-    border: none;
-    outline: none;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: scale .2 ease;
+.logo:hover{
+    transform: scale(1.1);
 }
 
-.action_btn{
-    scale: 1.05;
-    color: #fff;
+nav a{
+    font-size: 1.8rem;
+    color: white;
+    margin-left: 4rem;
+    font-weight: 500;
+    transition: 0.3;
 }
 
-.action_btn:active{
-    scale: 0.95;
+nav:hover,
+nav a.active{
+    color: skyblue;
+    border-bottom: 3px solid skyblue; 
 }
 
-.dropdown_menu{
-    position: absolute;
-    right: 2rem;
-    display: none;
-    top: 60px;
-    height: 0;
-    width: 300px;
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(15px);
-    border-radius: 10px;
-    overflow: hidden;
-    transition: height 0.2s cubic-bezier(0.215, 0.610, 0.355, 1);
-}
-
-
-
-.dropdown_menu li{
-    padding: 0.07rem;
-    justify-content: center;
-    display: flex;
-    align-items: center;
-}
-
-.dropdown_menu .action_btn{
-    display: flex;
-    justify-content: center;
-    width: 100%;
-}
-
-@media (max-width: 992px){
-    .navbar .links
-    .navbar .action_btn {
+@media(max-width:995px){
+    nav {
         display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 40%;
+        background-color: #161616;
+        border-left: 3px solid #b74b4b;
+        border-bottom: 3px solid #b74b4b;
+        border-bottom-left-radius: 2rem;
     }
 
-    .navbar .toggle_btn{
+    nav.active {
         display: block;
     }
 
-    .dropdown_menu{
+    nav a{
         display: block;
+        font-size: 2rem;
+        margin: 3rem 0;
     }
+
+    nav a:hover,
+    nav a.active{
+        padding: 1rem;
+        border-radius: 0.5rem;
+        border-bottom: 0.5rem solid #b74b4b;
+    }
+}
+
+section{
+        min-height: 100vh;
+        padding: 5rem 9% 5rem;
+    }
+
+.home{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8rem;
+        background-color: black;
+    }
+
+.home .home-content h2{
+        font-size: 6rem;
+        font-weight: 700;
+        line-height: 1.3;
+    }
+
+span{
+        color: skyblue;
+    }
+
+    .home-content h3{
+        font-size: 4rem;
+        margin-bottom: 1rem;
+        font-weight: 700;
+    }
+
+    .home-img{
+        border-radius: 50%;
+    }
+
+    .home-img img{
+        position: relative;
+        width: min(32vw, 320px);
+        border-radius: 50%;
+        box-shadow: 0 0 25px solid #b74b4b;
+        cursor: pointer;
+        transition:  0.2s linear ;
+    }
+
+    .home-content img:hover{
+        font-size: 2.8rem;
+        font-weight: 500;
+    }
+
+    .social-icons a{
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 4rem;
+        height: 4rem;
+        background-color: transparent;
+        border: 0.2rem solid skyblue;
+        font-size: 2rem;
+        border-radius: 50%;
+        margin: 3rem 1.5rem 3rem;
+        transition: 0.3s ease;
+        color: white;
+    }
+
+    .social-icons a:hover{
+        color: #000;
+        transform: scale(1.3) translateY(-5px);
+        background-color: skyblue;
+        box-shadow: 0 0 25px;
+    }
+
+    .btn{
+        display: inline-block;
+        padding: 1rem 2.8rem;
+        background-color: black;
+        border-radius: 4rem;
+        font-size: 1.6rem;
+        color: skyblue;
+        letter-spacing:  0.3rem;
+        font-weight: 600;
+        border: 2px solid skyblue;
+        transition: o.3s ease;
+        cursor: pointer;
+    }
+
+    .btn:hover{
+        transform: scale(1.03);
+        background-color: skyblue;
+        color: black;
+        box-shadow: 0 0 25px skyblue;
+    }
+
+.typing-text {
+    font-size: 3.4rem;
+    font-weight: 600;
+}
+
+.typing-text span {
+    position: relative;
+    display: inline-block;
+}
+
+.typing-text span::before {
+    content: "Web Developer";
+    color: skyblue;
+    animation: words 20s infinite;
+}
+
+.typing-text span::after {
+    content: "";
+    position: absolute;
+    right: -6px;
+    top: 0;
+    height: 100%;
+    width: 3px;
+    background-color: skyblue;
+    animation: cursor 0.6s infinite;
+}
+
+@keyframes cursor {
+    50% {
+        opacity: 0;
+    }
+}
+
+@keyframes words {
+    0%, 20% { content: "Web Developer"; }
+    21%, 40% { content: "Software Developer"; }
+    41%, 60% { content: "Web Designer"; }
+    61%, 80% { content: "Pogi"; }
+    81%, 100% { content: "Prompt Engineer"; }
 }

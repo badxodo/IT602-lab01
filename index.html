@@ -7,42 +7,44 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>My Portfolio</title>
     <link rel="stylesheet" href="main.css">
-    <link rel="icon" type="image/x-icon" href="/src/prof.webp">
+    <link rel="icon" type="image/x-icon" href="/src/profweb.jpg">
 </head>
 
 <body>
     <header>
-        <div class="navbar">
-            <div class="logo"><a href="#">Raf</a></div>
-            <ul class="links">
-                <li><a href="home">Home</a></li>
-                <li><a href="about">About</a></li>
-                <li><a href="services">Services</a></li>
-                <li><a href="contact">Contact</a></li>
-            </ul>
-            <a href="#" class="action_btn">Let's Talk</a>
-            <div class="toggle_btn">
-                <i class="fa-solid fa-bars"></i>
-            </div>
-        </div> 
+        <a href="#" class="logo">Raf</a>
 
-        <div class="dropdown_menu open">
-            <li><a href="home">Home</a></li>
-            <li><a href="about">About</a></li>
-            <li><a href="services">Services</a></li>
-            <li><a href="contact">Contact</a></li>
-            <li><a href="#" class="action_btn">Let's Talk</a></li>
-        </div>
 
-       <main>
-           <section id="hero">
-               <h3>Hi, I'm Rafael</h3>
-               
-               <P></P>
-           </section>
-       </main>
-
+        <nav>
+            <a href="#" class="active">Home</a>
+            <a href="#" >Services</a>
+            <a href="#" >Skills</a>
+            <a href="#" >Edution</a>
+            <a href="#" >Experience</a>
+            <a href="#" >Contact</a>
+        </nav>
     </header>
+    <section class="home">
+        <div class="home-img">
+            <img src="src/profweb.jpg" alt="profile">
+        </div>
+        <div class="home-content">
+            <h1>Hi, it's <span>Rafael</span></h1>
+            <h3 class="typing-text">
+                I'm a <span></span>
+            </h3>
+
+            <p>Aspiring developer eager to learn, grow, and apply my skills in real-world projects while continuously improving my craft.
+            </p>
+            <div class="social-icons">
+                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#"><i class="fa-brands fa-github"></i></a>
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+            </div>
+            <a href="#" class="btn">Hire me</a> 
+        </div>
+    </section>
 </body>
 
 </html>
