@@ -3,10 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="main.css">
+    <title>Nicollette Libunao - Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="resources/N.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Scope+One&family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    
+<body class="light">
+  
+    <div id="loadingScreen" class="loading-screen">
+        <div class="logo-2 loading-logo">
+            <span class="logo-initial">N</span>
+            <span class="block block-1"></span>
+            <span class="block block-2"></span>
+        </div>
+    </div>
+  
+    <nav id="navbar">
+        <div class="logo-2">
+            <span class="logo-initial">N</span>
+            <span class="block block-1"></span>
+            <span class="block block-2"></span>
+        </div>
+        <div class="nav-links">
+            <a href="#home" class="active">Home</a>
+            <a href="#about">About</a>
+            <a href="#experiences">Experiences</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+  <div class="hero-section" id="heroSection">
+      <div class="glass-container">
+          <div class="content">
+              <div class="profile-container">
+                  <img src="resources/profilepic.png" alt="Nicollette Libunao" class="profile-pic">
+              </div>
+              
+              <div class="text-content">
+                  <div class="greeting fade-in-up delay-1">Hi! I'm</div>
+                  <h1 class="name fade-in-up delay-2">
+                      NICOLLETTE<br><span class="surname">LIBUNAO</span>
+                  </h1>
+
+                  <div class="social-icons fade-in-up delay-3">
+                      <a href="https://www.instagram.com/ms.libunao" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                      <a href="https://www.facebook.com/ms.libunao"  target="_blank"  aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+
+                      <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                      <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                      <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                  </div>
+
+                  <button class="hire-btn fade-in-up delay-3">Hire me</button>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <button class="theme-toggle" id="themeToggle">
+      <i class="fas fa-moon"></i>
+  </button>
+  <script src="script.js"></script>
 </body>
-</html>
