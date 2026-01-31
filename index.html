@@ -16,15 +16,14 @@
     </head>
     <body class="w-full h-screen bg-black overflow-x-hidden">
         <!-- NAVIGATION -->
-
         <nav
-            class="fixed top-0 w-full h-20 flex justify-center items-center z-50"
+            class="sticky w-full h-20 z-50 flex items-center justify-center px-4"
         >
             <div
-                class="bg-[var(--primary-text)] w-[25%] p-2 rounded-full flex justify-center items-center mt-5 shadow-[0_8px_25px_rgba(255,255,0,0.3)]"
+                class="bg-[var(--primary-text)] w-full max-w-5xl md:w-[70%] lg:w-[50%] xl:w-[35%] mx-auto mt-4 px-4 py-2 rounded-full flex justify-center shadow-[0_8px_25px_rgba(0,255,200,0.3)]"
             >
                 <ul
-                    class="nav-content flex gap-10 text-black font-sm text-[var(--secondary-text)]"
+                    class="nav-content flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 lg:gap-10 text-[var(--secondary-text)] text-sm sm:text-base"
                 >
                     <li>Home</li>
                     <li>Projects</li>
@@ -35,17 +34,19 @@
         </nav>
 
         <!-- HERO SECTION -->
-        <section class="h-screen flex items-center justify-center text-white">
+        <section
+            class="h-screen flex items-center text-center justify-center text-white"
+        >
             <div class="flex flex-col items-center gap-2">
                 <span
-                    class="bg-[var(--accent-color)] p-2 px-4 text-sm text-[var(--secondary-color)] rounded-full"
+                    class="bg-[var(--accent-color)] p-2 px-5 text-sm text-[var(--secondary-color)] rounded-full"
                 >
                     Hello, World !!
                 </span>
 
-                <span class="text-[4rem]">
+                <span class="name relative inline-block text-[4rem] w-[60%]">
                     I'm
-                    <span class="flip text-[var(--secondary-color)]">
+                    <span class="flip text-[var(--secondary-color)] z-2">
                         <span>P</span><span>r</span><span>i</span><span>n</span
                         ><span>c</span><span>e</span> <span>I</span
                         ><span>.</span> <span>S</span><span>e</span
@@ -53,8 +54,10 @@
                         ><span>o</span>
                     </span>
                 </span>
-                <p class="md:w-[60%] text-center mt-[4rem] text-[1.1rem]">
-                    <span>"A passionate</span>
+                <p
+                    class="md:w-[60%] w-[80%] text-center mt-[4rem] text-[1.1rem]"
+                >
+                    <span>A passionate</span>
                     <span
                         id="hero-text"
                         class="text-[var(--secondary-color)] inline-block min-w-[232px] text-center"

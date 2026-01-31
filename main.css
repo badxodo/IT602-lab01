@@ -1,10 +1,10 @@
 :root {
-    --primary-color: black;
+    --primary-color: #101828;
     --secondary-color: #00ff88;
     --accent-color: #1a1a1a;
 
     --primary-text: white;
-    --secondary-text: black;
+    --secondary-text: #101828;
 }
 
 body {
@@ -13,6 +13,7 @@ body {
     font-family: "Bungee", sans-serif;
     font-weight: 400;
     font-style: normal;
+    list-style: none;
 }
 
 .nav-content {
@@ -23,7 +24,6 @@ body {
 .nav-content li {
     position: relative;
     padding: 10px 0;
-    list-style: none;
     transition:
         color 0.5s ease,
         transform 0.5s ease-in-out;
@@ -54,7 +54,6 @@ body {
     opacity: 0;
     transform-origin: center bottom;
     animation: flipUp 0.6s ease forwards;
-    animation-delay: calc(var(--i) * 0.08s);
 }
 .flip span:nth-child(1) {
     animation-delay: 0.05s;
@@ -136,4 +135,17 @@ body {
     100% {
         transform: translateY(0);
     }
+}
+
+.name::before {
+    content: "";
+    position: absolute;
+    inset: -100%;
+    background: radial-gradient(
+        circle at center,
+        rgba(0, 255, 200, 0.18),
+        transparent 65%
+    );
+    filter: blur(40px);
+    z-index: -2;
 }
