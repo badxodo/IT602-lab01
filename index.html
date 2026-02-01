@@ -1,18 +1,108 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="https://unpkg.com/typed.js@2.0.15/dist/typed.umd.js"></script>
+  </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Link HTML and CSS Example</title>
-    <link rel="stylesheet" href="main.css">
-</head>
+  <body>
+    <header class="header">
+      <a href="#" class="logo">
+        <span class="bsit">BSIT</span><span class="portfolio">Portfolio</span>
+      </a>
 
-<body>
-    <h1>Hello, World!</h1>
-    <p>This is styled using an external CSS file.</p>
-</body>
+      <nav class="navbar">
+        <a href="#home" style="--i: 1" class="active">Home</a>
+        <a href="#about" style="--i: 2">About Me</a>
+        <a href="#projects" style="--i: 3">Projects</a>
+        <a href="#contact" style="--i: 4">Contact</a>
+      </nav>
+    </header>
 
+    <section id="home" class="home">
+      <!-- Left Side: Text Section -->
+      <div class="home-content">
+        <h3>Hey there! I am</h3>
+        <h1>Allan Almoguera</h1>
+        <h3>And I am <span class="text"></span></h3>
+        <p>
+          I'm a passionate Web & Application Developer with a focus on creating
+          <br />
+          interactive and dynamic websites. I specialize in both front-end and
+          <br />
+          back-end technologies, always aiming to build user-friendly
+          applications <br />
+          that provide a seamless experience for everyone.
+        </p>
+
+        <div class="social-icons">
+          <a
+            href="https://www.facebook.com/share/1DE9HK98hB/"
+            style="--i: 6"
+            target="_blank"
+            class="social-icon"
+          >
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+          <a
+            href="https://www.instagram.com/azraeth.exe?igsh=MTE2N2NmcGl5aWs0ag=="
+            style="--i: 7"
+            target="_blank"
+            class="social-icon"
+          >
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a
+            href="https://github.com/allanalmoguera20-png"
+            style="--i: 8"
+            target="_blank"
+            class="social-icon"
+          >
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/allan-almoguera-727475395/"
+            style="--i: 9"
+            target="_blank"
+            class="social-icon"
+          >
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+          <a
+            href="https://t.me/itsameelmo"
+            target="_blank"
+            class="social-icon"
+            style="--i: 10"
+          >
+            <i class="fa-brands fa-telegram"></i>
+          </a>
+        </div>
+
+        <!-- More About Me Button -->
+        <a
+          href="assets/CV-RESUME_AVA.pdf"
+          class="btn-box"
+          download
+          id="downloadLink"
+        ></a>
+      </div>
+
+      <!-- Right Side: Image Section -->
+      <div class="home-img">
+        <span class="glow-circle">
+          <img src="Images/Picture2.jpg" alt="Profile Image" />
+        </span>
+      </div>
+    </section>
+
+    <script src="main.js"></script>
+  </body>
 </html>
- 
-<!--  This is just a test  -->
