@@ -68,7 +68,7 @@
   }
   
   body.light {
-    background-color: #949494d7;
+    background-color: #fffdfdec;
     color: #1e1e1e;
     background-image: 
       radial-gradient(circle at 10% 20%, rgba(0,0,0,0.03) 0%, transparent 40%),
