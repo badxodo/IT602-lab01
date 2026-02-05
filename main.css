@@ -94,12 +94,16 @@ nav {
     -webkit-text-stroke: 0px;
 }
 
-.outline-text:hover span {
+.outline-text:hover .line {
     opacity: 0;
+    animation: none;
+}
+.line {
+    opacity: 1;
     transition: opacity 0.2s ease-in;
 }
 .outline-text span {
-    animation: removeLine 3s ease-in-out forwards;
+    animation: showLine 1s ease-in-out forwards;
 }
 
 @keyframes glow {
@@ -118,11 +122,20 @@ nav {
         text-shadow: none;
     }
 }
-@keyframes removeLine {
+@keyframes showLine {
     0% {
         opacity: 0;
     }
     100% {
         opacity: 1;
+    }
+}
+
+@keyframes removeLine {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
     }
 }
