@@ -7,85 +7,212 @@
         <link rel="stylesheet" href="main.css" />
         <script src="https://cdn.tailwindcss.com"></script>
 
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
-            href="https://fonts.googleapis.com/css2?family=Playwrite+NZ+Basic:wght@100..400&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Special+Gothic+Expanded+One&amp;display=swap"
             rel="stylesheet"
         />
     </head>
-    <body class="w-full h-screen bg-black overflow-x-hidden">
-        <!-- NAVIGATION -->
-        <nav
-            class="fixed w-full h-20 z-50 flex items-center justify-center px-4"
-        >
-            <div
-                class="bg-[var(--primary-text)] w-full max-w-5xl md:w-[70%] lg:w-[50%] xl:w-[35%] mx-auto mt-4 px-4 py-2 rounded-full flex justify-center shadow-[0_8px_25px_rgba(0,255,200,0.3)]"
-            >
-                <ul
-                    class="nav-content flex flex-wrap justify-center gap-4 sm:gap-6 md:gap-8 lg:gap-10 text-[var(--secondary-text)] text-sm sm:text-base"
-                >
-                    <li>Home</li>
-                    <li>Projects</li>
-                    <li>About</li>
-                    <li>Contacts</li>
-                </ul>
-            </div>
-        </nav>
-
-        <!-- HERO SECTION -->
+    <body class="w-full h-screen bg-black overflow-x-hidden relative">
         <section
-            class="h-screen flex items-center text-center justify-center text-white"
+            class="loading flex justify-center w-full h-screen items-center"
         >
-            <div class="flex flex-col items-center gap-2">
-                <span
-                    class="bg-[var(--accent-color)] p-2 px-5 text-sm text-[var(--secondary-color)] rounded-full"
-                >
-                    Hello, World !!
-                </span>
+            <div class="w-[100px] h-[300px] rounded-full overflow-hidden">
+                <img src="./assets/Loading.gif" class="w-full h-full" />
+            </div>
+        </section>
 
-                <span class="name relative inline-block text-[4rem] w-[60%]">
-                    I'm
-                    <span
-                        class="uppercase flip text-[var(--secondary-color)] z-2"
-                    >
-                        <span>P</span><span>r</span><span>i</span><span>n</span
-                        ><span>c</span><span>e</span> <span>I</span
-                        ><span>.</span> <span>S</span><span>e</span
-                        ><span>s</span><span>t</span><span>o</span><span>s</span
-                        ><span>o</span>
-                    </span>
+        <section id="main-content" class="hidden">
+            <nav
+                class="fixed top-5 left-1/2 -translate-x-1/2 h-10 bg-white rounded-full flex items-center justify-center gap-10 px-6"
+            >
+                <img
+                    src="./assets/home.png"
+                    class="w-[25px] cursor-pointer hover:bg-[var(--secondary-color)] p-1 rounded-[6px]"
+                />
+                <img
+                    src="./assets/home.png"
+                    class="w-[25px] cursor-pointer hover:bg-[var(--secondary-color)] p-1 rounded-[6px]"
+                />
+                <img
+                    src="./assets/home.png"
+                    class="w-[25px] cursor-pointer hover:bg-[var(--secondary-color)] p-1 rounded-[6px]"
+                />
+                <img
+                    src="./assets/home.png"
+                    class="w-[25px] cursor-pointer hover:bg-[var(--secondary-color)] p-1 rounded-[6px]"
+                />
+                <img
+                    src="./assets/home.png"
+                    class="w-[25px] cursor-pointer hover:bg-[var(--secondary-color)] p-1 rounded-[6px]"
+                />
+            </nav>
+
+            <a
+                href="https://github.com/fk-Prince"
+                target="_blank"
+                class="rounded-b-lg fixed left-0 top-1/2 text-black -translate-y-1/2 bg-[var(--secondary-color)] px-3 py-1 text-white font-bold whitespace-nowrap rotate-[-90deg] origin-top-left"
+            >
+                <span class="flex inline-block gap-2 rotate-180">
+                    <img src="./assets/gmail.png" class="w-[25px] h-[25px]" />
+                    prince.sestoso@gmail.com
                 </span>
+            </a>
+
+            <div
+                class="flex justify-center items-center flex-col text-white h-screen text-sm w-[60%] mx-auto"
+            >
                 <p
-                    class="md:w-[60%] w-[80%] text-center mt-[4rem] text-[1.1rem]"
+                    class="text-[5rem] mb-10 font-extrabold flex items-center gap-4"
                 >
-                    <span>A passionate</span>
-                    <span
-                        id="hero-text"
-                        class="text-[var(--secondary-color)] inline-block min-w-[160px] text-left"
-                    ></span>
-
-                    <span
-                        >creating beautiful and functional web experiences. I
-                        build scalable, user-friendly applications while
-                        continuously learning and exploring new
-                        technologies.</span
-                    >
+                    Hi, I'm
+                    <span class="outline-text relative pl-4">
+                        <span
+                            class="absolute left-0 top-0 w-[10px] h-full bg-[var(--secondary-color)]"
+                        ></span>
+                        Prince
+                    </span>
                 </p>
 
-                <div class="cta-hero flex justify-center gap-6 mt-5">
-                    <button
-                        class="text-[var(--primary-color)] bg-[var(--secondary-color)] px-5 p-2 rounded"
-                    >
-                        Get in Touch
-                    </button>
-                    <button
-                        class="border-gray-500 border px-4 py-2 rounded bg-[var(--accent-color)]"
-                    >
-                        View My Work
-                    </button>
-                </div>
+                <p class="text-center w-[60%]">
+                    An aspiring Full Stack Developer passionate about creating
+                    beautiful and functional web experiences. I build scalable,
+                    user-friendly applications while continuously learning and
+                    exploring new technologies.
+                </p>
             </div>
+            <footer
+                class="w-full h-screen bg-black text-white flex justify-center items-center flex-col"
+            >
+                <header class="text-center mb-[5rem]">
+                    <h1 class="text-4xl font-extrabold mb-3">Get In Touch</h1>
+                    <p class="text-[var(--muted-text)]">
+                        Let's discuss your next project or just say hello
+                    </p>
+                </header>
+
+                <div class="flex justify-center items-center h-[60%]">
+                    <div class="w-1/2 h-full px-3 gap-3 flex flex-col">
+                        <p class="text-[var(--secondary-color)] text-2xl py-5">
+                            Let's Connect
+                        </p>
+                        <p class="py-5 w-[80%]">
+                            I'm always open to discussing new opportunities,
+                            interesting projects, or just having a chat about
+                            technology and development.
+                        </p>
+
+                        <div class="flex items-center gap-2">
+                            <img
+                                src="./assets/gmailColor.png"
+                                class="w-[25px] h-[25px]"
+                            />
+                            <div>
+                                <p class="text-sm text-[var(--muted-text)]">
+                                    Email
+                                </p>
+                                <span class="px-2"
+                                    >prince.sestoso@gmail.com</span
+                                >
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <img
+                                src="./assets/location.png"
+                                class="w-[25px] h-[25px]"
+                            />
+                            <div>
+                                <p class="text-sm text-[var(--muted-text)]">
+                                    Location
+                                </p>
+                                <span class="px-2"
+                                    >Davao City, Philippines</span
+                                >
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <img
+                                src="./assets/clock.png"
+                                class="w-[25px] h-[25px]"
+                            />
+                            <div>
+                                <p class="text-sm text-[var(--muted-text)]">
+                                    Response time
+                                </p>
+                                <span class="px-2">Within 24 hours</span>
+                            </div>
+                        </div>
+                    </div>
+                    <form
+                        class="w-1/2 h-full bg-white relative rounded-2xl text-black flex justify-center items-center flex-col gap-x-5"
+                    >
+                        <p
+                            class="absolute top-[3%] left-[5%] italic text-[var(--muted-text)]"
+                        >
+                            Tell me something ..!! 😁😁😁
+                        </p>
+                        <div
+                            class="px-5 py-2 flex flex-col w-[70%] mx-auto gap-2"
+                        >
+                            <label for="email"
+                                >Email
+                                <span class="text-red-500">*</span></label
+                            >
+                            <input
+                                placeholder="sestoso.prince@gmail.com"
+                                class="ml-1 w-full border border-black focus:border-[var(--secondary-color)] rounded-[0.5rem] outline-none px-4 py-2 text-sm"
+                                type="email"
+                                required
+                            />
+                        </div>
+                        <div
+                            class="px-5 py-2 flex flex-col w-[70%] mx-auto gap-2"
+                        >
+                            <label for="subject" required
+                                >Subject
+                                <span class="text-red-500">*</span></label
+                            >
+                            <select
+                                class="border text-sm border-black rounded-[0.5rem] px-4 py-2 focus:border-[var(--secondary-color)]"
+                            >
+                                <option value="" disabled selected hidden>
+                                    Select a subject
+                                </option>
+                                <option value="Project Inquiry">
+                                    Project Inquiry
+                                </option>
+                                <option value="Job Opportunity">
+                                    Job Opportunity
+                                </option>
+                                <option value="Collaboration">
+                                    Collaboration
+                                </option>
+                                <option value="General Message">
+                                    General Message
+                                </option>
+                            </select>
+                        </div>
+
+                        <div
+                            class="px-5 py-2 flex flex-col w-[70%] mx-auto gap-2"
+                        >
+                            <label for="message"
+                                >Message
+                                <span class="text-red-500">*</span></label
+                            >
+                            <textarea
+                                class="border text-sm border-black h-[150px] resize-none rounded-[0.5rem] px-4 py-2 focus:border-[var(--secondary-color)] outline-none"
+                                placeholder="Tell me how can I help you."
+                            ></textarea>
+                        </div>
+
+                        <button
+                            class="w-[70%] h-[50px] bg-[var(--secondary-color)] mt-6 rounded-2xl text-white font-semibold hover:bg-[var(--accent-color)] transition-all duration-300 ease-in-out cursor-pointer"
+                        >
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </footer>
         </section>
 
         <script src="main.js"></script>
