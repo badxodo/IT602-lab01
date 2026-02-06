@@ -1,6 +1,6 @@
 const form = document.getElementById("contact-form");
 
-form.addEventListener("submit", (e) => {
+form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const email = form.elements["email"].value;
     const message = form.elements["message"].value;
@@ -13,13 +13,13 @@ form.addEventListener("submit", (e) => {
 
     alert("Email:" + email + "  Subject:" + subject + "  Message:" + message);
 
-    (function () {
-        emailjs.init({
+    (async function () {
+        await emailjs.init({
             publicKey: "3_l0I4pTgzMUrIusn",
         });
     })();
 
-    emailjs
+    await emailjs
         .send("service_pznrcog", "template_2cpvqph", {
             email: email,
             subject: subject,
