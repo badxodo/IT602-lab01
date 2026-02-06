@@ -97,12 +97,17 @@ nav {
     opacity: 0;
     animation: none;
 }
+
 .line {
     opacity: 1;
     transition: opacity 0.2s ease-in;
 }
 .outline-text span {
     animation: showLine 1s ease-in-out forwards;
+}
+
+.outline-text.title {
+    animation: glow 3s ease-in-out infinite;
 }
 @keyframes glow {
     0% {
@@ -184,19 +189,22 @@ nav {
         rotate: 0deg;
     }
 }
-#contact {
-    transform: translateY(50px);
+#contact,
+#project {
+    transform: translateY(100px);
     opacity: 0;
     transition: all 1s ease-out;
 }
 
-#contact.show {
+#contact.show,
+#project.show {
     transform: translateY(0);
     opacity: 1;
 }
+
 .left-footer,
 .right-footer {
-    transform: translateY(50px);
+    transform: translateY(100px);
     opacity: 0;
     transition: all 1s ease-out 0.3s;
 }

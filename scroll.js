@@ -1,4 +1,5 @@
 window.addEventListener("scroll", () => {
+    scrollProjectAnimation();
     scrollFooterAnimation();
 });
 
@@ -23,5 +24,20 @@ function scrollFooterAnimation() {
     if (rect.top < windowHeight * 0.6) {
         rightFooter.classList.add("show");
         leftFooter.classList.add("show");
+    }
+}
+
+function scrollProjectAnimation() {
+    const project = document.getElementById("project");
+
+    const rect = project.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+
+    if (rect.top > windowHeight * 0.8) {
+        project.classList.remove("show");
+    }
+
+    if (rect.top < windowHeight * 1) {
+        project.classList.add("show");
     }
 }

@@ -22,10 +22,11 @@
             </div>
         </section>
 
-        <section id="main-content" class="main-content hidden">
+        <section id="main-content" class="main-content hidden relative">
+            <!-- NAV BAR -->
             <nav
                 id="nav"
-                class="z-50 fixed top-5 left-1/2 -translate-x-1/2 h-10 bg-white rounded-full flex items-center justify-center gap-10 px-6 md:w-fit w-[80%]"
+                class="z-49 fixed top-5 left-1/2 -translate-x-1/2 h-10 bg-white rounded-full flex items-center justify-center gap-10 px-6 md:w-fit w-[80%]"
             >
                 <img
                     id="hero"
@@ -49,6 +50,7 @@
                     class="w-[25px] cursor-pointer hover:bg-[var(--secondary-color)] p-1 rounded-[6px]"
                 />
             </nav>
+            <!-- SIDE BAR -->
             <a
                 href="https://github.com/fk-Prince"
                 target="_blank"
@@ -60,7 +62,8 @@
                 </span>
             </a>
 
-            <div
+            <!-- HERO SECTION -->
+            <section
                 id="hero"
                 class="hero flex justify-center items-center flex-col text-white h-screen text-sm md:w-[60%] w-[80%] mx-auto"
             >
@@ -87,15 +90,143 @@
                 </p>
 
                 <button
+                    id="view-project"
+                    type="button"
                     class="mt-5 font-semibold shadow-[0_0_60px_var(--secondary-color)] text-black border-[var(--secondary-text)] bg-[var(--secondary-color)] rounded-[8px] px-10 py-2"
                 >
                     View Projects
                 </button>
+            </section>
+
+            <!-- MODAL -->
+            <div
+                id="modal"
+                class="fixed inset-0 bg-black/80 flex justify-center items-center h-screen w-full z-50 hidden"
+            >
+                <div
+                    id="blackjack-modal"
+                    class="bg-white rounded-2xl w-[80%] max-w-lg p-6 relative hidden"
+                >
+                    <button
+                        class="modal-close absolute top-3 right-3 text-black font-bold text-2xl pb-5"
+                    >
+                        &times;
+                    </button>
+
+                    <h1 class="text-2xl font-semibold mb-4">Blackjack</h1>
+                    <p class="text-gray-700 mb-4">
+                        A fun, interactive Blackjack game built in Java.
+                        Developed as a 2nd-year student project exploring OOP
+                        and game logic.
+                    </p>
+
+                    <video controls class="w-full rounded-lg">
+                        <source
+                            src="./assets/projects/blackjack.mp4"
+                            type="video/mp4"
+                        />
+                    </video>
+                </div>
+                <div
+                    id="mazerunner-modal"
+                    class="bg-white rounded-2xl w-[80%] max-w-lg p-6 relative hidden"
+                >
+                    <button
+                        class="modal-close absolute top-3 right-3 text-black font-bold text-2xl pb-5"
+                    >
+                        &times;
+                    </button>
+
+                    <h1 class="text-2xl font-semibold mb-4">Maze Runner</h1>
+                    <p class="text-gray-700 mb-4">
+                        A fun, interactive Blackjack game built in Java.
+                        Developed as a 2nd-year student project exploring OOP
+                        and game logic.
+                    </p>
+
+                    <video controls class="w-full rounded-lg">
+                        <source
+                            src="./assets/projects/MazeRunner.mp4"
+                            type="video/mp4"
+                        />
+                    </video>
+                </div>
             </div>
+
+            <!-- PROJECT SECTION -->
+            <section id="project" class="w-full min-h-6xl">
+                <div class="w-[75%] mx-auto my-5">
+                    <span
+                        class="outline-text title text-4xl text-white text-extrabold"
+                    >
+                        Projects
+                    </span>
+                </div>
+                <div
+                    class="w-[80%] md:w-[70%] mx-auto grid gap-10 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 p-5"
+                >
+                    <div
+                        id="blackjack"
+                        class="relative w-full border hover:shadow-[0_0_20px_var(--secondary-color)] shadow-[0_0_10px_var(--secondary-color)] hover:border-[var(--secondary-color)] border-white cursor-pointer h-[250px] relative rounded-2xl overflow-hidden transform transition-transform duration-300 hover:scale-110"
+                    >
+                        <img
+                            src="./assets/projects/blackjackTN.png"
+                            class="w-full h-full object-cover"
+                        />
+                        <div
+                            class="absolute px-5 bottom-0 left-0 w-full h-[60%] bg-gradient-to-t from-black/100 to-transparent"
+                        >
+                            <p
+                                class="font-extrabold text-white mb-2 text-[1.2rem]"
+                            >
+                                Blackjack
+                            </p>
+                            <p class="text-sm text-gray-200 px-2 w-[85%]">
+                                A fun, interactive Blackjack game built in Java.
+                                Developed as a 2nd-year student project
+                                exploring OOP and game logic.
+                            </p>
+                        </div>
+
+                        <img
+                            src="./assets/play.png"
+                            class="absolute right-[5%] bg-white rounded-full bottom-[10%] w-[25px] h-[25px]"
+                        />
+                    </div>
+                    <div
+                        id="mazerunner"
+                        class="relative w-full border hover:shadow-[0_0_20px_var(--secondary-color)] shadow-[0_0_10px_var(--secondary-color)] hover:border-[var(--secondary-color)] border-white cursor-pointer h-[250px] relative rounded-2xl overflow-hidden transform transition-transform duration-300 hover:scale-110"
+                    >
+                        <img
+                            src="./assets/projects/mazerunnerTN.png"
+                            class="w-full h-full object-cover"
+                        />
+                        <div
+                            class="absolute px-5 bottom-0 left-0 w-full h-[60%] bg-gradient-to-t from-black/100 to-transparent"
+                        >
+                            <p
+                                class="font-extrabold text-white mb-2 text-[1.2rem]"
+                            >
+                                Maze Runner
+                            </p>
+                            <p class="text-sm text-gray-200 px-2 w-[85%]">
+                                A fun, interactive Blackjack game built in Java.
+                                Developed as a 2nd-year student project
+                                exploring OOP and game logic.
+                            </p>
+                        </div>
+
+                        <img
+                            src="./assets/play.png"
+                            class="absolute right-[5%] bg-white rounded-full bottom-[10%] w-[25px] h-[25px]"
+                        />
+                    </div>
+                </div>
+            </section>
 
             <footer
                 id="contact"
-                class="w-[80%] mx-auto min-h-screen bg-black text-white flex flex-col md:flex-col justify-center items-center"
+                class="w-[80%] md:mt-0 mt-20 mx-auto min-h-screen bg-black text-white flex flex-col md:flex-col justify-center items-center"
             >
                 <header
                     class="text-center items-center flex justify-center flex-col md:text-left w-full mb-[5rem]"
