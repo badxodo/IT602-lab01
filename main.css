@@ -190,6 +190,7 @@ nav {
     }
 }
 #contact,
+#about,
 #project {
     transform: translateY(100px);
     opacity: 0;
@@ -197,6 +198,7 @@ nav {
 }
 
 #contact.show,
+#about.show,
 #project.show {
     transform: translateY(0);
     opacity: 1;

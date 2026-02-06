@@ -11,22 +11,24 @@ window.addEventListener("load", () => {
 
 const homeNav = document.getElementById("homeNav");
 const projectNav = document.getElementById("projectNav");
+const aboutNav = document.getElementById("aboutNav");
 const contactNav = document.getElementById("contactNav");
 
 const heroSection = document.getElementById("hero");
 const projectSection = document.getElementById("project");
+const aboutSection = document.getElementById("about");
 const contactSection = document.getElementById("contact");
 
-const navLinks = [homeNav, projectNav, contactNav];
-const sections = [heroSection, projectSection, contactSection];
+const navLinks = [homeNav, aboutNav, projectNav, contactNav];
+const sections = [heroSection, aboutSection, projectSection, contactSection];
 
 navLinks.forEach((n, i) => {
     n.addEventListener("click", () => {
         if (i === 0) {
             sections[i].scrollIntoView({ behavior: "smooth" });
         } else {
-            let offsetY = 200;
-            if (i === 2) offsetY = 0;
+            let offsetY = 50;
+            // if (i === 1 || i === 2 || i === 3) offsetY -= 230;
 
             const scroll =
                 sections[i].getBoundingClientRect().top +
