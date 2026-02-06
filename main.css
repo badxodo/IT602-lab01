@@ -6,24 +6,45 @@
 }
 
 body {
-    height: 100vh;
     background-image: url(src/black.jpg);
     background-size: cover;
     background-position: center;
-    z-index: 0;
+    background-attachment: fixed;
 }
+
+
+.logo img {
+  height: 40px;
+  width: auto;
+}
+
+
 
 .hero {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 80px 60px;
-    min-height: 85vh;
+    min-height: 100vh;
+    padding-top: 120px;
 }
 
+
+
 .nav {
-    color: white;
+    position: fixed;        
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.3); 
+    backdrop-filter: blur(6px);   
+    z-index: 1000;
 }
+
 
 .hero h1 {
     color: white;
@@ -42,23 +63,39 @@ body {
     font-size: 22px;
     font-weight: 600;
     margin-bottom: 6px;
-    margin-left: 120px;
     color: white;
 }
 
-.navbar {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-   color : white;
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    position: relative;
 }
+.navbar a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 0;
+    height: 2px;
+    background: white;
+    transition: width 0.3s ease;
+}
+
+.navbar a:hover::after {
+    width: 100%;
+}
+
 
 
 .roles {
     font-size: 15px;
     font-weight: 500;
     margin-bottom: 10px;
-    margin-left: 120px;
+   
     color: white;
     font-family: Arial, Helvetica, sans-serif;   
 }
@@ -68,6 +105,77 @@ body {
     color: white;
     line-height: 1.6;   
     font-family: Arial, Helvetica, sans-serif;   
-    margin-left: 120px;
-   
+    
+}
+
+.right-side {
+    max-width: 600px;
+}
+
+
+.contact {
+  min-height: 100vh;        
+  display: flex;
+  justify-content: center;    
+  align-items: center;        
+  color: white;
+  padding-top: 120px;
+}
+
+
+
+
+.contact-container {
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+}
+
+
+.contact h2 {
+  font-size: 42px;
+  margin-bottom: 30px;
+      font-family: Arial, Helvetica, sans-serif;   
+  letter-spacing: 1px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 16px 18px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  border: 1px solid lightgray;
+  font-size: 16px;
+  font-family: inherit;
+  background-color: whitesmoke;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: white;
+  background-color: white;
+}
+
+.contact-form button {
+  width: 100%;
+  padding: 18px;
+  background-color: white;
+  color: black;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #4fa3b8;
+}
+
+html {
+  scroll-behavior: smooth;
 }

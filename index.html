@@ -7,18 +7,22 @@
     <link rel="stylesheet" href="main.css">
     <title>Jossua Bongo</title>
 </head>
-<body>
-        <header class="nav" >
-            <h1>JDEV</h1>
-            <nav class="navbar">
-                <a href="HOME">HOME</a>
-                <a href="ABOUT">ABOUT</a>
-                <a href="PROJECTS">PROJECTS</a>
-                <a href="CONTACTS">CONTACTS</a>
-            </nav>
-        </header>
 
-    <section class="hero">
+
+<body>
+  <header class="nav">
+  <h1 class="logo">JDEV </h1>
+
+  <nav class="navbar">
+    <a href="#home">HOME</a>
+    <a href="#about">ABOUT</a>
+    <a href="#projects">PROJECTS</a>
+    <a href="#contact">CONTACTS</a>
+  </nav>
+</header>
+
+
+    <section class="hero"  id="home">
         <div class="left-side"> 
         <h1> UX/UI <br> DESIGN & <br>
             FULL-<br>
@@ -42,6 +46,20 @@
         </div>
 
     </section>    
-    
+
+   <section class="contact" id="contact">
+  <div class="contact-container">
+    <h2>Contact Me</h2>
+
+    <form class="contact-form" id="contact-form">
+      <input type="text" placeholder="Your Name" name="name1" required>
+      <input type="email" placeholder="Your Email" name="email1" required>
+      <textarea placeholder="Your Message" rows="6" name="message1" required> </textarea>
+      <button type="submit">SEND MESSAGE</button>
+    </form>
+  </div>    
+</section>
+
+<script src="script.js"></script>     
 </body>
 </html>
