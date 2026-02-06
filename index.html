@@ -634,8 +634,35 @@
                         >
                             Tell me something ..!! 😁
                         </p>
-
                         <div class="flex flex-col w-full gap-2 mt-5">
+                            <label for="name"
+                                >Name <span class="text-red-500">*</span></label
+                            >
+                            <input
+                                name="name"
+                                type="text"
+                                placeholder="Prince Sestoso"
+                                class="w-full border border-black rounded-[0.5rem] px-4 py-2 text-sm outline-none focus:border-[var(--secondary-color)]"
+                                required
+                            />
+                        </div>
+
+                        <div class="flex flex-col w-full gap-2">
+                            <label for="contact-number"
+                                >Contact Number
+                                <span class="text-red-500">*</span></label
+                            >
+                            <input
+                                name="contact-number"
+                                type="tel"
+                                pattern="[0-9]*"
+                                placeholder="09123456789"
+                                class="w-full border border-black rounded-[0.5rem] px-4 py-2 text-sm outline-none focus:border-[var(--secondary-color)]"
+                                required
+                            />
+                        </div>
+
+                        <div class="flex flex-col w-full gap-2">
                             <label for="email"
                                 >Email
                                 <span class="text-red-500">*</span></label
