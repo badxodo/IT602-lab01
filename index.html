@@ -1,52 +1,163 @@
 <!DOCTYPE html>
-
-<html lang="en">
-
+<html lang="en" class="scroll-smooth">
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>King's Portfolio</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="stylesheet" href="main.css">
-
+    <title>King Paolo Chiu | Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="Assets/favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
 </head>
+<body class="bg-[#f8fafc] text-[#1e293b] leading-normal overflow-x-hidden">
 
-<body>
-    <nav class="navbar">
-        <div class="logo"><img src="favicon.ico" alt="KC" class="favicon-img"></div>
-        <ul class="nav-links">
-            <li><a href="#home">HOME</a></li>
-            <li><a href="#about">ABOUT</a></li>
-            <li><a href="#projects">PROJECTS</a></li>
-            <li><a href="#contact">CONTACT</a></li>
+    <nav class="absolute top-0 w-full flex flex-col sm:flex-row justify-between items-center py-6 px-[10%] z-[100] gap-4">
+        <div class="text-xl font-extrabold text-[#0f172a] tracking-tighter">
+            KING PAOLO CHIU
+        </div>
+        <ul class="flex list-none gap-6 sm:gap-10">
+            <li><a href="#home" class="text-[#64748b] text-[0.875rem] font-semibold transition-colors hover:text-[#4f46e5]">HOME</a></li>
+            <li><a href="#about" class="text-[#64748b] text-[0.875rem] font-semibold transition-colors hover:text-[#4f46e5]">ABOUT</a></li>
+            <li><a href="#contact" class="text-[#64748b] text-[0.875rem] font-semibold transition-colors hover:text-[#4f46e5]">CONTACT</a></li>
         </ul>
     </nav>
 
-    <section class="hero" id="home">
-        <div class="shape glow-1"></div>
-        <div class="shape glow-2"></div>
+    <section class="relative min-h-screen flex items-center px-[10%] pt-32 lg:pt-0" id="home">
+        <div class="absolute top-[10%] right-[15%] w-[200px] md:w-[300px] aspect-square bg-[#c7d2fe] blur-[80px] opacity-40 z-[-1]"></div>
+        <div class="absolute bottom-[10%] left-[10%] w-[300px] md:w-[400px] aspect-square bg-[#f1f5f9] blur-[80px] opacity-40 z-[-1]"></div>
 
-        <div class="hero-content">
-            <div class="hero-main">
-                <div class="text-side">
-                    <p class="intro">Hey, I'm King!</p>
-                    <h1 class="name">
-                        I optimize <span class="highlight">BPO workflows</span> and drive excellence
+        <div class="w-full max-w-[1280px] mx-auto">
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16">
+                <div class="w-full lg:flex-[3] text-center lg:text-left order-2 lg:order-1">
+                    <p class="text-xl md:text-2xl font-semibold text-[#64748b] mb-4">Hey, I'm King!</p>
+                    <h1 class="text-4xl md:text-[3.5rem] font-extrabold leading-[1.1] text-[#0f172a] mb-6">
+                        Optimizing <span class="text-[#4f46e5]">Back Office Support</span> & Operational Workflows
                     </h1>
-                    <div class="description-container">
-                        <p>With 6 years of expertise in operational problem-solving, I help businesses scale through streamlined back-office support.</p>
+                    <div class="max-w-[600px] mx-auto lg:mx-0 mb-10">
+                        <p class="text-lg md:text-[1.125rem] text-[#475569]">
+                            Experienced professional with over 5 years in the BPO industry, specializing in resolving challenges and improving operational workflows.
+                        </p>
                     </div>
-                    <a href="#contact" class="cta">Get In Touch</a>
+                    <div class="flex flex-wrap justify-center lg:justify-start gap-4">
+                        <a href="#contact" class="bg-[#4f46e5] text-white px-10 py-4 rounded-[0.75rem] font-bold transition-all hover:bg-[#4338ca] hover:-translate-y-1 hover:shadow-lg">
+                            Get In Touch
+                        </a>
+                        <a href="mailto:kpaolochiu@gmail.com" class="border border-[#e2e8f0] text-[#0f172a] px-10 py-4 rounded-[0.75rem] font-bold transition-all hover:bg-white hover:border-[#4f46e5]">
+                            Contact Email
+                        </a>
+                    </div>
                 </div>
 
-                <div class="image-side">
-                    <div class="image-card">
-                        <img src="profile.png" alt="King Chiu" class="profile-img">
+                <div class="w-full lg:flex-1 flex justify-center lg:justify-end order-1 lg:order-2">
+                    <div class="relative w-full max-w-[350px] lg:max-w-[450px] aspect-[4/5] bg-[#e2e8f0] rounded-[2rem] overflow-hidden shadow-2xl border-8 border-white">
+                        <img src="Assets/profile.png" alt="King Paolo Chiu" class="w-full h-full object-cover">
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <section id="about" class="py-24 px-[10%] bg-slate-50/50">
+        <div class="max-w-[1280px] mx-auto">
+            <div class="flex flex-col lg:flex-row gap-16">
+                <div class="w-full lg:w-1/2">
+                    <span class="text-sm tracking-[2px] text-[#4f46e5] uppercase font-bold block mb-4">Professional Summary</span>
+                    <h2 class="text-3xl font-extrabold text-[#0f172a] mb-6">Highly organized, dependable, and adaptive.</h2>
+                    <p class="text-lg text-[#475569] mb-8 leading-relaxed">
+                        Proven ability to thrive under pressure and deliver results in fast-paced environments. I am proactive in problem-solving and dedicated to fostering a supportive team environment centered on accountability.
+                    </p>
+                    
+                    <h3 class="font-bold text-[#0f172a] mb-4">Key Competencies</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-3 gap-x-6 text-[#475569]">
+                        <div class="flex items-center gap-2"><span class="text-[#4f46e5]">●</span> Adaptability & Flexibility</div>
+                        <div class="flex items-center gap-2"><span class="text-[#4f46e5]">●</span> Attention to Detail</div>
+                        <div class="flex items-center gap-2"><span class="text-[#4f46e5]">●</span> Communication & Collaboration</div>
+                        <div class="flex items-center gap-2"><span class="text-[#4f46e5]">●</span> Leadership & Motivation</div>
+                        <div class="flex items-center gap-2"><span class="text-[#4f46e5]">●</span> Decision-Making</div>
+                        <div class="flex items-center gap-2"><span class="text-[#4f46e5]">●</span> Time Management</div>
+                    </div>
+                </div>
+
+                <div class="w-full lg:w-1/2 space-y-8">
+                    <span class="text-sm tracking-[2px] text-[#4f46e5] uppercase font-bold block mb-4">Experience</span>
+                    <div class="relative pl-8 border-l-2 border-[#e2e8f0]">
+                        <div class="absolute w-4 h-4 bg-[#4f46e5] rounded-full -left-[9px] top-1"></div>
+                        <h4 class="font-bold text-[#0f172a]">Back Office Support | FGC+</h4>
+                        <p class="text-sm text-[#64748b] mb-2">June 2018 - January 2023</p>
+                        <p class="text-sm text-[#475569]">Supervised daily operations with accuracy and efficiency. Trained team members on new tools, increasing productivity and process improvements.</p>
+                    </div>
+                    <div class="relative pl-8 border-l-2 border-[#e2e8f0]">
+                        <div class="absolute w-4 h-4 bg-slate-300 rounded-full -left-[9px] top-1"></div>
+                        <h4 class="font-bold text-[#0f172a]">Account Specialist | FGC+</h4>
+                        <p class="text-sm text-[#64748b] mb-2">February 2018 - June 2018</p>
+                        <p class="text-sm text-[#475569]">Exceeded team quotas through strategic planning while upholding high quality assurance standards.</p>
+                    </div>
+                    <div class="relative pl-8 border-l-2 border-[#e2e8f0]">
+                        <div class="absolute w-4 h-4 bg-slate-300 rounded-full -left-[9px] top-1"></div>
+                        <h4 class="font-bold text-[#0f172a]">Records Retrieval Specialist | FGC+</h4>
+                        <p class="text-sm text-[#64748b] mb-2">August 2016 - February 2018</p>
+                        <p class="text-sm text-[#475569]">Achieved and exceeded team quotas. Delivered exceptional customer service and upheld all quality assurance standards.</p>
+                    </div>
+                    <div class="mt-12 pt-8 border-t border-[#e2e8f0]">
+                        <span class="text-sm tracking-[2px] text-[#4f46e5] uppercase font-bold block mb-4">Education</span>
+                        <div>
+                            <p class="font-bold text-[#0f172a]">Bachelor of Science in Information Technology</p>
+                            <p class="text-sm text-[#64748b]">STI College Davao | August 2024 - Present</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 px-[10%] bg-white">
+        <div class="max-w-[1280px] mx-auto">
+            <div class="flex flex-col lg:flex-row gap-16">
+                <div class="lg:w-1/3">
+                    <span class="text-sm tracking-[2px] text-[#4f46e5] uppercase font-bold block mb-4">Contact</span>
+                    <h2 class="text-4xl font-extrabold text-[#0f172a] mb-6">Let's connect</h2>
+                    <p class="text-[#475569] mb-8 leading-relaxed">
+                        Currently based in Davao City and open to discussing how I can support your back-office operations and workflow management.
+                    </p>
+                    <div class="space-y-4 font-semibold text-[#0f172a]">
+                        <p class="flex items-center gap-3">📍 <span>Davao City, Philippines</span></p>
+                        <p class="flex items-center gap-3">📧 <span>kpaolochiu@gmail.com</span></p>
+                        <p class="flex items-center gap-3">📞 <span>09177270495</span></p>
+                    </div>
+                </div>
+
+                <div class="lg:w-2/3">
+                    <form id="contactForm" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="flex flex-col gap-2">
+                            <label class="text-sm font-bold text-[#64748b]">NAME</label>
+                            <input type="text" id="userName" placeholder="Your Name" required class="p-4 bg-[#f8fafc] border border-[#e2e8f0] rounded-xl focus:outline-none focus:border-[#4f46e5] transition-colors">
+                        </div>
+                        <div class="flex flex-col gap-2">
+                            <label class="text-sm font-bold text-[#64748b]">EMAIL</label>
+                            <input type="email" id="userEmail" placeholder="email@example.com" required class="p-4 bg-[#f8fafc] border border-[#e2e8f0] rounded-xl focus:outline-none focus:border-[#4f46e5] transition-colors">
+                        </div>
+                        <div class="flex flex-col gap-2 md:col-span-2">
+                            <label class="text-sm font-bold text-[#64748b]">MESSAGE</label>
+                            <textarea id="userMessage" rows="5" placeholder="How can I help you?" required class="p-4 bg-[#f8fafc] border border-[#e2e8f0] rounded-xl focus:outline-none focus:border-[#4f46e5] transition-colors"></textarea>
+                        </div>
+                        <div class="md:col-span-2">
+                            <button type="submit" class="w-full md:w-auto bg-[#4f46e5] text-white px-12 py-4 rounded-xl font-bold hover:bg-[#4338ca] transition-all shadow-md active:scale-95">
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-10 text-center border-t border-slate-100 text-[#64748b] text-sm">
+        <p>&copy; 2026 King Paolo L. Chiu. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js" defer></script>
+
 </body>
 </html>
