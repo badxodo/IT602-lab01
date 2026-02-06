@@ -81,3 +81,10 @@ viewProject.addEventListener("click", (e) => {
         projectSection.getBoundingClientRect().top + window.scrollY - offsetY;
     window.scrollTo({ top: scroll, behavior: "smooth" });
 });
+
+const toggle = document.getElementById("theme-toggle");
+const root = document.documentElement;
+
+toggle.addEventListener("click", () => {
+    root.classList.toggle("dark");
+});
