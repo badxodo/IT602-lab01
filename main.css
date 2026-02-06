@@ -217,3 +217,7 @@ nav {
 .tooltip:hover .tooltip-text {
     opacity: 1;
 }
+
+.github:hover .tooltip-github {
+    display: flex;
+}
