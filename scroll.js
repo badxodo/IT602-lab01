@@ -1,0 +1,27 @@
+window.addEventListener("scroll", () => {
+    scrollFooterAnimation();
+});
+
+function scrollFooterAnimation() {
+    const footer = document.getElementById("contact");
+    const leftFooter = document.querySelector(".left-footer");
+    const rightFooter = document.querySelector(".right-footer");
+
+    const rect = footer.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+
+    if (rect.top > windowHeight * 0.8) {
+        footer.classList.remove("show");
+        rightFooter.classList.remove("show");
+        leftFooter.classList.remove("show");
+    }
+
+    if (rect.top < windowHeight * 0.9) {
+        footer.classList.add("show");
+    }
+
+    if (rect.top < windowHeight * 0.6) {
+        rightFooter.classList.add("show");
+        leftFooter.classList.add("show");
+    }
+}

@@ -14,6 +14,7 @@
     </head>
     <body class="w-full h-screen bg-black overflow-x-hidden relative">
         <section
+            id="loading"
             class="loading flex justify-center w-full h-screen items-center"
         >
             <div class="w-[100px] h-[300px] rounded-full overflow-hidden">
@@ -21,11 +22,13 @@
             </div>
         </section>
 
-        <section id="main-content" class="hidden">
+        <section id="main-content" class="main-content hidden">
             <nav
-                class="fixed top-5 left-1/2 -translate-x-1/2 h-10 bg-white rounded-full flex items-center justify-center gap-10 px-6"
+                id="nav"
+                class="z-50 fixed top-5 left-1/2 -translate-x-1/2 h-10 bg-white rounded-full flex items-center justify-center gap-10 px-6 md:w-fit w-[80%]"
             >
                 <img
+                    id="hero"
                     src="./assets/home.png"
                     class="w-[25px] cursor-pointer hover:bg-[var(--secondary-color)] p-1 rounded-[6px]"
                 />
@@ -46,133 +49,156 @@
                     class="w-[25px] cursor-pointer hover:bg-[var(--secondary-color)] p-1 rounded-[6px]"
                 />
             </nav>
-
             <a
                 href="https://github.com/fk-Prince"
                 target="_blank"
-                class="rounded-b-lg fixed left-0 top-1/2 text-black -translate-y-1/2 bg-[var(--secondary-color)] px-3 py-1 text-white font-bold whitespace-nowrap rotate-[-90deg] origin-top-left"
+                class="github rounded-t-lg fixed left-0 top-1/2 bg-[var(--secondary-color)] px-3 py-1 text-white font-bold"
             >
-                <span class="flex inline-block gap-2 rotate-180">
-                    <img src="./assets/gmail.png" class="w-[25px] h-[25px]" />
+                <span class="flex inline-block gap-2 text-black">
+                    <img src="./assets/github.png" class="w-[25px] h-[25px]" />
                     prince.sestoso@gmail.com
                 </span>
             </a>
 
             <div
-                class="flex justify-center items-center flex-col text-white h-screen text-sm w-[60%] mx-auto"
+                id="hero"
+                class="hero flex justify-center items-center flex-col text-white h-screen text-sm md:w-[60%] w-[80%] mx-auto"
             >
                 <p
-                    class="text-[5rem] mb-10 font-extrabold flex items-center gap-4"
+                    class="text-[5rem] mb-10 font-extrabold flex flex-col items-start gap-2 md:flex-row md:items-center md:gap-4"
                 >
-                    Hi, I'm
-                    <span class="outline-text relative pl-4">
+                    <span class="whitespace-nowrap">Hi, I'm</span>
+
+                    <span
+                        class="outline-text relative pl-4 md:whitespace-nowrap md:mt-0 mt-12"
+                    >
                         <span
-                            class="line absolute left-0 top-0 w-[10px] h-full bg-[var(--secondary-color)]"
+                            class="line absolute left-0 top-0 w-[4px] md:w-[10px] h-full bg-[var(--secondary-color)]"
                         ></span>
                         Prince
                     </span>
                 </p>
 
-                <p class="text-center w-[60%]">
+                <p class="text-center w-[80%] md:w-[60%]">
                     An aspiring Full Stack Developer passionate about creating
                     beautiful and functional web experiences. I build scalable,
                     user-friendly applications while continuously learning and
                     exploring new technologies.
                 </p>
+
+                <button
+                    class="mt-5 font-semibold shadow-[0_0_60px_var(--secondary-color)] text-black border-[var(--secondary-text)] bg-[var(--secondary-color)] rounded-[8px] px-10 py-2"
+                >
+                    View Projects
+                </button>
             </div>
+
             <footer
-                class="w-full h-screen bg-black text-white flex justify-center items-center flex-col"
+                id="contact"
+                class="w-[80%] mx-auto min-h-screen bg-black text-white flex flex-col md:flex-col justify-center items-center"
             >
-                <header class="text-center mb-[5rem]">
+                <header
+                    class="text-center items-center flex justify-center flex-col md:text-left w-full mb-[5rem]"
+                >
                     <h1 class="text-4xl font-extrabold mb-3">Get In Touch</h1>
                     <p class="text-[var(--muted-text)]">
                         Let's discuss your next project or just say hello
                     </p>
                 </header>
 
-                <div class="flex justify-center items-center h-[60%]">
-                    <div class="w-1/2 h-full px-3 gap-3 flex flex-col">
-                        <p class="text-[var(--secondary-color)] text-2xl py-5">
+                <div
+                    class="flex flex-col items-center md:flex-row lg:w-[70%] md:w-[95%] mx-auto justify-center gap-10"
+                >
+                    <div
+                        class="left-footer w-full lg:w-1/2 flex flex-col gap-6"
+                    >
+                        <p class="text-[var(--secondary-color)] text-2xl py-2">
                             Let's Connect
                         </p>
-                        <p class="py-5 w-[80%]">
+                        <p class="py-2 w-[80%] text-[var(--muted-text)]">
                             I'm always open to discussing new opportunities,
                             interesting projects, or just having a chat about
                             technology and development.
                         </p>
 
-                        <div class="flex items-center gap-2">
-                            <img
-                                src="./assets/gmailColor.png"
-                                class="w-[25px] h-[25px]"
-                            />
-                            <div>
-                                <p class="text-sm text-[var(--muted-text)]">
-                                    Email
-                                </p>
-                                <span class="px-2"
-                                    >prince.sestoso@gmail.com</span
-                                >
+                        <div class="flex flex-col gap-4">
+                            <div class="flex items-center gap-3">
+                                <img
+                                    src="./assets/gmailColor.png"
+                                    class="w-[25px] h-[25px]"
+                                />
+                                <div>
+                                    <p class="text-sm text-[var(--muted-text)]">
+                                        Email
+                                    </p>
+                                    <span class="px-2"
+                                        >prince.sestoso@gmail.com</span
+                                    >
+                                </div>
                             </div>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <img
-                                src="./assets/location.png"
-                                class="w-[25px] h-[25px]"
-                            />
-                            <div>
-                                <p class="text-sm text-[var(--muted-text)]">
-                                    Location
-                                </p>
-                                <span class="px-2"
-                                    >Davao City, Philippines</span
-                                >
+
+                            <div class="flex items-center gap-3">
+                                <img
+                                    src="./assets/location.png"
+                                    class="w-[25px] h-[25px]"
+                                />
+                                <div>
+                                    <p class="text-sm text-[var(--muted-text)]">
+                                        Location
+                                    </p>
+                                    <span class="px-2"
+                                        >Davao City, Philippines</span
+                                    >
+                                </div>
                             </div>
-                        </div>
-                        <div class="flex items-center gap-2">
-                            <img
-                                src="./assets/clock.png"
-                                class="w-[25px] h-[25px]"
-                            />
-                            <div>
-                                <p class="text-sm text-[var(--muted-text)]">
-                                    Response time
-                                </p>
-                                <span class="px-2">Within 24 hours</span>
+
+                            <div class="flex items-center gap-3">
+                                <img
+                                    src="./assets/clock.png"
+                                    class="w-[25px] h-[25px]"
+                                />
+                                <div>
+                                    <p class="text-sm text-[var(--muted-text)]">
+                                        Response time
+                                    </p>
+                                    <span class="px-2">Within 24 hours</span>
+                                </div>
                             </div>
                         </div>
                     </div>
+
                     <form
-                        class="w-1/2 h-full bg-white relative rounded-2xl text-black flex justify-center items-center flex-col gap-x-5"
+                        id="contact-form"
+                        class="right-footer w-[80%] lg:w-[40%] bg-white relative rounded-2xl text-black flex flex-col justify-center items-center gap-5 p-8"
                     >
                         <p
                             class="absolute top-[3%] left-[5%] italic text-[var(--muted-text)]"
                         >
-                            Tell me something ..!! 😁😁😁
+                            Tell me something ..!! 😁
                         </p>
-                        <div
-                            class="px-5 py-2 flex flex-col w-[70%] mx-auto gap-2"
-                        >
+
+                        <div class="flex flex-col w-full gap-2 mt-5">
                             <label for="email"
                                 >Email
                                 <span class="text-red-500">*</span></label
                             >
                             <input
-                                placeholder="sestoso.prince@gmail.com"
-                                class="ml-1 w-full border border-black focus:border-[var(--secondary-color)] rounded-[0.5rem] outline-none px-4 py-2 text-sm"
+                                name="email"
                                 type="email"
+                                placeholder="sestoso.prince@gmail.com"
+                                class="w-full border border-black rounded-[0.5rem] px-4 py-2 text-sm outline-none focus:border-[var(--secondary-color)]"
                                 required
                             />
                         </div>
-                        <div
-                            class="px-5 py-2 flex flex-col w-[70%] mx-auto gap-2"
-                        >
-                            <label for="subject" required
+
+                        <div class="flex flex-col w-full gap-2">
+                            <label for="subject"
                                 >Subject
                                 <span class="text-red-500">*</span></label
                             >
                             <select
-                                class="border text-sm border-black rounded-[0.5rem] px-4 py-2 focus:border-[var(--secondary-color)]"
+                                name="subject"
+                                class="w-full border text-sm border-black rounded-[0.5rem] px-4 py-2 focus:border-[var(--secondary-color)]"
                             >
                                 <option value="" disabled selected hidden>
                                     Select a subject
@@ -192,21 +218,22 @@
                             </select>
                         </div>
 
-                        <div
-                            class="px-5 py-2 flex flex-col w-[70%] mx-auto gap-2"
-                        >
+                        <div class="flex flex-col w-full gap-2">
                             <label for="message"
                                 >Message
                                 <span class="text-red-500">*</span></label
                             >
                             <textarea
-                                class="border text-sm border-black h-[150px] resize-none rounded-[0.5rem] px-4 py-2 focus:border-[var(--secondary-color)] outline-none"
+                                name="message"
+                                class="w-full border text-sm border-black h-[150px] resize-none rounded-[0.5rem] px-4 py-2 focus:border-[var(--secondary-color)] outline-none"
                                 placeholder="Tell me how can I help you."
+                                required
                             ></textarea>
                         </div>
 
                         <button
-                            class="w-[70%] h-[50px] bg-[var(--secondary-color)] mt-6 rounded-2xl text-white font-semibold hover:bg-[var(--accent-color)] transition-all duration-300 ease-in-out cursor-pointer"
+                            type="submit"
+                            class="w-full h-[50px] bg-[var(--secondary-color)] rounded-2xl text-white font-semibold hover:bg-[var(--accent-color)] transition-all duration-300 ease-in-out cursor-pointer"
                         >
                             Send Message
                         </button>
@@ -216,5 +243,7 @@
         </section>
 
         <script src="main.js"></script>
+        <script src="scroll.js"></script>
+        <script src="actions.js"></script>
     </body>
 </html>

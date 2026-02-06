@@ -1,10 +1,10 @@
 window.addEventListener("load", () => {
-    const loader = document.querySelector(".loading");
+    const loader = document.getElementById("loading");
     const mainContent = document.getElementById("main-content");
-
     setTimeout(() => {
-        loader.style.display = "none";
+        loader.classList.add("hidden");
+        loader.classList.remove("flex");
         mainContent.classList.remove("hidden");
-        mainContent.classList.add("flex flex-col justify-center  relative");
-    }, 2500);
+        mainContent.classList.add("flex flex-col justify-center relative");
+    }, 2300);
 });
