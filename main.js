@@ -6,10 +6,37 @@ window.addEventListener("load", () => {
         loader.classList.remove("flex");
         mainContent.classList.remove("hidden");
         mainContent.classList.add("flex flex-col justify-center relative");
-    }, 2300);
+    }, 0);
 });
 
-const project = document.getElementById("project");
+const homeNav = document.getElementById("homeNav");
+const projectNav = document.getElementById("projectNav");
+const contactNav = document.getElementById("contactNav");
+
+const heroSection = document.getElementById("hero");
+const projectSection = document.getElementById("project");
+const contactSection = document.getElementById("contact");
+
+const navLinks = [homeNav, projectNav, contactNav];
+const sections = [heroSection, projectSection, contactSection];
+
+navLinks.forEach((n, i) => {
+    n.addEventListener("click", () => {
+        if (i === 0) {
+            sections[i].scrollIntoView({ behavior: "smooth" });
+        } else {
+            let offsetY = 200;
+            if (i === 2) offsetY = 0;
+
+            const scroll =
+                sections[i].getBoundingClientRect().top +
+                window.scrollY -
+                offsetY;
+            window.scrollTo({ top: scroll, behavior: "smooth" });
+        }
+    });
+});
+
 const modal = document.getElementById("modal");
 const modalClose = document.querySelectorAll(".modal-close");
 
@@ -49,6 +76,6 @@ viewProject.addEventListener("click", (e) => {
     e.preventDefault();
     const offsetY = 200;
     const scroll =
-        project.getBoundingClientRect().top + window.scrollY - offsetY;
+        projectSection.getBoundingClientRect().top + window.scrollY - offsetY;
     window.scrollTo({ top: scroll, behavior: "smooth" });
 });

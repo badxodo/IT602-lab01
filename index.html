@@ -26,29 +26,69 @@
             <!-- NAV BAR -->
             <nav
                 id="nav"
-                class="z-49 fixed top-5 left-1/2 -translate-x-1/2 h-10 bg-white rounded-full flex items-center justify-center gap-10 px-6 md:w-fit w-[80%]"
+                class="z-50 fixed top-5 left-1/2 -translate-x-1/2 h-10 bg-white rounded-full flex items-center justify-center gap-10 px-6 md:w-fit w-[80%]"
             >
-                <img
-                    id="hero"
-                    src="./assets/home.png"
-                    class="w-[25px] cursor-pointer hover:bg-[var(--secondary-color)] p-1 rounded-[6px]"
-                />
-                <img
-                    src="./assets/home.png"
-                    class="w-[25px] cursor-pointer hover:bg-[var(--secondary-color)] p-1 rounded-[6px]"
-                />
-                <img
-                    src="./assets/home.png"
-                    class="w-[25px] cursor-pointer hover:bg-[var(--secondary-color)] p-1 rounded-[6px]"
-                />
-                <img
-                    src="./assets/home.png"
-                    class="w-[25px] cursor-pointer hover:bg-[var(--secondary-color)] p-1 rounded-[6px]"
-                />
-                <img
-                    src="./assets/home.png"
-                    class="w-[25px] cursor-pointer hover:bg-[var(--secondary-color)] p-1 rounded-[6px]"
-                />
+                <div class="tooltip relative inline-block">
+                    <img
+                        id="homeNav"
+                        src="./assets/home.png"
+                        class="w-[25px] cursor-pointer hover:bg-[var(--secondary-color)] p-1 rounded-[6px]"
+                    />
+                    <span
+                        class="tooltip-text absolute -bottom-100 mt-2 left-1/2 -translate-x-1/2 px-2 py-1 rounded bg-[var(--accent-color)] text-white text-sm opacity-0 transition-opacity duration-300"
+                    >
+                        Home
+                    </span>
+                </div>
+
+                <div class="tooltip relative inline-block">
+                    <img
+                        id="projectNav"
+                        src="./assets/project.png"
+                        class="w-[25px] cursor-pointer hover:bg-[var(--secondary-color)] p-1 rounded-[6px]"
+                    />
+                    <span
+                        class="tooltip-text absolute -bottom-100 mt-2 left-1/2 -translate-x-1/2 px-2 py-1 rounded bg-[var(--accent-color)] text-white text-sm opacity-0 transition-opacity duration-300"
+                    >
+                        Projects
+                    </span>
+                </div>
+                <div class="tooltip relative inline-block">
+                    <img
+                        id="contactNav"
+                        src="./assets/contact.png"
+                        class="w-[25px] cursor-pointer hover:bg-[var(--secondary-color)] p-1 rounded-[6px]"
+                    />
+                    <span
+                        class="tooltip-text absolute -bottom-100 mt-2 left-1/2 -translate-x-1/2 px-2 py-1 rounded bg-[var(--accent-color)] text-white text-sm opacity-0 transition-opacity duration-300"
+                    >
+                        Contacts
+                    </span>
+                </div>
+                <div class="tooltip relative inline-block">
+                    <img
+                        id="contactNav"
+                        src="./assets/about.png"
+                        class="w-[25px] cursor-pointer hover:bg-[var(--secondary-color)] p-1 rounded-[6px]"
+                    />
+                    <span
+                        class="tooltip-text absolute -bottom-100 mt-2 left-1/2 -translate-x-1/2 px-2 py-1 rounded bg-[var(--accent-color)] text-white text-sm opacity-0 transition-opacity duration-300"
+                    >
+                        About
+                    </span>
+                </div>
+                <div class="tooltip relative inline-block">
+                    <img
+                        id="contactNav"
+                        src="./assets/about.png"
+                        class="w-[25px] cursor-pointer hover:bg-[var(--secondary-color)] p-1 rounded-[6px]"
+                    />
+                    <span
+                        class="tooltip-text absolute -bottom-100 mt-2 left-1/2 -translate-x-1/2 px-2 py-1 rounded bg-[var(--accent-color)] text-white text-sm opacity-0 transition-opacity duration-300"
+                    >
+                        FAQ's
+                    </span>
+                </div>
             </nav>
             <!-- SIDE BAR -->
             <a
@@ -154,7 +194,7 @@
             </div>
 
             <!-- PROJECT SECTION -->
-            <section id="project" class="w-full min-h-6xl">
+            <section id="project" class="w-full min-h-6xl z-30">
                 <div class="w-[75%] mx-auto my-5">
                     <span
                         class="outline-text title text-4xl text-white text-extrabold"
@@ -224,9 +264,10 @@
                 </div>
             </section>
 
+            <!-- CONTACT SECTION -->
             <footer
                 id="contact"
-                class="w-[80%] md:mt-0 mt-20 mx-auto min-h-screen bg-black text-white flex flex-col md:flex-col justify-center items-center"
+                class="w-[80%] md:mt-0 mt-10 mx-auto min-h-screen bg-black text-white flex flex-col md:flex-col justify-center items-center"
             >
                 <header
                     class="text-center items-center flex justify-center flex-col md:text-left w-full mb-[5rem]"

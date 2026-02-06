@@ -214,3 +214,6 @@ nav {
     transform: translateY(0);
     opacity: 1;
 }
+.tooltip:hover .tooltip-text {
+    opacity: 1;
+}
