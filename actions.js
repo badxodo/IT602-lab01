@@ -46,8 +46,12 @@ form.addEventListener("submit", async (e) => {
             form.reset();
         })
         .catch((err) => {
-            console.error("Internal Server Error");
-            alert("Internal Server Error");
+            console.error(
+                "Internal Server Error, Failed to send Email but the data still stored in locla storage.",
+            );
+            alert(
+                "Internal Server Error, Failed to send Email but the data still stored in locla storage.",
+            );
         });
 
     let existingUsers = JSON.parse(localStorage.getItem("contact-data")) || [];
@@ -55,7 +59,7 @@ form.addEventListener("submit", async (e) => {
     const submissionWithDate = {
         ...user,
         submittedAt: new Date().toLocaleString(),
-        status: "Mark as Read",
+        status: "Pending",
     };
 
     existingUsers.push(submissionWithDate);

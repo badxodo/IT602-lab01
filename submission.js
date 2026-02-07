@@ -1,5 +1,7 @@
 const datas = JSON.parse(localStorage.getItem("contact-data")) || [];
 
+datas.sort((a, b) => new Date(b.submittedAt) - new Date(a.submittedAt));
+
 const tbody = document.getElementById("submission-table");
 const tableCard = document.getElementById("submissions-container");
 
@@ -25,17 +27,21 @@ function tableData(filteredData) {
             const statusButton =
                 data.status === "Replied"
                     ? `<span class="inline-flex items-center px-3 py-1 
-                    rounded-sm text-sm font-medium bg-green-100 text-green-800">✓ Read</span>`
-                    : `<button class="status-btn px-3 py-1 rounded bg-blue-100 transition-colors text-blue-800 hover:bg-blue-200" data-index="${index}">${data.status}</button>`;
+                    rounded-sm text-sm font-medium bg-green-100 text-green-700">✓ Replied</span>`
+                    : `<button class="status-btn px-3 py-1 rounded 
+                    bg-blue-100 transition-colors text-blue-800 hover:bg-blue-200" data-index="${index}">Mark as Replied</button>`;
+
+            const className =
+                "px-4 py-5 max-w-[100px] md:max-w-[150px] lg:max-w-[250px] break-words";
 
             tr.innerHTML = `
-                <td class="px-4 py-5">${data.name}</td>
-                <td class="px-4 py-5">${data.email}</td>
-                <td class="px-4 py-5">${data.contact}</td>
-                <td class="px-4 py-5">${data.subject}</td>
-                <td class="px-4 py-5 max-w-[100px] md:max-w-[150px] lg:max-w-[250px] break-words">${data.message}</td>
-                <td class="px-4 py-5">${data.submittedAt}</td>
-                <td class="px-4 py-5 text-center">${statusButton}</td>
+                <td class="${className}">${data.name}</td>
+                <td class="${className}">${data.email}</td>
+                <td class="${className}">${data.contact}</td>
+                <td class="${className}">${data.subject}</td>
+                <td class="${className}">${data.message}</td>
+                <td class="${className}">${data.submittedAt}</td>
+                <td class="${className}">${statusButton}</td>
             `;
             tbody.appendChild(tr);
         });
@@ -51,24 +57,23 @@ function tableData(filteredData) {
             const statusButton =
                 data.status === "Replied"
                     ? `<span class="inline-flex items-center px-3 py-1 
-                    rounded-full text-sm font-medium bg-green-100 text-green-800">✓ Read</span>`
+                    rounded-full text-sm font-medium bg-green-100 text-green-700">✓ Replied</span>`
                     : `<button class="status-btn inline-flex items-center px-3 py-1 rounded-full text-sm 
                     font-medium bg-blue-100 text-blue-800 hover:bg-blue-200 
-                    transition-colors" data-index="${index}">${data.status}</button>`;
+                    transition-colors" data-index="${index}">Mark as Replied</button>`;
 
             card.innerHTML = `
-                <div class="mb-3">
-                    <h3 class="text-base font-semibold text-gray-900 mb-1">${data.subject}</h3>
-                    <p class="text-sm text-gray-600">${data.name}</p>
+               <div class="mb-3">
+                <h2 class="font-semibold text-gray-900 mb-1">${data.subject}</h2>
+                <p class="text-sm text-gray-600 flex flex-wrap items-center gap-x-3 gap-y-2">
+                    <span>From: <span class="font-medium text-gray-900">${data.name}</span></span>
+                    <span class="text-gray-300">|</span>
+                    <span>Email: <span class="font-medium text-gray-900">${data.email}</span></span>
+                    <span class="text-gray-300">|</span>
+                    <span class="text-gray-500">📞 <span class="text-gray-900 font-medium">${data.contact}</span></span>
+                </p>
                 </div>
-                <div class="flex items-center gap-6 mb-3 text-sm text-gray-600">
-                    <div class="flex items-center gap-1">
-                        <span class="font-semibold text-gray-900">${data.email}</span>
-                    </div>
-                    <div class="flex items-center gap-1">
-                        <span class="text-gray-500">📞 ${data.contact}</span>
-                    </div>
-                </div>
+               
                 <div class="text-sm text-gray-700 mb-3 break-words p-2 ">
                      ${data.message}
                 </div>
@@ -89,7 +94,7 @@ tbody.addEventListener("click", (e) => {
         const i = e.target.dataset.index;
         datas[i].status = "Replied";
         localStorage.setItem("contact-data", JSON.stringify(datas));
-        e.target.outerHTML = `<span class="bg-green-500 text-white px-3 py-1 rounded">✔ Read</span>`;
+        e.target.outerHTML = `<span class="text-sm font-medium bg-green-100 text-green-700 px-3 py-1 rounded">✓ Replied</span>`;
     }
 });
 
@@ -98,7 +103,8 @@ tableCard.addEventListener("click", (e) => {
         const i = e.target.dataset.index;
         datas[i].status = "Replied";
         localStorage.setItem("contact-data", JSON.stringify(datas));
-        e.target.outerHTML = `<span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100 text-green-800">✓ Read</span>`;
+        e.target.outerHTML = `<span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-100
+         text-green-700">✓ Replied</span>`;
     }
 });
 

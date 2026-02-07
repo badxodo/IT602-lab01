@@ -11,9 +11,9 @@
         <link rel="stylesheet" href="submission.css" />
     </head>
     <body class="w-full h-screen flex justify-center items-start pt-10">
-        <div class="w-full lg:w-[80%] mx-auto px-4 flex flex-col gap-2">
+        <div class="w-full lg:w-[90%] mx-auto px-4 flex flex-col gap-2">
             <div
-                class="w-full md:w-[50%] lg:w-[400px] text-black flex gap-2 flex-col p-4 rounded-[0.5rem]"
+                class="w-full md:w-[70%] lg:w-[450px] text-black flex gap-2 flex-col p-4 rounded-[0.5rem]"
             >
                 <label for="search" class="font-semibold text-[1.1rem]"
                     >Submissions</label
@@ -26,19 +26,19 @@
                     placeholder="sestoso.prince@yahoo.com"
                 />
             </div>
-            <div class="overflow-x-auto rounded-2xl border border-gray-300">
-                <table class="text-center w-full min-w-[700px] md:min-w-full">
-                    <thead class="">
-                        <tr class="bg-gray-200">
-                            <th class="px-4 py-2 text-sm text-base">Name</th>
-                            <th class="px-4 py-2 text-sm text-base">Email</th>
-                            <th class="px-4 py-2 text-sm text-base">Contact</th>
-                            <th class="px-4 py-2 text-sm text-base">Subject</th>
-                            <th class="px-4 py-2 text-sm text-base">Message</th>
-                            <th class="px-4 py-2 text-sm text-base">
-                                Published at
-                            </th>
-                            <th class="px-4 py-2 text-sm text-base">Status</th>
+            <div
+                class="overflow-x-auto rounded-2xl border border-gray-300 w-full"
+            >
+                <table class="text-center w-full">
+                    <thead>
+                        <tr class="bg-gray-200 text-extrabold">
+                            <th class="w-[200px] px-4 py-5">Name</th>
+                            <th class="w-[200px] px-4 py-5">Email</th>
+                            <th class="w-[200px] px-4 py-5">Contact</th>
+                            <th class="w-[200px] px-4 py-5">Subject</th>
+                            <th class="px-4 py-5">Message</th>
+                            <th class="px-4 py-5">Published at</th>
+                            <th class="px-4 py-5">Status</th>
                         </tr>
                     </thead>
                     <tbody id="submission-table"></tbody>

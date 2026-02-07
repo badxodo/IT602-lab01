@@ -6,7 +6,7 @@ window.addEventListener("load", () => {
         loader.classList.remove("flex");
         mainContent.classList.remove("hidden");
         mainContent.classList.add("flex flex-col justify-center relative");
-    }, 2300);
+    }, 0);
 });
 
 const homeNav = document.getElementById("homeNav");
@@ -29,6 +29,7 @@ navLinks.forEach((n, i) => {
         } else {
             let offsetY = 0;
             if (i === 2) offsetY += 50;
+            if (i === 3) offsetY += 30;
 
             const scroll = sections[i].offsetTop - offsetY;
             window.scrollTo({ top: scroll, behavior: "smooth" });
@@ -80,8 +81,28 @@ viewProject.addEventListener("click", (e) => {
 });
 
 const toggle = document.getElementById("theme-toggle");
+const darkTheme = document.getElementById("dark-theme");
+const lightTheme = document.getElementById("light-theme");
 const root = document.documentElement;
 
-toggle.addEventListener("click", () => {
-    root.classList.toggle("dark");
+toggle.addEventListener("change", () => {
+    if (toggle.checked) {
+        root.classList.add("dark");
+        localStorage.setItem("theme", "dark");
+
+        lightTheme.classList.remove("-translate-y-[120%]");
+        darkTheme.classList.remove("translate-y-0");
+
+        darkTheme.classList.add("-translate-y-[120%]");
+        lightTheme.classList.add("translate-y-full");
+    } else {
+        lightTheme.classList.remove("translate-y-full");
+        darkTheme.classList.remove("-translate-y-[120%]");
+
+        lightTheme.classList.add("-translate-y-[120%]");
+        darkTheme.classList.add("translate-y-0");
+
+        root.classList.remove("dark");
+        localStorage.setItem("theme", "light");
+    }
 });

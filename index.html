@@ -41,6 +41,50 @@
         </section>
 
         <section id="main-content" class="main-content hidden relative">
+            <div
+                class="z-50 fixed right-[1%] md:right-[3%] p-2 top-[5%] flex justify-center items-center w-[100px] h-[50px]"
+            >
+                <label
+                    class="relative flex flex-col items-center cursor-pointer"
+                >
+                    <input
+                        id="theme-toggle"
+                        type="checkbox"
+                        class="peer hidden"
+                    />
+                    <div
+                        id="light-theme"
+                        class="absolute top-0 right-[1%] md:right-[3%] -translate-y-[120%] transition-all duration-500"
+                    >
+                        <div
+                            class="w-[76px] h-[76px] bg-yellow-400 rounded-full z-10 shadow-lg shadow-yellow-300"
+                        ></div>
+                    </div>
+
+                    <div
+                        id="dark-theme"
+                        class="flex flex-col items-center mt-10 relative w-[128px] h-[128px] transition-all duration-500"
+                    >
+                        <div
+                            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80px] h-[80px] bg-gray-200 rounded-full shadow-lg shadow-gray-400"
+                        ></div>
+
+                        <div
+                            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -translate-x-[3px] w-[80px] h-[80px] bg-gray-800 rounded-full"
+                        ></div>
+
+                        <div
+                            class="absolute top-[35%] left-[30%] w-[12px] h-[12px] bg-gray-300 rounded-full"
+                        ></div>
+                        <div
+                            class="absolute top-[55%] left-[25%] w-[8px] h-[8px] bg-gray-300 rounded-full"
+                        ></div>
+                        <div
+                            class="absolute top-[45%] left-[40%] w-[10px] h-[10px] bg-gray-300 rounded-full"
+                        ></div>
+                    </div>
+                </label>
+            </div>
             <!-- NAV BAR -->
             <nav
                 id="nav"
@@ -102,10 +146,10 @@
                     </span>
                 </div>
 
-                <div class="tooltip relative inline-block">
+                <a href="faq.html" class="tooltip relative inline-block">
                     <img
                         id="contactNav"
-                        src="./assets/about.png"
+                        src="./assets/faq.png"
                         class="w-[25px] cursor-pointer hover:bg-[var(--secondary-color)] p-1 rounded-[6px]"
                     />
                     <span
@@ -113,7 +157,7 @@
                     >
                         FAQ's
                     </span>
-                </div>
+                </a>
             </nav>
             <!-- SIDE BAR -->
             <a
@@ -127,7 +171,7 @@
                 </span>
 
                 <div
-                    class="z-50 tooltip-github hidden w-[250px] h-[250px] md:w-[500px] md:h-[500px] absolute left-0 top-full -translate-y-[120%] shadow-lg rounded-lg"
+                    class="z-50 tooltip-github hidden w-[250px] h-[250px] md:w-[500px] md:h-[500px] absolute left-0 top-full -translate-y-[120%] rounded-lg"
                 >
                     <img
                         src="./assets/githubSS.png"
@@ -428,7 +472,6 @@
                 </div>
 
                 <button
-                    id="theme-toggle"
                     class="mt-5 flex items-center gap-3 px-5 py-2 bg-[var(--primary-color)] rounded-[8px] border border-[var(--muted-text)] text-[var(--primary-text)]"
                 >
                     <!-- <img
