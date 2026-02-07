@@ -1,18 +1,599 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Link HTML and CSS Example</title>
-    <link rel="stylesheet" href="main.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Julia Niel Bulalaque</title>
+  <link rel="icon" type="image/png" href="resources/finalogo.png">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'poppins': ['Poppins', 'Helvetica', 'Arial', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Poppins', Helvetica, Arial, sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    .wavy-underline {
+      border-bottom: 2px solid #111;
+      text-decoration-style: wavy;
+    }
+
+    .btn-primary {
+      background: #111;
+      color: #fff;
+      padding: 16px 40px;
+      border-radius: 50px;
+      font-weight: 500;
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 2px solid #111;
+      display: inline-block;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn-primary::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+
+    .btn-primary:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+
+    .btn-primary:hover {
+      background: transparent;
+      color: #111;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    nav a {
+      position: relative;
+      white-space: nowrap;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #111;
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after,
+    nav a.active::after {
+      width: 100%;
+    }
+
+    nav a.active { font-weight: 600; }
+
+    /* Hero Name Container */
+    .hero-name-container {
+      /* Flexbox centering handled by Tailwind classes */
+    }
+
+    .cat-gif {
+      filter: brightness(1.05);
+      animation: fadeUp 1.0s ease forwards, float 4s ease-in-out infinite;
+      animation-delay: 0.5s, 1.5s;
+      background: transparent;
+      mix-blend-mode: darken;
+    }
+
+    /* Submissions Table Styles */
+    .submission-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 30px;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    .submission-table th {
+      background: #111;
+      color: white;
+      padding: 14px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .submission-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 14px;
+    }
+
+    .submission-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .submission-table tr:hover {
+      background: #f9f9f9;
+    }
+
+    .delete-btn {
+      background: #dc2626;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .delete-btn:hover {
+      background: #b91c1c;
+    }
+
+    .empty-state {
+      text-align: center;
+      padding: 40px;
+      color: #999;
+      font-size: 14px;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes bounce {
+      50% { transform: translateY(8px); }
+    }
+
+    @keyframes aurora {
+      0% {
+        background-position: 0% 50%;
+        filter: hue-rotate(0deg) brightness(1);
+      }
+      25% {
+        background-position: 50% 75%;
+        filter: hue-rotate(5deg) brightness(1.05);
+      }
+      50% {
+        background-position: 100% 50%;
+        filter: hue-rotate(0deg) brightness(1.1);
+      }
+      75% {
+        background-position: 50% 25%;
+        filter: hue-rotate(-5deg) brightness(1.05);
+      }
+      100% {
+        background-position: 0% 50%;
+        filter: hue-rotate(0deg) brightness(1);
+      }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+
+    @keyframes shimmer {
+      0% { opacity: 0.3; }
+      50% { opacity: 0.8; }
+      100% { opacity: 0.3; }
+    }
+
+    .aurora-bg {
+      background: linear-gradient(135deg, #f6f2ec, #e8dcc0, #f0e6d2, #ded4b8, #f2e8d6, #e8dcc0, #f6f2ec, #ede3ce, #e0d6bc);
+      background-size: 400% 400%;
+      animation: aurora 20s ease infinite;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .aurora-bg::before,
+    .aurora-bg::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.4;
+      animation: shimmer 8s ease-in-out infinite;
+    }
+
+    .aurora-bg::before {
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, #f0e6d2, transparent);
+      top: 10%;
+      left: -10%;
+      animation-delay: 0s;
+    }
+
+    .aurora-bg::after {
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, #ded4b8, transparent);
+      bottom: 20%;
+      right: -10%;
+      animation-delay: 4s;
+    }
+
+    /* Responsive table for mobile */
+    @media (max-width: 640px) {
+      .submission-table thead {
+        display: none;
+      }
+
+      .submission-table, 
+      .submission-table tbody, 
+      .submission-table tr, 
+      .submission-table td {
+        display: block;
+        width: 100%;
+      }
+
+      .submission-table tr {
+        margin-bottom: 15px;
+        border: 1px solid #f0f0f0;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      .submission-table td {
+        text-align: right;
+        padding-left: 50%;
+        position: relative;
+      }
+
+      .submission-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 14px;
+        font-weight: 600;
+        text-align: left;
+      }
+    }
+  </style>
 </head>
 
-<body>
-    <h1>Hello, World!</h1>
-    <p>This is styled using an external CSS file.</p>
-</body>
+<body class="bg-[#f6f2ec] overflow-x-hidden">
 
+<!-- HEADER - Fully Responsive -->
+<header class="fixed w-full top-0 left-0 z-50 bg-white/90 backdrop-blur-sm shadow-sm">
+  <div class="flex flex-col sm:flex-row justify-between items-center px-4 sm:px-8 lg:px-16 py-3 sm:py-4 gap-3 sm:gap-0">
+    <!-- Logo -->
+    <img src="resources/finalogo.png" alt="Logo" class="h-8 sm:h-10 lg:h-12 w-auto object-contain">
+
+    <!-- Navigation -->
+    <nav class="flex gap-4 sm:gap-6 lg:gap-8 items-center text-sm sm:text-base">
+      <a href="#home" class="no-underline text-[#111]">Home</a>
+      <a href="#about" class="no-underline text-[#111]">About</a>
+      <a href="#projects" class="no-underline text-[#111]">Projects</a>
+      <a href="#contact" class="no-underline text-[#111]">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO SECTION - Fully Responsive -->
+<section id="home" class="min-h-screen aurora-bg flex flex-col justify-center items-center text-center px-4 sm:px-6 pt-24 sm:pt-28">
+  <p class="text-base sm:text-xl md:text-2xl lg:text-3xl font-bold uppercase mb-4 sm:mb-6 opacity-0 animate-[fadeUp_1.0s_ease_forwards]">
+   
+  </p>
+  
+  <div class="hero-name-container flex flex-col items-center">
+    <!-- Cat GIF - Above the name, centered with floating animation -->
+    <img src="resources/hello.gif" alt="Hello Cat" class="cat-gif w-32 sm:w-40 md:w-52 lg:w-60 xl:w-72 mb-4 sm:mb-6 md:mb-8 opacity-0">
+    
+    <h1 class="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold uppercase leading-tight sm:leading-tight opacity-0 animate-[fadeUp_1.0s_ease_forwards_0.3s]">
+      Julia Niel <br> Bulalaque
+    </h1>
+  </div>
+  
+  <p class="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-semibold uppercase mt-4 sm:mt-6 tracking-wider opacity-0 animate-[fadeUp_1.0s_ease_forwards_0.6s]">
+    A Third Year Student, BSIT 602
+  </p>
+  
+  <a href="#contact" class="btn-primary mt-8 sm:mt-12 text-sm sm:text-base opacity-0 animate-[fadeUp_1.0s_ease_forwards_0.9s]">
+    Swing by to chat
+  </a>
+  
+  <div class="mt-8 sm:mt-12 text-2xl sm:text-3xl animate-[bounce_1.5s_infinite] cursor-pointer" onclick="scrollToNext()">
+    ↓
+  </div>
+</section>
+
+<!-- ABOUT SECTION - Fully Responsive -->
+<section id="about" class="min-h-screen aurora-bg px-4 sm:px-6 md:px-8 lg:px-16 py-20 sm:py-24 lg:py-32">
+  <div class="max-w-7xl mx-auto">
+    <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-12 sm:mb-16 lg:mb-20 text-center">About Me</h2>
+    
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 xl:gap-20 items-center">
+      <!-- Text Content -->
+      <div class="order-2 lg:order-1">
+        <h3 class="text-2xl sm:text-3xl lg:text-4xl font-semibold mb-4 sm:mb-6">Hello! I'm Julia Niel</h3>
+        <p class="text-base sm:text-lg lg:text-xl leading-relaxed mb-4 sm:mb-6 text-gray-700">
+          I'm a passionate third-year BSIT student with a love for creating digital experiences. 
+          Currently exploring the world of web development, design, and technology.
+        </p>
+        <div class="flex flex-wrap gap-2 sm:gap-3 mt-4 sm:mt-6">
+          <!-- Uncomment to add skills
+          <span class="bg-white px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm shadow-sm font-medium border border-gray-100">HTML/CSS</span>
+          <span class="bg-white px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm shadow-sm font-medium border border-gray-100">JavaScript</span>
+          <span class="bg-white px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm shadow-sm font-medium border border-gray-100">Web Design</span>
+          <span class="bg-white px-3 sm:px-4 py-2 rounded-full text-xs sm:text-sm shadow-sm font-medium border border-gray-100">Problem Solving</span>
+          -->
+        </div>
+      </div>
+      
+      <!-- Image -->
+      <div class="flex justify-center order-1 lg:order-2">
+        <div class="w-full max-w-[280px] sm:max-w-[320px] md:max-w-[360px] lg:max-w-[400px] aspect-square rounded-2xl border-4 border-white shadow-2xl hover:shadow-[0_20px_60px_rgba(0,0,0,0.15)] transition-all duration-300 relative overflow-hidden group">
+          <img src="resources/try.jfif" alt="Julia Niel Bulalaque" class="w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-tr from-[#e8dcc0]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS SECTION - Fully Responsive -->
+<section id="projects" class="py-20 sm:py-24 lg:py-32 aurora-bg px-4 sm:px-6 md:px-8">
+  <div class="max-w-7xl mx-auto text-center">
+    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 sm:mb-12 lg:mb-16">Featured Projects</h2>
+    
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 text-left">
+      <!-- Project Card 1 -->
+      <div class="bg-white p-5 sm:p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer">
+        <div class="w-full h-40 sm:h-48 bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl mb-4 overflow-hidden relative group">
+          <div class="absolute inset-0 bg-gradient-to-tr from-[#f6f2ec]/20 to-[#e8dcc0]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        </div>
+        <h4 class="font-bold text-lg sm:text-xl mb-2">Project One</h4>
+        <p class="text-sm text-gray-600">Innovative web solution</p>
+      </div>
+      
+      <!-- Project Card 2 -->
+      <div class="bg-white p-5 sm:p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer">
+        <div class="w-full h-40 sm:h-48 bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl mb-4 overflow-hidden relative group">
+          <div class="absolute inset-0 bg-gradient-to-tr from-[#f6f2ec]/20 to-[#e8dcc0]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        </div>
+        <h4 class="font-bold text-lg sm:text-xl mb-2">Project Two</h4>
+        <p class="text-sm text-gray-600">Creative design work</p>
+      </div>
+      
+      <!-- Project Card 3 -->
+      <div class="bg-white p-5 sm:p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer">
+        <div class="w-full h-40 sm:h-48 bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl mb-4 overflow-hidden relative group">
+          <div class="absolute inset-0 bg-gradient-to-tr from-[#f6f2ec]/20 to-[#e8dcc0]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        </div>
+        <h4 class="font-bold text-lg sm:text-xl mb-2">Project Three</h4>
+        <p class="text-sm text-gray-600">Technical innovation</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT SECTION - Fully Responsive -->
+<section id="contact" class="min-h-screen aurora-bg px-4 sm:px-6 md:px-8 lg:px-16 py-20 sm:py-24 lg:py-32 flex items-center justify-center">
+  <div class="max-w-7xl w-full">
+    <!-- Contact Form and Info -->
+    <div class="bg-white/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 lg:p-16 shadow-2xl mb-6 sm:mb-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16">
+        <!-- Contact Information -->
+        <div>
+          <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 sm:mb-8 leading-tight text-center lg:text-left">Get in Touch!</h2>
+          
+          <div class="space-y-5 sm:space-y-6">
+            <div>
+              <p class="text-xs font-bold uppercase tracking-wider mb-2 text-gray-400">EMAIL</p>
+              <a href="mailto:julianielbulalaque12@gmail.com" class="text-base sm:text-lg hover:opacity-70 transition-opacity block font-semibold break-all">julianielbulalaque12@gmail.com</a>
+            </div>
+            
+            <div>
+              <p class="text-xs font-bold uppercase tracking-wider mb-2 text-gray-400">LOCATION</p>
+              <p class="text-base sm:text-lg">Davao, Philippines</p>
+            </div>
+            
+            <div>
+              <p class="text-xs font-bold uppercase tracking-wider mb-2 text-gray-400">SOCIAL</p>
+              <div class="flex gap-4 sm:gap-5 text-base sm:text-lg flex-wrap">
+                <a href="https://github.com/badxodo" target="_blank" class="hover:underline font-medium">GitHub</a>
+                <a href="https://instagram.com/jnlbllq" target="_blank" class="hover:underline font-medium">Instagram</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Contact Form -->
+        <div>
+          <form id="contactForm" class="space-y-4">
+            <input type="text" name="name" required class="w-full p-3 sm:p-4 border-2 border-gray-200 rounded-xl focus:border-black focus:ring-2 focus:ring-black/5 outline-none transition-all text-sm sm:text-base" placeholder="Name">
+            <input type="text" name="contactNo" required class="w-full p-3 sm:p-4 border-2 border-gray-200 rounded-xl focus:border-black focus:ring-2 focus:ring-black/5 outline-none transition-all text-sm sm:text-base" placeholder="Contact No.">
+            <input type="email" name="email" required class="w-full p-3 sm:p-4 border-2 border-gray-200 rounded-xl focus:border-black focus:ring-2 focus:ring-black/5 outline-none transition-all text-sm sm:text-base" placeholder="Email">
+            <textarea name="message" rows="4" required class="w-full p-3 sm:p-4 border-2 border-gray-200 rounded-xl focus:border-black focus:ring-2 focus:ring-black/5 outline-none transition-all resize-none text-sm sm:text-base" placeholder="Message"></textarea>
+            <button type="submit" class="w-full bg-[#111] text-white py-3 sm:py-4 rounded-full font-medium hover:bg-gray-800 hover:shadow-lg transition-all duration-300 text-sm sm:text-base">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Submissions Table - Fully Responsive -->
+    <div class="bg-white/90 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-12 lg:p-16 shadow-2xl">
+      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 sm:gap-0 mb-6">
+        <h3 class="text-2xl sm:text-3xl md:text-4xl font-bold">Contact Submissions</h3>
+        <button onclick="clearAllSubmissions()" class="bg-red-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-red-700 transition-colors whitespace-nowrap">
+          Clear All
+        </button>
+      </div>
+      
+      <div id="submissionsContainer" class="overflow-x-auto -mx-6 sm:-mx-8 md:-mx-12 lg:-mx-16 px-6 sm:px-8 md:px-12 lg:px-16">
+        <table class="submission-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Contact No.</th>
+              <th>Email</th>
+              <th>Message</th>
+              <th>Date</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="submissionsTableBody">
+            <tr>
+              <td colspan="6" class="empty-state">No submissions yet</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER - Fully Responsive -->
+<footer class="bg-[#111] text-[#f6f2ec]/60 px-4 sm:px-6 py-8 sm:py-10 lg:py-12">
+  <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-4 text-center">
+    <p class="text-xs sm:text-sm">© 2024. Julia Niel Bulalaque</p>
+    <p class="text-xs sm:text-sm">Third Year BSIT - 602</p>
+  </div>
+</footer>
+
+<script>
+  function scrollToNext() {
+    document.querySelector("#about")?.scrollIntoView({ behavior: "smooth" });
+  }
+
+  // LOCAL STORAGE FUNCTIONS
+  const STORAGE_KEY = 'contactSubmissions';
+
+  function getSubmissions() {
+    const data = localStorage.getItem(STORAGE_KEY);
+    return data ? JSON.parse(data) : [];
+  }
+
+  function saveSubmissions(submissions) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(submissions));
+  }
+
+  function addSubmission(submission) {
+    const submissions = getSubmissions();
+    submissions.push({
+      ...submission,
+      id: Date.now(),
+      timestamp: new Date().toLocaleString()
+    });
+    saveSubmissions(submissions);
+    renderSubmissions();
+  }
+
+  function deleteSubmission(id) {
+    const submissions = getSubmissions();
+    const filtered = submissions.filter(sub => sub.id !== id);
+    saveSubmissions(filtered);
+    renderSubmissions();
+  }
+
+  function clearAllSubmissions() {
+    if (confirm('Are you sure you want to clear all submissions?')) {
+      localStorage.removeItem(STORAGE_KEY);
+      renderSubmissions();
+    }
+  }
+
+  function renderSubmissions() {
+    const submissions = getSubmissions();
+    const tbody = document.getElementById('submissionsTableBody');
+    
+    if (submissions.length === 0) {
+      tbody.innerHTML = '<tr><td colspan="6" class="empty-state">No submissions yet</td></tr>';
+      return;
+    }
+
+    tbody.innerHTML = submissions.map(sub => `
+      <tr>
+        <td data-label="Name">${escapeHtml(sub.name)}</td>
+        <td data-label="Contact No.">${escapeHtml(sub.contactNo)}</td>
+        <td data-label="Email">${escapeHtml(sub.email)}</td>
+        <td data-label="Message">${escapeHtml(sub.message)}</td>
+        <td data-label="Date">${sub.timestamp}</td>
+        <td data-label="Action">
+          <button onclick="deleteSubmission(${sub.id})" class="delete-btn">Delete</button>
+        </td>
+      </tr>
+    `).reverse().join('');
+  }
+
+  function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+
+  // FORM SUBMISSION HANDLER
+  document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    const formData = {
+      name: this.name.value,
+      contactNo: this.contactNo.value,
+      email: this.email.value,
+      message: this.message.value
+    };
+
+    addSubmission(formData);
+    alert('Message sent successfully!');
+    this.reset();
+  });
+
+  // Load submissions on page load
+  document.addEventListener('DOMContentLoaded', function() {
+    renderSubmissions();
+  });
+
+  // NAVIGATION ACTIVE STATE
+  const sections = document.querySelectorAll('section');
+  const navLinks = document.querySelectorAll('nav a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      if (pageYOffset >= sectionTop - 200) {
+        current = section.getAttribute('id');
+      }
+    });
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === `#${current}`) {
+        link.classList.add('active');
+      }
+    });
+  });
+</script>
+
+</body>
 </html>
- 
-<!--  This is just a test  -->
