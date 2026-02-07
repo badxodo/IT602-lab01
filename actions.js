@@ -51,9 +51,6 @@ form.addEventListener("submit", async (e) => {
         });
 
     let existingUsers = JSON.parse(localStorage.getItem("contact-data")) || [];
-    if (!Array.isArray(existingUsers)) {
-        existingUsers = [existingUsers];
-    }
 
     const submissionWithDate = {
         ...user,
