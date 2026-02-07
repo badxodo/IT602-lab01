@@ -1,0 +1,1352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIKA ESPANTALEON</title>
+    <link rel="icon" type="image/x-icon" href="resources/favicon-v2.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'jost': ['Jost', 'sans-serif'],
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        'brand-dark': '#130101',
+                        'brand-red': '#410000',
+                        'brand-red-medium': '#460808',
+                        'brand-red-bright': '#8b0000',
+                        'brand-pink': '#ffa0a0',
+                        'brand-pink-bright': '#ff6b6b',
+                    },
+                    keyframes: {
+                        flyInTopLeft: {
+                            '0%': { transform: 'translate(-300%, -300%) rotate(-360deg) scale(0.3)', opacity: '0' },
+                            '60%': { transform: 'translate(0, 0) rotate(10deg) scale(1.05)', opacity: '1' },
+                            '100%': { transform: 'translate(0, 0) rotate(0deg) scale(1)', opacity: '1' },
+                        },
+                        flyInTopRight: {
+                            '0%': { transform: 'translate(300%, -300%) rotate(360deg) scale(0.3)', opacity: '0' },
+                            '60%': { transform: 'translate(0, 0) rotate(-10deg) scale(1.05)', opacity: '1' },
+                            '100%': { transform: 'translate(0, 0) rotate(0deg) scale(1)', opacity: '1' },
+                        },
+                        flyInBottomLeft: {
+                            '0%': { transform: 'translate(-300%, 300%) rotate(360deg) scale(0.3)', opacity: '0' },
+                            '60%': { transform: 'translate(0, 0) rotate(-10deg) scale(1.05)', opacity: '1' },
+                            '100%': { transform: 'translate(0, 0) rotate(0deg) scale(1)', opacity: '1' },
+                        },
+                        flyInBottomRight: {
+                            '0%': { transform: 'translate(300%, 300%) rotate(-360deg) scale(0.3)', opacity: '0' },
+                            '60%': { transform: 'translate(0, 0) rotate(10deg) scale(1.05)', opacity: '1' },
+                            '100%': { transform: 'translate(0, 0) rotate(0deg) scale(1)', opacity: '1' },
+                        },
+                        fadeIn: {
+                            'from': { opacity: '0' },
+                            'to': { opacity: '1' },
+                        },
+                        fadeInUp: {
+                            'from': { opacity: '0', transform: 'translateY(30px)' },
+                            'to': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        fadeInDown: {
+                            'from': { opacity: '0', transform: 'translateY(-30px)' },
+                            'to': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        slideInLeft: {
+                            'from': { opacity: '0', transform: 'translateX(-50px)' },
+                            'to': { opacity: '1', transform: 'translateX(0)' },
+                        },
+                        slideInRight: {
+                            'from': { opacity: '0', transform: 'translateX(50px)' },
+                            'to': { opacity: '1', transform: 'translateX(0)' },
+                        },
+                        lineGrow: {
+                            'from': { width: '0' },
+                            'to': { width: '900px' },
+                        },
+                        logoPop: {
+                            '0%': { transform: 'scale(1)' },
+                            '50%': { transform: 'scale(1.2)' },
+                            '100%': { transform: 'scale(1)' },
+                        },
+                        toggleSpin: {
+                            '0%': { transform: 'rotate(0deg) scale(1)' },
+                            '50%': { transform: 'rotate(180deg) scale(1.25)' },
+                            '100%': { transform: 'rotate(360deg) scale(1)' },
+                        },
+                        float1: {
+                            '0%, 100%': { transform: 'translate(0, 0) rotate(0deg) scale(1)' },
+                            '25%': { transform: 'translate(150px, -120px) rotate(45deg) scale(1.1)' },
+                            '50%': { transform: 'translate(280px, 80px) rotate(90deg) scale(0.95)' },
+                            '75%': { transform: 'translate(80px, 150px) rotate(135deg) scale(1.05)' },
+                        },
+                        float2: {
+                            '0%, 100%': { transform: 'translate(0, 0) rotate(0deg) scale(1)' },
+                            '25%': { transform: 'translate(-180px, 100px) rotate(-45deg) scale(1.08)' },
+                            '50%': { transform: 'translate(-120px, -150px) rotate(-90deg) scale(0.92)' },
+                            '75%': { transform: 'translate(-220px, 70px) rotate(-135deg) scale(1.03)' },
+                        },
+                        float3: {
+                            '0%, 100%': { transform: 'translate(0, 0) scale(1) rotate(0deg)' },
+                            '33%': { transform: 'translate(120px, -100px) scale(1.15) rotate(60deg)' },
+                            '66%': { transform: 'translate(-110px, 120px) scale(0.88) rotate(120deg)' },
+                        },
+                        fadeInScale: {
+                            'from': { opacity: '0', transform: 'scale(0.8)' },
+                            'to': { opacity: '1', transform: 'scale(1)' },
+                        },
+                    },
+                    animation: {
+                        'fly-top-left': 'flyInTopLeft 2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards',
+                        'fly-top-right': 'flyInTopRight 2s cubic-bezier(0.34, 1.56, 0.64, 1) 0.05s forwards',
+                        'fly-bottom-left': 'flyInBottomLeft 2s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s forwards',
+                        'fly-bottom-right': 'flyInBottomRight 2s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s forwards',
+                        'fade-in': 'fadeIn 1s ease-out 0.6s forwards',
+                        'fade-in-up': 'fadeInUp 1s ease-out 0.2s backwards',
+                        'fade-in-up-delay': 'fadeInUp 1s ease-out 0.4s backwards',
+                        'fade-in-down': 'fadeInDown 0.8s ease-out',
+                        'line-grow': 'lineGrow 1.2s ease-out 0.6s backwards',
+                        'logo-pop': 'logoPop 0.4s ease',
+                        'toggle-spin': 'toggleSpin 0.6s ease-in-out',
+                        'float-1': 'float1 18s ease-in-out infinite',
+                        'float-2': 'float2 22s ease-in-out infinite',
+                        'float-3': 'float3 20s ease-in-out infinite',
+                        'fade-in-scale': 'fadeInScale 0.8s ease-out 0.8s backwards',
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar styles */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(240, 240, 240, 0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, rgba(70, 8, 8, 0.8), rgba(139, 0, 0, 0.8));
+            border-radius: 10px;
+            border: 2px solid rgba(240, 240, 240, 0.3);
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, rgba(139, 0, 0, 0.9), rgba(70, 8, 8, 0.9));
+        }
+
+        .dark ::-webkit-scrollbar-track {
+            background: rgba(26, 5, 5, 0.5);
+            backdrop-filter: blur(10px);
+        }
+
+        .dark ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, rgba(255, 160, 160, 0.8), rgba(255, 107, 107, 0.8));
+            border: 2px solid rgba(26, 5, 5, 0.3);
+        }
+
+        .dark ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, rgba(255, 107, 107, 0.9), rgba(255, 160, 160, 0.9));
+        }
+
+        * {
+            scrollbar-width: thin;
+            scrollbar-color: rgba(70, 8, 8, 0.8) rgba(240, 240, 240, 0.5);
+        }
+
+        .dark * {
+            scrollbar-color: rgba(255, 160, 160, 0.8) rgba(26, 5, 5, 0.5);
+        }
+
+        /* iOS 16-like Glass Effect for Header */
+        .header {
+            background: rgba(255, 255, 255, 0.72) !important;
+            backdrop-filter: saturate(200%) blur(24px);
+            -webkit-backdrop-filter: saturate(200%) blur(24px);
+            border-bottom: 0.33px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.03),
+                0 2px 8px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .dark .header {
+            background: rgba(19, 1, 1, 0.72) !important;
+            backdrop-filter: saturate(200%) blur(24px);
+            -webkit-backdrop-filter: saturate(200%) blur(24px);
+            border-bottom: 0.33px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 1px 0 0 rgba(255, 255, 255, 0.04),
+                0 2px 8px -2px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Toggle animations */
+        .mode-toggle {
+            transition: all 0.3s ease;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+        }
+
+        .mode-toggle:hover {
+            transform: rotate(-10deg) scale(1.2);
+            filter: drop-shadow(0 4px 12px rgba(139, 0, 0, 0.4));
+        }
+
+        .dark .mode-toggle:hover {
+            filter: drop-shadow(0 4px 12px rgba(255, 160, 160, 0.5));
+        }
+
+        .mode-toggle.spinning {
+            animation: toggleSpin 0.6s ease-in-out;
+        }
+
+        /* Gradient text effect */
+        .name-gradient {
+            background: linear-gradient(90deg, #410000 0%, #8b0000 50%, #410000 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% auto;
+            transition: background-position 0.5s ease;
+        }
+
+        .name-gradient:hover {
+            background-position: 200% center;
+        }
+
+        .dark .name-gradient {
+            background: linear-gradient(90deg, #ffffff 0%, #ffa0a0 50%, #ffffff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            background-size: 200% auto;
+        }
+
+        /* Underline animation for nav */
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #460808, #ffa0a0);
+            transition: width 0.4s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        .dark .nav-link::after {
+            background-color: #ffffff;
+        }
+
+        /* iOS 16 Glass Button Effect */
+        .glass-button {
+            background: rgba(255, 255, 255, 0.68) !important;
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border: 0.5px solid rgba(70, 8, 8, 0.12);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04),
+                0 4px 12px rgba(70, 8, 8, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-button:hover {
+            background: rgba(255, 255, 255, 0.82) !important;
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06),
+                0 8px 24px rgba(70, 8, 8, 0.14),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
+        }
+
+        .dark .glass-button {
+            background: rgba(255, 160, 160, 0.18) !important;
+            border: 0.5px solid rgba(255, 160, 160, 0.2);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2),
+                0 4px 12px rgba(255, 160, 160, 0.12),
+                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .dark .glass-button:hover {
+            background: rgba(255, 160, 160, 0.26) !important;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3),
+                0 8px 24px rgba(255, 160, 160, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.15);
+        }
+
+        /* Button shimmer effect */
+        .btn-shimmer::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-shimmer:hover::before {
+            left: 100%;
+        }
+
+        /* Glass effect transitions */
+        .splash-screen.glass-transition {
+            background: rgba(255, 255, 255, 0.3) !important;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        .dark .splash-screen.glass-transition {
+            background: rgba(19, 1, 1, 0.3) !important;
+        }
+
+        .splash-screen.fade-out {
+            opacity: 0;
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            pointer-events: none;
+        }
+
+        .splash-screen.glass-transition .logo-assembly {
+            transform: scale(1.1);
+        }
+
+        .splash-screen.fade-out .logo-assembly {
+            opacity: 0;
+            transform: scale(1.3);
+        }
+
+        /* Logo pieces clip paths */
+        .piece-1 {
+            clip-path: polygon(0 0, 50% 0, 50% 50%, 0 50%);
+        }
+
+        .piece-2 {
+            clip-path: polygon(50% 0, 100% 0, 100% 50%, 50% 50%);
+        }
+
+        .piece-3 {
+            clip-path: polygon(0 50%, 50% 50%, 50% 100%, 0 100%);
+        }
+
+        .piece-4 {
+            clip-path: polygon(50% 50%, 100% 50%, 100% 100%, 50% 100%);
+        }
+
+        /* Responsive line grow animation */
+        @media (max-width: 768px) {
+            @keyframes lineGrow {
+                from {
+                    width: 0;
+                }
+
+                to {
+                    width: 100%;
+                }
+            }
+        }
+
+        /* Dark mode body styles */
+        .dark {
+            background: #130101 !important;
+            color: #ffffff !important;
+        }
+
+        /* Logo filter for dark mode */
+        .dark .logo img,
+        .dark .logo-piece {
+            filter: brightness(0) invert(1);
+        }
+
+        /* Nav links dark mode */
+        .dark .nav-link {
+            color: #ffffff !important;
+        }
+
+        /* Greeting and tagline dark mode */
+        .dark .greeting {
+            color: #ffffff !important;
+        }
+
+        .dark .tagline {
+            color: #ffa0a0 !important;
+        }
+
+        /* Name outline dark mode */
+        .dark .name-outline {
+            color: #ffffff !important;
+        }
+
+        /* Separator dark mode */
+        .dark .name-separator {
+            background: #ffa0a0 !important;
+        }
+
+        /* Social icons dark mode */
+        .dark .social-link img {
+            filter: brightness(0.9);
+        }
+
+        /* Button dark mode */
+        .dark .know-more-btn {
+            background: linear-gradient(135deg, #ffa0a0, #ff6b6b) !important;
+            color: #130101 !important;
+            box-shadow: 0 4px 15px rgba(255, 160, 160, 0.3) !important;
+        }
+
+        .dark .know-more-btn:hover {
+            box-shadow: 0 6px 25px rgba(255, 160, 160, 0.5) !important;
+        }
+
+        /* iOS 16 Glass Panels */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.68) !important;
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            border: 0.5px solid rgba(70, 8, 8, 0.1);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04),
+                0 8px 32px rgba(70, 8, 8, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+        }
+
+        .dark .glass-panel {
+            background: rgba(19, 1, 1, 0.68) !important;
+            border: 0.5px solid rgba(255, 160, 160, 0.15);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3),
+                0 8px 32px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        }
+
+        /* Contact section dark mode */
+        .dark .contact-title {
+            color: #ffffff !important;
+        }
+
+        .dark .contact-title::after {
+            background: linear-gradient(90deg, #ffa0a0, #ff6b6b) !important;
+        }
+
+        .dark .contact-subtitle {
+            color: #ffffff !important;
+        }
+
+        .dark .contact-subtitle::after {
+            background: linear-gradient(90deg, #ffa0a0, #ff6b6b) !important;
+        }
+
+        .dark .contact-item span {
+            color: #ffffff !important;
+        }
+
+        .dark .contact-item:hover {
+            background: rgba(255, 160, 160, 0.08) !important;
+        }
+
+        .dark .contact-icon {
+            background: linear-gradient(135deg, #ffa0a0, #ff6b6b) !important;
+            box-shadow: 0 4px 15px rgba(255, 160, 160, 0.2) !important;
+        }
+
+        .dark .icon-light {
+            display: none !important;
+        }
+
+        .dark .icon-dark {
+            display: block !important;
+        }
+
+        .dark .form-input,
+        .dark .form-textarea {
+            background: rgba(19, 1, 1, 0.6) !important;
+            border: 2px solid rgba(255, 160, 160, 0.1) !important;
+            color: #ffffff !important;
+        }
+
+        .dark .form-input::placeholder,
+        .dark .form-textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5) !important;
+        }
+
+        .dark .form-input:focus,
+        .dark .form-textarea:focus {
+            border-color: #ffa0a0 !important;
+            background: rgba(19, 1, 1, 0.8) !important;
+            box-shadow: 0 0 0 3px rgba(255, 160, 160, 0.1) !important;
+        }
+
+        .dark .form-submit {
+            background: linear-gradient(135deg, #ffa0a0, #ff6b6b) !important;
+            color: #130101 !important;
+            box-shadow: 0 4px 15px rgba(255, 160, 160, 0.3) !important;
+        }
+
+        .dark .form-submit:hover {
+            box-shadow: 0 6px 25px rgba(255, 160, 160, 0.5) !important;
+        }
+
+        .dark .form-footer {
+            color: rgba(255, 255, 255, 0.6) !important;
+        }
+
+        /* Toast Notification Styles */
+        .toast-notification {
+            position: fixed;
+            top: 100px;
+            right: 30px;
+            padding: 20px 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-family: 'Jost', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            min-width: 300px;
+            backdrop-filter: blur(20px);
+            animation: slideInToast 0.4s ease-out, fadeOutToast 0.4s ease-in 2.6s forwards;
+            pointer-events: none;
+        }
+
+        @keyframes slideInToast {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeOutToast {
+            to {
+                opacity: 0;
+                transform: translateX(400px);
+            }
+        }
+
+        .toast-success {
+            background: rgba(16, 185, 129, 0.95);
+            color: white;
+            border: 0.5px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .toast-error {
+            background: rgba(239, 68, 68, 0.95);
+            color: white;
+            border: 0.5px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .toast-icon {
+            font-size: 24px;
+            animation: scaleInIcon 0.3s ease-out 0.2s backwards;
+        }
+
+        @keyframes scaleInIcon {
+            from {
+                transform: scale(0) rotate(-180deg);
+            }
+
+            to {
+                transform: scale(1) rotate(0deg);
+            }
+        }
+
+        /* Messages container styles */
+        .messages-container {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+        }
+
+        .messages-container.expanded {
+            max-height: 2000px;
+        }
+
+        /* Glass Table wrapper */
+        .table-wrapper {
+            overflow-x: auto;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.68);
+            backdrop-filter: saturate(180%) blur(20px);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            padding: 20px;
+            border: 0.5px solid rgba(70, 8, 8, 0.1);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04),
+                0 8px 32px rgba(70, 8, 8, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+        }
+
+        .dark .table-wrapper {
+            background: rgba(19, 1, 1, 0.68);
+            border: 0.5px solid rgba(255, 160, 160, 0.15);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3),
+                0 8px 32px rgba(0, 0, 0, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        }
+
+        .messages-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(70, 8, 8, 0.06);
+        }
+
+        .dark .messages-table {
+            background: rgba(19, 1, 1, 0.4);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .messages-table thead {
+            background: linear-gradient(135deg, rgba(70, 8, 8, 0.95), rgba(139, 0, 0, 0.95));
+            color: white;
+            backdrop-filter: blur(10px);
+        }
+
+        .dark .messages-table thead {
+            background: linear-gradient(135deg, rgba(255, 160, 160, 0.95), rgba(255, 107, 107, 0.95));
+            color: #130101;
+            backdrop-filter: blur(10px);
+        }
+
+        .messages-table th {
+            padding: 18px 20px;
+            text-align: left;
+            font-weight: 700;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .messages-table td {
+            padding: 18px 20px;
+            border-bottom: 1px solid rgba(70, 8, 8, 0.08);
+            color: #410000;
+            font-size: 15px;
+        }
+
+        .dark .messages-table td {
+            border-bottom: 1px solid rgba(255, 160, 160, 0.1);
+            color: #ffffff;
+        }
+
+        .messages-table tbody tr {
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(8px);
+            animation: fadeInUp 0.5s ease-out backwards;
+        }
+
+        .dark .messages-table tbody tr {
+            background: rgba(19, 1, 1, 0.25);
+        }
+
+        .messages-table tbody tr:hover {
+            background: rgba(70, 8, 8, 0.08);
+            transform: scale(1.005);
+        }
+
+        .dark .messages-table tbody tr:hover {
+            background: rgba(255, 160, 160, 0.12);
+        }
+
+        .messages-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .action-btn {
+            padding: 8px 16px;
+            border-radius: 10px;
+            border: none;
+            font-weight: 600;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .delete-action-btn {
+            background: rgba(239, 68, 68, 0.9);
+            color: white;
+            border: 0.5px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .delete-action-btn:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.4);
+            background: rgba(239, 68, 68, 1);
+        }
+
+        .message-cell {
+            max-width: 300px;
+            white-space: normal;
+            word-wrap: break-word;
+            word-break: break-word;
+            overflow-wrap: anywhere;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: rgba(65, 0, 0, 0.5);
+        }
+
+        .dark .empty-state {
+            color: rgba(255, 160, 160, 0.5);
+        }
+
+        .empty-state-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+            opacity: 0.3;
+        }
+
+        @keyframes orbFloat {
+            0% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(40px, -50px);
+            }
+
+            100% {
+                transform: translate(0, 0);
+            }
+        }
+
+
+        /* Enhanced Orbs with More Visible Movement */
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(90px);
+            opacity: 0.35;
+            will-change: transform;
+            transition: opacity 0.7s ease;
+            animation: orbFloat 10s ease-in-out infinite alternate;
+        }
+
+
+        .dark .orb {
+            opacity: 0.25;
+            filter: blur(100px);
+        }
+
+        .orb-1 {
+            background: linear-gradient(135deg, rgba(70, 8, 8, 0.6), rgba(139, 0, 0, 0.6));
+            width: 600px;
+            height: 600px;
+            top: -150px;
+            left: -150px;
+        }
+
+        .orb-2 {
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.5), rgba(255, 160, 160, 0.4));
+            width: 700px;
+            height: 700px;
+            bottom: -200px;
+            right: -200px;
+        }
+
+        .orb-3 {
+            background: linear-gradient(135deg, rgba(70, 8, 8, 0.5), rgba(255, 160, 160, 0.4));
+            width: 550px;
+            height: 550px;
+            top: 40%;
+            left: 40%;
+        }
+
+
+        .dark .orb-1 {
+            background: linear-gradient(135deg, rgba(255, 160, 160, 0.35), rgba(255, 107, 107, 0.35));
+        }
+
+        .dark .orb-2 {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.3), rgba(255, 160, 160, 0.25));
+        }
+
+        .dark .orb-3 {
+            background: linear-gradient(135deg, rgba(255, 160, 160, 0.3), rgba(139, 0, 0, 0.2));
+        }
+
+        /* Splash screen dark mode */
+        .dark .splash-screen {
+            background: #130101 !important;
+        }
+
+        .dark .logo-assembly {
+            filter: drop-shadow(0 10px 30px rgba(255, 160, 160, 0.2));
+        }
+
+        /* Glass input fields */
+        .form-input,
+        .form-textarea {
+            background: rgba(255, 255, 255, 0.5) !important;
+            backdrop-filter: blur(10px);
+            border: 1.5px solid rgba(70, 8, 8, 0.12) !important;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .form-input:focus,
+        .form-textarea:focus {
+            background: rgba(255, 255, 255, 0.7) !important;
+            border-color: rgba(139, 0, 0, 0.3) !important;
+            box-shadow: 0 0 0 4px rgba(139, 0, 0, 0.06),
+                0 4px 12px rgba(70, 8, 8, 0.1) !important;
+        }
+    </style>
+</head>
+
+<body class="dark min-h-screen overflow-y-scroll font-jost bg-white text-brand-dark transition-all duration-400">
+    <!-- Splash Screen -->
+    <div
+        class="splash-screen fixed top-0 left-0 w-full h-full bg-white flex justify-center items-center z-[9999] transition-all duration-1000">
+        <div
+            class="logo-assembly relative w-[350px] h-[350px] max-md:w-[200px] max-md:h-[200px] drop-shadow-[0_10px_30px_rgba(70,8,8,0.3)] transition-all duration-1000">
+            <img src="resources/logo-colored.png" alt="Logo"
+                class="logo-piece piece-1 absolute w-[350px] h-[350px] max-md:w-[200px] max-md:h-[200px] top-0 left-0 animate-fly-top-left">
+            <img src="resources/logo-colored.png" alt="Logo"
+                class="logo-piece piece-2 absolute w-[350px] h-[350px] max-md:w-[200px] max-md:h-[200px] top-0 left-0 animate-fly-top-right">
+            <img src="resources/logo-colored.png" alt="Logo"
+                class="logo-piece piece-3 absolute w-[350px] h-[350px] max-md:w-[200px] max-md:h-[200px] top-0 left-0 animate-fly-bottom-left">
+            <img src="resources/logo-colored.png" alt="Logo"
+                class="logo-piece piece-4 absolute w-[350px] h-[350px] max-md:w-[200px] max-md:h-[200px] top-0 left-0 animate-fly-bottom-right">
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header
+        class="header sticky top-0 z-[1000] flex justify-between items-center px-12 py-2.5 transition-all duration-400 max-md:flex-col max-md:gap-4 max-md:px-5 max-md:py-4">
+        <div class="logo">
+            <img src="resources/logo-colored.png" alt="LOGO"
+                class="h-12 transition-transform duration-300 origin-center hover:rotate-[-8deg] hover:scale-105">
+        </div>
+        <nav class="nav flex items-center gap-14 max-md:gap-4 max-md:ml-0">
+            <a href="#home"
+                class="nav-link active relative no-underline text-brand-red text-xl tracking-wide font-normal transition-all duration-300 hover:font-semibold hover:scale-105 max-md:text-base">Home</a>
+            <a href="#about"
+                class="nav-link relative no-underline text-brand-red text-xl tracking-wide font-normal transition-all duration-300 hover:font-semibold hover:scale-105 max-md:text-base">About</a>
+            <a href="#projects"
+                class="nav-link relative no-underline text-brand-red text-xl tracking-wide font-normal transition-all duration-300 hover:font-semibold hover:scale-105 max-md:text-base">Projects</a>
+            <a href="#contacts"
+                class="nav-link relative no-underline text-brand-red text-xl tracking-wide font-normal transition-all duration-300 hover:font-semibold hover:scale-105 max-md:text-base">Contacts</a>
+
+            <img src="resources/light-mode.png" alt="Toggle Mode"
+                class="mode-toggle w-12 h-12 ml-12 max-md:ml-0 cursor-pointer rotate-[-10deg] transition-all duration-300">
+        </nav>
+    </header>
+
+    <!-- HOME SECTION -->
+    <section
+        class="hero flex items-center justify-center py-20 px-52 gap-16 max-w-[1400px] mx-auto max-lg:px-20 max-lg:py-10 max-md:px-5"
+        id="home">
+        <div class="name-container select-none flex flex-col items-center justify-center text-center mt-8">
+            <p class="greeting text-2xl font-normal text-brand-red mb-1 animate-fade-in-down max-md:text-base">
+                Annyeong!! I am</p>
+            <h1
+                class="name-large name-gradient font-jost text-[120px] font-black tracking-[8px] m-0 leading-none animate-fade-in-up max-lg:text-[80px] max-md:text-[55px] max-md:tracking-[4px]">
+                NIKA</h1>
+            <h2
+                class="name-outline font-jost text-[80px] font-black tracking-[6px] m-0 leading-[0.5] text-brand-red animate-fade-in-up-delay max-lg:text-[60px] max-md:text-[35px] max-md:tracking-[3px] max-md:leading-[1.2]">
+                ESPANTALEON</h2>
+            <p
+                class="tagline text-xl font-light tracking-[3px] mt-4 text-brand-red-medium opacity-0 animate-fade-in max-md:text-sm">
+                3rd Year Student | BSIT 602</p>
+            <div
+                class="name-separator max-w-[900px] w-[90%] h-[3px] bg-brand-red mt-2.5 mx-auto rounded animate-line-grow max-lg:w-4/5 max-md:w-full">
+            </div>
+
+            <div class="social-section flex flex-col items-center mt-4 animate-fade-in-scale">
+                <div class="social-icons flex gap-6 items-center flex-nowrap justify-center max-[560px]:flex-wrap">
+                    <a href="https://instagram.com/spntlnnika" target="_blank"
+                        class="social-link block w-11 h-11 transition-all duration-300 opacity-85 hover:translate-y-[-5px] hover:scale-110 hover:opacity-100">
+                        <img src="resources/instagram.png" alt="Instagram" class="w-full h-full object-contain">
+                    </a>
+                    <a href="https://discord.com/users/861419041159643147" target="_blank"
+                        class="social-link block w-11 h-11 transition-all duration-300 opacity-85 hover:translate-y-[-5px] hover:scale-110 hover:opacity-100">
+                        <img src="resources/discord.png" alt="Discord" class="w-full h-full object-contain">
+                    </a>
+
+                    <a href="#about"
+                        class="know-more-btn btn-shimmer inline-block py-4 px-10 bg-gradient-to-br from-brand-red-medium to-brand-red-bright text-white no-underline text-lg font-semibold tracking-wide rounded-full transition-all duration-300 shadow-[0_4px_15px_rgba(70,8,8,0.3)] relative overflow-hidden mx-4 hover:translate-y-[-3px] hover:shadow-[0_6px_25px_rgba(70,8,8,0.5)] max-w-[320px] w-full max-[560px]:order-5 max-[560px]:text-center">Let's
+                        Work Together</a>
+
+                    <a href="https://facebook.com/msnkia" target="_blank"
+                        class="social-link block w-11 h-11 transition-all duration-300 opacity-85 hover:translate-y-[-5px] hover:scale-110 hover:opacity-100">
+                        <img src="resources/facebook.png" alt="Facebook" class="w-full h-full object-contain">
+                    </a>
+                    <a href="https://github.com/yonkxa" target="_blank"
+                        class="social-link block w-11 h-11 transition-all duration-300 opacity-85 hover:translate-y-[-5px] hover:scale-110 hover:opacity-100">
+                        <img src="resources/github.png" alt="GitHub" class="w-full h-full object-contain">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="min-h-screen py-24 px-12 flex items-center justify-center">
+        <div class="max-w-[1400px] mx-auto">
+            <h2
+                class="contact-title text-5xl font-bold text-center mb-2.5 text-brand-red relative after:content-[''] after:block after:w-20 after:h-1 after:bg-gradient-to-r after:from-brand-red-medium after:to-brand-red-bright after:mt-4 after:mb-14 after:mx-auto after:rounded max-md:text-[32px]">
+                About Me</h2>
+            <p
+                class="text-center text-3xl text-brand-red-medium dark:text-white opacity-60 font-light animate-fade-in-up">
+                soon (ദ്ദി ༎ຶ‿༎ຶ )</p>
+        </div>
+    </section>
+
+    <!-- PROJECTS SECTION -->
+    <section id="projects" class="min-h-screen py-24 px-12 flex items-center justify-center">
+        <div class="max-w-[1400px] mx-auto">
+            <h2
+                class="contact-title text-5xl font-bold text-center mb-2.5 text-brand-red relative after:content-[''] after:block after:w-20 after:h-1 after:bg-gradient-to-r after:from-brand-red-medium after:to-brand-red-bright after:mt-4 after:mb-14 after:mx-auto after:rounded max-md:text-[32px]">
+                Projects</h2>
+            <p
+                class="text-center text-3xl text-brand-red-medium dark:text-white opacity-60 font-light animate-fade-in-up">
+                soon (ദ്ദി ༎ຶ‿༎ຶ )</p>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact-section py-24 px-12 max-w-[1400px] mx-auto" id="contacts">
+        <div class="contact-container w-full">
+            <h2
+                class="contact-title text-5xl font-bold text-center mb-2.5 text-brand-red relative after:content-[''] after:block after:w-20 after:h-1 after:bg-gradient-to-r after:from-brand-red-medium after:to-brand-red-bright after:mt-4 after:mb-14 after:mx-auto after:rounded max-md:text-[32px]">
+                Contact Me</h2>
+
+            <div class="contact-content grid grid-cols-2 gap-8 items-start max-md:grid-cols-1">
+                <!-- Left side - Contact Info -->
+                <div class="glass-panel contact-info p-12 rounded-3xl animate-fade-in-up h-full max-md:p-8">
+                    <h3
+                        class="contact-subtitle text-3xl font-bold mb-10 text-brand-red relative pb-4 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-16 after:h-[3px] after:bg-gradient-to-r after:from-brand-red-medium after:to-brand-red-bright after:rounded">
+                        Get In Touch</h3>
+
+                    <div
+                        class="contact-item flex items-center gap-5 mb-8 p-4 rounded-xl transition-all duration-300 hover:bg-brand-red-medium/5 hover:translate-x-1">
+                        <div
+                            class="contact-icon w-12 h-12 min-w-[50px] flex items-center justify-center bg-gradient-to-br from-brand-red-medium to-brand-red-bright rounded-xl p-3 shadow-[0_4px_15px_rgba(70,8,8,0.2)] relative">
+                            <img src="resources/location-white.png" alt="Location"
+                                class="icon-light w-full h-full object-contain">
+                            <img src="resources/location-colored.png" alt="Location"
+                                class="icon-dark w-full h-full object-contain hidden">
+                        </div>
+                        <span class="text-base text-brand-red font-normal">Davao City, Philippines</span>
+                    </div>
+
+                    <div
+                        class="contact-item flex items-center gap-5 mb-8 p-4 rounded-xl transition-all duration-300 hover:bg-brand-red-medium/5 hover:translate-x-1">
+                        <div
+                            class="contact-icon w-12 h-12 min-w-[50px] flex items-center justify-center bg-gradient-to-br from-brand-red-medium to-brand-red-bright rounded-xl p-3 shadow-[0_4px_15px_rgba(70,8,8,0.2)] relative">
+                            <img src="resources/email-white.png" alt="Email"
+                                class="icon-light w-full h-full object-contain">
+                            <img src="resources/email-colored.png" alt="Email"
+                                class="icon-dark w-full h-full object-contain hidden">
+                        </div>
+                        <span class="text-base text-brand-red font-normal">espantaleonnika6@gmail.com</span>
+                    </div>
+
+                    <div
+                        class="contact-item flex items-center gap-5 mb-8 p-4 rounded-xl transition-all duration-300 hover:bg-brand-red-medium/5 hover:translate-x-1">
+                        <div
+                            class="contact-icon w-12 h-12 min-w-[50px] flex items-center justify-center bg-gradient-to-br from-brand-red-medium to-brand-red-bright rounded-xl p-3 shadow-[0_4px_15px_rgba(70,8,8,0.2)] relative">
+                            <img src="resources/call-white.png" alt="Phone"
+                                class="icon-light w-full h-full object-contain">
+                            <img src="resources/call-colored.png" alt="Phone"
+                                class="icon-dark w-full h-full object-contain hidden">
+                        </div>
+                        <span class="text-base text-brand-red font-normal">(+63) 931 044 2399</span>
+                    </div>
+
+                    <div
+                        class="contact-item flex items-center gap-5 mb-8 p-4 rounded-xl transition-all duration-300 hover:bg-brand-red-medium/5 hover:translate-x-1">
+                        <div
+                            class="contact-icon w-12 h-12 min-w-[50px] flex items-center justify-center bg-gradient-to-br from-brand-red-medium to-brand-red-bright rounded-xl p-3 shadow-[0_4px_15px_rgba(70,8,8,0.2)] relative">
+                            <img src="resources/call-white.png" alt="Phone"
+                                class="icon-light w-full h-full object-contain">
+                            <img src="resources/call-colored.png" alt="Phone"
+                                class="icon-dark w-full h-full object-contain hidden">
+                        </div>
+                        <span class="text-base text-brand-red font-normal">(+63) 924 104 0190</span>
+                    </div>
+                </div>
+
+                <!-- Right side - Contact Form -->
+                <div class="glass-panel contact-form-wrapper p-12 rounded-3xl animate-fade-in-up h-full max-md:p-8">
+                    <form id="contactForm" class="contact-form flex flex-col gap-5">
+                        <input type="text" id="userName" placeholder="Your Name"
+                            class="form-input w-full py-4 px-5 rounded-xl font-jost text-base text-brand-red transition-all duration-300 outline-none placeholder:text-brand-red/50"
+                            required>
+                        <input type="tel" id="userPhone" placeholder="Your Contact Number"
+                            class="form-input w-full py-4 px-5 rounded-xl font-jost text-base text-brand-red transition-all duration-300 outline-none placeholder:text-brand-red/50"
+                            required>
+                        <input type="email" id="userEmail" placeholder="Your Email"
+                            class="form-input w-full py-4 px-5 rounded-xl font-jost text-base text-brand-red transition-all duration-300 outline-none placeholder:text-brand-red/50"
+                            required>
+                        <textarea id="userMessage" placeholder="Your Message"
+                            class="form-textarea w-full py-4 px-5 rounded-xl font-jost text-base text-brand-red transition-all duration-300 outline-none resize-y min-h-[150px] placeholder:text-brand-red/50"
+                            rows="6" required></textarea>
+                        <button type="submit"
+                            class="form-submit btn-shimmer py-4 px-10 bg-gradient-to-br from-brand-red-medium to-brand-red-bright text-white border-none rounded-full font-jost text-lg font-semibold tracking-wide cursor-pointer transition-all duration-300 shadow-[0_4px_15px_rgba(70,8,8,0.3)] relative overflow-hidden hover:translate-y-[-3px] hover:shadow-[0_6px_25px_rgba(70,8,8,0.5)]">Send
+                            Message</button>
+                    </form>
+                    <p
+                        class="form-footer text-center mt-5 text-sm text-brand-red/60 flex items-center justify-center gap-2 before:content-['🪭'] before:text-base">
+                        Work with me</p>
+                </div>
+            </div>
+
+            <!-- Toggle Button for Messages -->
+            <div class="text-center mt-12">
+                <button id="toggleMessages"
+                    class="glass-button toggle-messages-btn py-3 px-8 text-brand-red dark:text-white border-none rounded-full font-jost text-base font-semibold tracking-wide cursor-pointer">
+                    📬 View Received Messages (<span id="messageCount">0</span>)
+                </button>
+            </div>
+
+            <!-- Messages Display Container -->
+            <div id="messagesContainer" class="messages-container mt-8">
+                <div class="table-wrapper">
+                    <table class="messages-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Phone</th>
+                                <th>Email</th>
+                                <th>Message</th>
+                                <th>Date & Time</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="messagesTableBody">
+                            <!-- Messages will be inserted here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Background Orbs with More Visible Movement -->
+    <div class="bg-orbs fixed top-0 left-0 w-full h-full z-[-1] overflow-hidden pointer-events-none">
+        <div class="orb orb-1 animate-float-1"></div>
+        <div class="orb orb-2 animate-float-2"></div>
+        <div class="orb orb-3 animate-float-3"></div>
+    </div>
+
+    <script>
+            // Splash Screen - runs immediately
+            (function () {
+                const splash = document.querySelector('.splash-screen');
+
+                // Wait for logo animation to complete, then fade out
+                setTimeout(() => {
+                    splash.classList.add('glass-transition');
+                    splash.classList.add('fade-out');
+
+                    setTimeout(() => {
+                        splash.style.display = 'none';
+                    }, 1000);
+                }, 2500);
+            })();
+
+        // Main functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const body = document.body;
+            const logo = document.querySelector(".logo img");
+            const toggle = document.querySelector(".mode-toggle");
+
+            // Dark mode toggle with animation
+            toggle.addEventListener("click", () => {
+                body.classList.toggle("dark");
+
+                // Add spinning animation
+                toggle.classList.add("spinning");
+                setTimeout(() => toggle.classList.remove("spinning"), 600);
+
+                toggle.src = body.classList.contains("dark")
+                    ? "resources/light-mode.png"
+                    : "resources/dark-mode.png";
+
+                logo.classList.add("animate-logo-pop");
+                setTimeout(() => logo.classList.remove("animate-logo-pop"), 400);
+            });
+
+            // Logo mouse interaction
+            logo.addEventListener("mousemove", (e) => {
+                const rect = logo.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const centerX = rect.width / 2;
+                const angle = ((centerX - x) / centerX) * 15;
+                logo.style.transform = `rotate(${angle}deg) scale(1.1)`;
+            });
+
+            logo.addEventListener("mouseleave", () => {
+                logo.style.transform = "rotate(0deg) scale(1)";
+            });
+
+            // Smooth scrolling to sections
+            const navLinks = document.querySelectorAll('.nav a');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const href = link.getAttribute('href');
+
+                    if (href.startsWith('#')) {
+                        e.preventDefault();
+
+                        navLinks.forEach(l => l.classList.remove('active'));
+                        link.classList.add('active');
+
+                        const targetId = href.substring(1);
+                        const targetSection = document.getElementById(targetId);
+
+                        if (targetSection) {
+                            targetSection.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    }
+                });
+            });
+
+            // Update active nav link based on scroll position
+            window.addEventListener('scroll', () => {
+                let current = 'home';
+                const sections = document.querySelectorAll('section[id]');
+
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (window.pageYOffset >= sectionTop - 100) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+
+            // Force scroll to top on page load
+            if (history.scrollRestoration) {
+                history.scrollRestoration = 'manual';
+            }
+            window.scrollTo(0, 0);
+
+            // ===== CONTACT FORM FUNCTIONALITY =====
+            const contactForm = document.getElementById('contactForm');
+            const messagesContainer = document.getElementById('messagesContainer');
+            const messagesTableBody = document.getElementById('messagesTableBody');
+            const toggleMessagesBtn = document.getElementById('toggleMessages');
+            const messageCount = document.getElementById('messageCount');
+
+            // Toast notification function
+            function showToast(message, type = 'success') {
+                // Remove existing toasts
+                const existingToasts = document.querySelectorAll('.toast-notification');
+                existingToasts.forEach(toast => toast.remove());
+
+                const toast = document.createElement('div');
+                toast.className = `toast-notification toast-${type}`;
+
+                const icon = type === 'success' ? '✓' : '✕';
+                toast.innerHTML = `
+                    <span class="toast-icon">${icon}</span>
+                    <span>${message}</span>
+                `;
+
+                document.body.appendChild(toast);
+
+                // Remove after 3 seconds
+                setTimeout(() => {
+                    toast.remove();
+                }, 3000);
+            }
+
+            // Load messages from localStorage
+            function loadMessages() {
+                try {
+                    const messages = JSON.parse(localStorage.getItem('contactMessages') || '[]');
+                    return messages;
+                } catch (error) {
+                    console.error('Error loading messages:', error);
+                    return [];
+                }
+            }
+
+            // Save messages to localStorage
+            function saveMessages(messages) {
+                try {
+                    localStorage.setItem('contactMessages', JSON.stringify(messages));
+                    return true;
+                } catch (error) {
+                    console.error('Error saving messages:', error);
+                    showToast('Failed to save message!', 'error');
+                    return false;
+                }
+            }
+
+            // Format date for display
+            function formatDate(timestamp) {
+                const date = new Date(timestamp);
+                return date.toLocaleString('en-US', {
+                    month: 'short',
+                    day: 'numeric',
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+            }
+
+            // Display messages in table
+            function displayMessages() {
+                const messages = loadMessages();
+                messageCount.textContent = messages.length;
+
+                if (messages.length === 0) {
+                    messagesTableBody.innerHTML = `
+                        <tr>
+                            <td colspan="6" class="empty-state">
+                                <div class="empty-state-icon">📭</div>
+                                <p class="text-lg font-semibold">No messages yet</p>
+                                <p class="text-sm mt-2">Messages will appear here once submitted</p>
+                            </td>
+                        </tr>
+                    `;
+                    return;
+                }
+
+                messagesTableBody.innerHTML = messages.map((msg, index) => `
+                    <tr style="animation-delay: ${index * 0.05}s">
+                        <td class="font-semibold">${msg.name}</td>
+                        <td>${msg.phone}</td>
+                        <td>${msg.email}</td>
+                        <td class="message-cell" title="${msg.message}">${msg.message}</td>
+                        <td>${formatDate(msg.timestamp)}</td>
+                        <td>
+                            <button onclick="deleteMessage(${index})" class="action-btn delete-action-btn">
+                                Delete
+                            </button>
+                        </td>
+                    </tr>
+                `).join('');
+            }
+
+            // Delete message function (global scope)
+            window.deleteMessage = function (index) {
+                if (confirm('Are you sure you want to delete this message?')) {
+                    const messages = loadMessages();
+                    messages.splice(index, 1);
+
+                    if (saveMessages(messages)) {
+                        displayMessages();
+                        showToast('Message deleted successfully!', 'success');
+                    }
+                }
+            };
+
+            // Toggle messages visibility
+            toggleMessagesBtn.addEventListener('click', () => {
+                messagesContainer.classList.toggle('expanded');
+                const isExpanded = messagesContainer.classList.contains('expanded');
+                toggleMessagesBtn.innerHTML = isExpanded
+                    ? `📭 Hide Messages (<span id="messageCount">${loadMessages().length}</span>)`
+                    : `📬 View Received Messages (<span id="messageCount">${loadMessages().length}</span>)`;
+            });
+
+            // Handle form submission
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                try {
+                    // Get form values
+                    const name = document.getElementById('userName').value.trim();
+                    const phone = document.getElementById('userPhone').value.trim();
+                    const email = document.getElementById('userEmail').value.trim();
+                    const message = document.getElementById('userMessage').value.trim();
+
+                    // Validate inputs
+                    if (!name || !phone || !email || !message) {
+                        showToast('Please fill in all fields!', 'error');
+                        return;
+                    }
+
+                    // Create message object
+                    const newMessage = {
+                        name,
+                        phone,
+                        email,
+                        message,
+                        timestamp: new Date().toISOString()
+                    };
+
+                    // Save to localStorage
+                    const messages = loadMessages();
+                    messages.unshift(newMessage); // Add to beginning of array
+
+                    if (saveMessages(messages)) {
+                        // Show success toast
+                        showToast('Message sent successfully! ✨', 'success');
+
+                        // Clear form
+                        contactForm.reset();
+
+                        // Update messages display
+                        displayMessages();
+
+                        // Auto-expand messages if collapsed
+                        if (!messagesContainer.classList.contains('expanded')) {
+                            messagesContainer.classList.add('expanded');
+                            toggleMessagesBtn.innerHTML = `📭 Hide Messages (<span id="messageCount">${loadMessages().length}</span>)`;
+                        }
+
+                        // Scroll to messages
+                        setTimeout(() => {
+                            messagesContainer.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                        }, 100);
+                    }
+                } catch (error) {
+                    console.error('Error submitting form:', error);
+                    showToast('Failed to send message!', 'error');
+                }
+            });
+
+            // Initial load of messages
+            displayMessages();
+        });
+
+        // On page reload, scroll to top
+        window.addEventListener('beforeunload', () => {
+            window.scrollTo(0, 0);
+        });
+    </script>
+</body>
+
+</html>
