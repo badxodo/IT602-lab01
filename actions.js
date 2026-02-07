@@ -49,11 +49,23 @@ form.addEventListener("submit", async (e) => {
             console.error("Internal Server Error");
             alert("Internal Server Error");
         });
-    localStorage.setItem("contact-data", JSON.stringify(user));
+
+    let existingUsers = JSON.parse(localStorage.getItem("contact-data")) || [];
+    if (!Array.isArray(existingUsers)) {
+        existingUsers = [existingUsers];
+    }
+
+    const submissionWithDate = {
+        ...user,
+        submittedAt: new Date().toLocaleString(),
+        status: "Mark as Read",
+    };
+
+    existingUsers.push(submissionWithDate);
+    localStorage.setItem("contact-data", JSON.stringify(existingUsers));
 
     // PUBLIC KEY 3_l0I4pTgzMUrIusn
     // PRIVATE KEY lKJVUFi8Ym2MaB_xFGjFW
     // TEMPLATE ID template_2cpvqph
     // SERVICE ID service_pznrcog
-    console.log(message);
 });

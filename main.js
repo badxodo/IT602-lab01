@@ -6,7 +6,7 @@ window.addEventListener("load", () => {
         loader.classList.remove("flex");
         mainContent.classList.remove("hidden");
         mainContent.classList.add("flex flex-col justify-center relative");
-    }, 2300);
+    }, 0);
 });
 
 const homeNav = document.getElementById("homeNav");
