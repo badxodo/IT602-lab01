@@ -1,0 +1,10 @@
+:root {
+    --primary-color: black;
+    --secondary-color: #00ff88;
+    --accent-color: #1a1a1a;
+
+    --primary-text: white;
+    --secondary-text: black;
+
+    --muted-text: #777777;
+}
