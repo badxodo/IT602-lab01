@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Message Log</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <style>
+    .neon-border{ position: relative; }
+    .neon-border::before{
+      content:"";
+      position:absolute;
+      inset:-1px;
+      border-radius: 1.5rem;
+      padding:1px;
+      background: linear-gradient(135deg, rgba(34,211,238,.95), rgba(168,85,247,.85), rgba(236,72,153,.75));
+      -webkit-mask:
+        linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity:.55;
+      pointer-events:none;
+    }
+  </style>
+</head>
+
+<body class="min-h-screen bg-[#0b0f1a] text-white overflow-x-hidden">
+
+  <!-- background blobs -->
+  <div class="pointer-events-none fixed inset-0 -z-10">
+    <div class="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-fuchsia-500/30 blur-3xl"></div>
+    <div class="absolute top-40 -right-24 h-80 w-80 rounded-full bg-cyan-400/25 blur-3xl"></div>
+    <div class="absolute bottom-0 left-1/2 h-96 w-96 -translate-x-1/2 rounded-full bg-violet-500/20 blur-3xl"></div>
+
+    <div class="absolute inset-0 opacity-[0.08]"
+      style="background-image:
+        linear-gradient(to right, rgba(255,255,255,.25) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,.25) 1px, transparent 1px);
+        background-size: 60px 60px;">
+    </div>
+  </div>
+
+  <main class="mx-auto max-w-6xl px-6 py-10 sm:py-14">
+
+    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <div>
+        <h1 class="text-3xl sm:text-4xl font-extrabold tracking-wide
+                   drop-shadow-[0_0_22px_rgba(34,211,238,0.25)]">
+          Message Log
+        </h1>       
+      </div>    
+        <button id="clearLog" type="button"
+          class="rounded-xl border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold tracking-widest
+                 transition hover:border-red-400/30 hover:bg-white/10">
+          Clear Log
+        </button>
+      </div>
+    </div>
+
+    <section class="neon-border mt-8 rounded-3xl border border-white/10 bg-white/5 p-5 sm:p-7 backdrop-blur-md
+                    shadow-[0_0_30px_rgba(34,211,238,0.10)]">
+
+      <div class="overflow-x-auto rounded-2xl border border-white/10 bg-[#070A13]/40">
+        <table class="min-w-[860px] w-full border-collapse">
+          <thead>
+            <tr class="bg-white/5 text-left text-xs uppercase tracking-wider text-white/60">
+              <th class="px-4 py-4 border-b border-white/10">Timestamp</th>
+              <th class="px-4 py-4 border-b border-white/10">Sender</th>
+              <th class="px-4 py-4 border-b border-white/10">Email</th>
+              <th class="px-4 py-4 border-b border-white/10">Message</th>
+            </tr>
+          </thead>
+
+          <tbody id="submissions-list">
+            <tr id="empty-state">
+              <td colspan="4" class="px-4 py-10 text-center italic text-white/45">
+                Your inbox is currently empty.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>      
+    </section>
+
+  </main>
+
+  <script>
+    const STORAGE_KEY = "contact_submissions";
+    const list = document.getElementById("submissions-list");
+    const clearBtn = document.getElementById("clearLog");
+
+    function escapeHtml(str) {
+      return String(str)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+
+    function loadSubmissions() {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      const data = raw ? JSON.parse(raw) : [];
+
+      if (!data.length) {
+        list.innerHTML = `
+          <tr id="empty-state">
+            <td colspan="4" class="px-4 py-10 text-center italic text-white/45">
+              Your inbox is currently empty.
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      list.innerHTML = data.slice().reverse().map(entry => `
+        <tr class="hover:bg-cyan-300/5 transition">
+          <td class="px-4 py-4 border-b border-white/5 text-white/60 whitespace-nowrap">
+            ${escapeHtml(entry.submittedAt || "")}
+          </td>
+          <td class="px-4 py-4 border-b border-white/5 text-white/90 font-semibold">
+            ${escapeHtml(entry.name || "")}
+          </td>
+          <td class="px-4 py-4 border-b border-white/5 text-cyan-300 underline decoration-white/20">
+            ${escapeHtml(entry.email || "")}
+          </td>
+          <td class="px-4 py-4 border-b border-white/5 text-white/80">
+            ${escapeHtml(entry.message || "")}
+          </td>
+        </tr>
+      `).join("");
+    }
+
+    loadSubmissions();
+
+    if (clearBtn) {
+      clearBtn.addEventListener("click", () => {
+        localStorage.removeItem(STORAGE_KEY);
+        loadSubmissions();
+      });
+    }
+  </script>
+
+</body>
+</html>
