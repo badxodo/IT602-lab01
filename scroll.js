@@ -52,7 +52,7 @@ function scrollAboutAnimation() {
     if (rect.top > windowHeight * 0.8) {
         about.classList.remove("show");
     }
-    if (rect.top < windowHeight * 1.5) {
+    if (rect.top < windowHeight * 2) {
         about.classList.add("show");
     }
 }

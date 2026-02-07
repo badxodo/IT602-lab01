@@ -275,7 +275,7 @@
                 </div>
 
                 <div
-                    class="about-stack flex flex-wrap justify-center items-center gap-6 mt-8 md:w-full w-[80%] mx-auto"
+                    class="about-stack flex flex-wrap justify-center items-center gap-6 mt-8 w-[80%] mx-auto"
                 >
                     <div class="tooltip relative inline-block">
                         <img
@@ -644,41 +644,49 @@
 
                     <form
                         id="contact-form"
-                        class="right-footer w-[80%] lg:w-[40%] bg-white relative rounded-2xl text-black flex flex-col justify-center items-center gap-5 p-8"
+                        class="right-footer w-[80%] md:w-[60%] lg:w-[50%] bg-white relative rounded-2xl text-black flex flex-col justify-center items-center gap-5 p-8"
                     >
                         <p
                             class="absolute top-[3%] left-[5%] italic text-[var(--muted-text)]"
                         >
                             Tell me something ..!! 😁
                         </p>
-                        <div class="flex flex-col w-full gap-2 mt-5">
-                            <label for="name"
-                                >Name <span class="text-red-500">*</span></label
+                        <div
+                            class="flex lg:flex-row flex-col w-full gap-2 items-center mt-5"
+                        >
+                            <div
+                                class="flex flex-col w-full gap-2 whitespace-nowrap"
                             >
-                            <input
-                                name="name"
-                                type="text"
-                                placeholder="Prince Sestoso"
-                                class="w-full border border-black rounded-[0.5rem] px-4 py-2 text-sm outline-none focus:border-[var(--secondary-color)]"
-                                required
-                            />
-                        </div>
+                                <label for="name"
+                                    >Name
+                                    <span class="text-red-500">*</span></label
+                                >
+                                <input
+                                    name="name"
+                                    type="text"
+                                    placeholder="Prince Sestoso"
+                                    class="w-full border border-black rounded-[0.5rem] px-4 py-2 text-sm outline-none focus:border-[var(--secondary-color)]"
+                                    required
+                                />
+                            </div>
 
-                        <div class="flex flex-col w-full gap-2">
-                            <label for="contact-number"
-                                >Contact Number
-                                <span class="text-red-500">*</span></label
+                            <div
+                                class="flex flex-col w-full gap-2 whitespace-nowrap"
                             >
-                            <input
-                                name="contact-number"
-                                type="tel"
-                                pattern="[0-9]*"
-                                placeholder="09123456789"
-                                class="w-full border border-black rounded-[0.5rem] px-4 py-2 text-sm outline-none focus:border-[var(--secondary-color)]"
-                                required
-                            />
+                                <label for="contact-number "
+                                    >Contact Number
+                                    <span class="text-red-500">*</span></label
+                                >
+                                <input
+                                    name="contact-number"
+                                    type="tel"
+                                    pattern="[0-9]*"
+                                    placeholder="09123456789"
+                                    class="w-full border border-black rounded-[0.5rem] px-4 py-2 text-sm outline-none focus:border-[var(--secondary-color)]"
+                                    required
+                                />
+                            </div>
                         </div>
-
                         <div class="flex flex-col w-full gap-2">
                             <label for="email"
                                 >Email

@@ -27,13 +27,10 @@ navLinks.forEach((n, i) => {
         if (i === 0) {
             sections[i].scrollIntoView({ behavior: "smooth" });
         } else {
-            let offsetY = 50;
-            // if (i === 1 || i === 2 || i === 3) offsetY -= 230;
+            let offsetY = 0;
+            if (i === 2) offsetY += 50;
 
-            const scroll =
-                sections[i].getBoundingClientRect().top +
-                window.scrollY -
-                offsetY;
+            const scroll = sections[i].offsetTop - offsetY;
             window.scrollTo({ top: scroll, behavior: "smooth" });
         }
     });
