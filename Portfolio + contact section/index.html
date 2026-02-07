@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nicollette Libunao - Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="resources/N.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Scope+One&family=Jost:wght@900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'scope': ['Scope One', 'serif'],
+                        'jost': ['Jost', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        
+        @keyframes slide {
+            0% { transform: translateY(0); opacity: 0.7; }
+            50% { transform: translateY(-6px); opacity: 1; }
+            100% { transform: translateY(0); opacity: 0.7; }
+        }
+        
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float1 {
+            0% { 
+                transform: translate(0, 0) scale(1);
+                border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            }
+            33% { 
+                transform: translate(50px, -40px) scale(1.2);
+                border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+            }
+            66% { 
+                transform: translate(-40px, 30px) scale(0.85);
+                border-radius: 40% 60% 60% 40% / 60% 30% 60% 40%;
+            }
+            100% { 
+                transform: translate(0, 0) scale(1);
+                border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            }
+        }
+
+        @keyframes float2 {
+            0% { 
+                transform: translate(0, 0) scale(1);
+                border-radius: 40% 60% 60% 40% / 40% 60% 40% 60%;
+            }
+            33% { 
+                transform: translate(-45px, 50px) scale(0.85);
+                border-radius: 60% 40% 30% 70% / 50% 60% 40% 50%;
+            }
+            66% { 
+                transform: translate(35px, -30px) scale(1.15);
+                border-radius: 50% 50% 40% 60% / 30% 50% 70% 50%;
+            }
+            100% { 
+                transform: translate(0, 0) scale(1);
+                border-radius: 40% 60% 60% 40% / 40% 60% 40% 60%;
+            }
+        }
+
+        @keyframes float3 {
+            0% { 
+                transform: translate(0, 0) scale(1);
+                border-radius: 70% 30% 50% 50% / 60% 40% 60% 40%;
+            }
+            33% { 
+                transform: translate(40px, 45px) scale(1.1);
+                border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            }
+            66% { 
+                transform: translate(-50px, -25px) scale(0.9);
+                border-radius: 50% 50% 60% 40% / 30% 60% 70% 30%;
+            }
+            100% { 
+                transform: translate(0, 0) scale(1);
+                border-radius: 70% 30% 50% 50% / 60% 40% 60% 40%;
+            }
+        }
+
+        @keyframes float4 {
+            0% { 
+                transform: translate(0, 0) scale(1);
+                border-radius: 30% 70% 70% 30% / 50% 50% 50% 50%;
+            }
+            33% { 
+                transform: translate(-35px, -45px) scale(1.15);
+                border-radius: 70% 30% 40% 60% / 60% 40% 50% 60%;
+            }
+            66% { 
+                transform: translate(45px, 35px) scale(0.9);
+                border-radius: 50% 50% 30% 70% / 50% 60% 40% 60%;
+            }
+            100% { 
+                transform: translate(0, 0) scale(1);
+                border-radius: 30% 70% 70% 30% / 50% 50% 50% 50%;
+            }
+        }
+
+        /*logo animation*/
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes rotateCircle {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes slideProgress {
+            0% {
+                width: 0%;
+            }
+            100% {
+                width: 100%;
+            }
+        }
+
+        @keyframes pulseRing {
+            0% {
+                transform: scale(0.8);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0.5;
+            }
+            100% {
+                transform: scale(0.8);
+                opacity: 1;
+            }
+        }
+
+        @keyframes ripple {
+            0% {
+                width: 0;
+                height: 0;
+                opacity: 0.5;
+            }
+            100% {
+                width: 300px;
+                height: 300px;
+                opacity: 0;
+            }
+        }
+
+        /* loading screen styling */
+        #loadingScreen {
+            background: linear-gradient(135deg, #1e2830 0%, #2A3740 50%, #1e2830 100%);
+            background-size: 200% 200%;
+            animation: gradientShift 3s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .loading-logo {
+            animation: fadeInScale 1s ease-out;
+        }
+
+        .loading-ring {
+            width: 120px;
+            height: 120px;
+            border: 3px solid transparent;
+            border-top-color: #ffffff;
+            border-right-color: #ffffff;
+            border-radius: 50%;
+            animation: rotateCircle 1.5s linear infinite;
+            position: absolute;
+        }
+
+        .loading-ring-2 {
+            width: 90px;
+            height: 90px;
+            border: 2px solid transparent;
+            border-bottom-color: rgba(255, 255, 255, 0.5);
+            border-left-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: rotateCircle 2s linear infinite reverse;
+            position: absolute;
+        }
+
+        .loading-pulse-ring {
+            width: 140px;
+            height: 140px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            position: absolute;
+            animation: pulseRing 2s ease-in-out infinite;
+        }
+
+        .loading-progress-container {
+            width: 200px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 30px;
+        }
+
+        .loading-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #ffffff 0%, rgba(255, 255, 255, 0.7) 100%);
+            border-radius: 10px;
+            animation: slideProgress 1.5s ease-out;
+        }
+
+        .loading-text {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 14px;
+            letter-spacing: 3px;
+            margin-top: 20px;
+            animation: fadeInScale 1s ease-out 0.3s both;
+        }
+
+        .loading-dots {
+            display: inline-block;
+        }
+
+        .loading-dots span {
+            animation: dotBlink 1.4s infinite;
+            opacity: 0;
+        }
+
+        .loading-dots span:nth-child(1) { animation-delay: 0s; }
+        .loading-dots span:nth-child(2) { animation-delay: 0.2s; }
+        .loading-dots span:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes dotBlink {
+            0%, 20% { opacity: 0; }
+            50% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+        
+        .animate-slide {
+            animation: slide 1s infinite alternate ease-in-out;
+        }
+        
+        .animate-slide-delay {
+            animation: slide 1s infinite alternate ease-in-out;
+            animation-delay: 0.3s;
+        }
+        
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .fade-in-up.animate {
+            animation: fadeUp 1s forwards;
+        }
+        
+        .fade-in-up.delay-1.animate { animation-delay: 0.2s; }
+        .fade-in-up.delay-2.animate { animation-delay: 0.5s; }
+        .fade-in-up.delay-3.animate { animation-delay: 0.8s; }
+
+        /*background animation*/
+        .floating-blob {
+            position: fixed;
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            filter: blur(40px);
+            opacity: 0.18;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .blob-1 {
+            width: 280px;
+            height: 280px;
+            top: 5%;
+            right: 8%;
+            animation: float1 4s ease-in-out infinite;
+        }
+
+        .blob-2 {
+            width: 220px;
+            height: 220px;
+            bottom: 10%;
+            right: 20%;
+            animation: float2 5s ease-in-out infinite;
+        }
+
+        .blob-3 {
+            width: 250px;
+            height: 250px;
+            top: 50%;
+            right: 35%;
+            animation: float3 6s ease-in-out infinite;
+        }
+
+        .blob-4 {
+            width: 240px;
+            height: 240px;
+            top: 30%;
+            right: 5%;
+            animation: float4 4s ease-in-out infinite;
+        }
+
+        /* Light mode (for blobs) */
+        body.light .blob-1 { background-color: #2A3740; }
+        body.light .blob-2 { background-color: #1e2830; }
+        body.light .blob-3 { background-color: #2A3740; }
+        body.light .blob-4 { background-color: #1e2830; }
+
+        /* Dark mode (for blobs) */
+        body.dark .blob-1 { background-color: #fffdfd; }
+        body.dark .blob-2 { background-color: #f0f0f0; }
+        body.dark .blob-3 { background-color: #fffdfd; }
+        body.dark .blob-4 { background-color: #f0f0f0; }
+        
+        /* Dark mode background */
+        body.dark {
+            background-color: #2A3740;
+            color: #fff;
+        }
+        
+        body.light {
+            background-color: #fffdfdec;
+            color: #1e1e1e;
+        }
+
+        /* Content should be above blobs */
+        nav, .hero-section, section {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Profile pic shape */
+        .profile-pic {
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+        }
+
+        /* Contact form inputs in light mode */
+        body.light .contact-input {
+            background-color: rgba(0, 0, 0, 0.05);
+            border-color: rgba(0, 0, 0, 0.15);
+            color: #1e1e1e;
+        }
+
+        body.light .contact-input:focus {
+            background-color: rgba(0, 0, 0, 0.08);
+            border-color: rgba(0, 0, 0, 0.3);
+        }
+
+        body.light .contact-input::placeholder {
+            color: rgba(0, 0, 0, 0.4);
+        }
+
+        /* Contact form inputs in dark mode */
+        body.dark .contact-input {
+            color: #fff;
+        }
+
+        body.dark .contact-input::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* Contact section title color */
+        body.light #contact h2 {
+            color: #3d3d3d;
+        }
+
+        body.dark #contact h2 {
+            color: #c9c9c9;
+        }
+
+        /* Contact title split colors */
+        body.light .contact-title-first {
+            color: #5a5a5a;
+        }
+
+        body.light .contact-title-second {
+            color: #1e1e1e;
+        }
+
+        body.dark .contact-title-first {
+            color: #9a9a9a;
+        }
+
+        body.dark .contact-title-second {
+            color: #ffffff;
+        }
+
+        /* Card shadows in dark mode */
+        body.dark #contact .shadow-lg {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -4px rgba(0, 0, 0, 0.3);
+        }
+
+        body.dark #contact .hover\:shadow-2xl:hover {
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Submit button shadow in dark mode */
+        body.dark .submit-btn {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -2px rgba(0, 0, 0, 0.3);
+        }
+
+        body.dark .submit-btn:hover {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Hire button animations */
+        .hire-btn {
+            position: relative;
+            overflow: hidden;
+            transform: translateY(0);
+        }
+
+        .hire-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease-out, height 0.6s ease-out;
+        }
+
+        body.dark .hire-btn::before {
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        /* Ripple effect on click */
+        .hire-btn .ripple-effect {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.6);
+            animation: ripple 0.6s ease-out;
+            pointer-events: none;
+        }
+
+        body.dark .hire-btn .ripple-effect {
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        .hire-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .hire-btn:active {
+            transform: scale(0.96) translateY(0);
+        }
+
+        /* Submit button in light mode */
+        body.light .submit-btn {
+            background-color: #1e1e1e;
+            color: #fff;
+        }
+
+        body.light .submit-btn:hover {
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        body.dark .submit-btn {
+            background-color: #fff;
+            color: #1e1e1e;
+        }
+
+        /* Mobile menu styles */
+        .mobile-menu {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        /* Hamburger menu (for mobile and pc)*/
+        .hamburger-line {
+            transition: all 0.3s ease-in-out;
+        }
+
+        .hamburger.active .hamburger-line:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active .hamburger-line:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active .hamburger-line:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        /* Responsive adjustments for mobile */
+        @media (max-width: 768px) {
+            #contact h2 {
+                font-size: clamp(32px, 8vw, 45px) !important;
+                line-height: 1.2;
+            }
+
+            #contact .grid {
+                grid-template-columns: 1fr;
+            }
+
+            /* Adjust blob sizes for mobile */
+            .blob-1, .blob-2, .blob-3, .blob-4 {
+                width: 120px !important;
+                height: 120px !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            #contact h2 {
+                font-size: clamp(28px, 8vw, 40px) !important;
+            }
+
+            #contact .rounded-3xl {
+                padding: 20px !important;
+            }
+
+            #contact form {
+                padding: 20px !important;
+            }
+        }
+
+        /* ===== TOAST NOTIFICATION ===== */
+        #toast {
+            transform: translateY(20px);
+            opacity: 0;
+        }
+
+        #toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        /* ===== CONFIRM MODAL ===== */
+        @keyframes modalPop {
+            from { transform: scale(0.85); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        .modal-box {
+            animation: modalPop 0.25s ease-out;
+        }
+
+        /* Modal styling for light mode */
+        body.light .modal-box {
+            background-color: rgba(255, 255, 255, 0.95);
+            color: #1e1e1e;
+        }
+
+        body.light #cancelClear {
+            background-color: rgba(0, 0, 0, 0.1);
+            color: #1e1e1e;
+        }
+
+        body.light #cancelClear:hover {
+            background-color: rgba(0, 0, 0, 0.15);
+        }
+
+        /* Modal styling for dark mode */
+        body.dark .modal-box {
+            background-color: rgba(42, 55, 64, 0.95);
+            color: #fff;
+        }
+
+        body.dark #cancelClear {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+        }
+
+        body.dark #cancelClear:hover {
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+
+        /* ===== TOGGLE SUBMISSIONS BUTTON ===== */
+        .toggle-submissions-btn {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .toggle-submissions-btn i {
+            transition: transform 0.3s ease;
+        }
+
+        .toggle-submissions-btn.active i {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+
+<body class="light font-scope overflow-x-hidden transition-all duration-300 ease-in-out">
+  
+    <!-- Floating Background Blobs -->
+    <div class="floating-blob blob-1"></div>
+    <div class="floating-blob blob-2"></div>
+    <div class="floating-blob blob-3"></div>
+    <div class="floating-blob blob-4"></div>
+
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="fixed inset-0 bg-[#2A3740] flex flex-col justify-center items-center z-[9999] transition-opacity duration-[600ms] ease-in-out">
+        <div class="relative flex flex-col items-center">
+            <!-- Outer pulse ring -->
+            <div class="loading-pulse-ring"></div>
+            
+            <!-- Rotating rings -->
+            <div class="loading-ring"></div>
+            <div class="loading-ring-2"></div>
+            
+            <!-- Logo in center -->
+            <div class="loading-logo flex flex-col items-center gap-1.5 font-black text-[60px] text-white relative z-10">
+                <span class="font-jost">N</span>
+                <span class="w-10 h-1.5 bg-current inline-block rounded-sm animate-slide"></span>
+                <span class="w-10 h-1.5 bg-current inline-block rounded-sm animate-slide-delay"></span>
+            </div>
+        </div>
+        
+        <!-- Progress bar -->
+        <div class="loading-progress-container">
+            <div class="loading-progress-bar"></div>
+        </div>
+        
+        <!-- Loading text -->
+        <div class="loading-text">
+            LOADING<span class="loading-dots"><span>.</span><span>.</span><span>.</span></span>
+        </div>
+    </div>
+  
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 flex justify-between items-center px-4 md:px-[60px] py-1.5 bg-white/5 backdrop-blur-[14px] z-[1000] transition-all duration-300 ease-in-out">
+        <div class="flex items-center gap-2 font-black text-[22px] cursor-default">
+            <span class="font-jost">N</span>
+            <span class="w-[5px] h-[5px] bg-current rounded-sm animate-slide"></span>
+            <span class="w-[5px] h-[5px] bg-current rounded-sm animate-slide-delay"></span>
+        </div>
+        
+        <!-- Desktop Navigation -->
+        <div class="nav-links hidden md:flex gap-[15px]">
+            <a href="#home" class="active no-underline text-sm px-5 py-2 rounded-full transition-all duration-[250ms] ease-in-out bg-black/80 text-white">Home</a>
+            <a href="#about" class="no-underline text-sm px-5 py-2 rounded-full transition-all duration-[250ms] ease-in-out hover:bg-black/10">About</a>
+            <a href="#experiences" class="no-underline text-sm px-5 py-2 rounded-full transition-all duration-[250ms] ease-in-out hover:bg-black/10">Experiences</a>
+            <a href="#contact" class="no-underline text-sm px-5 py-2 rounded-full transition-all duration-[250ms] ease-in-out hover:bg-black/10">Contact</a>
+        </div>
+
+        <!-- Mobile Hamburger Menu Button -->
+        <button id="hamburger" class="hamburger md:hidden flex flex-col gap-1.5 w-8 h-8 justify-center items-center z-[1001]">
+            <span class="hamburger-line w-6 h-0.5 bg-current rounded"></span>
+            <span class="hamburger-line w-6 h-0.5 bg-current rounded"></span>
+            <span class="hamburger-line w-6 h-0.5 bg-current rounded"></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 w-full h-screen bg-white/95 dark:bg-[#2A3740]/95 backdrop-blur-lg z-[999] md:hidden flex flex-col justify-center items-center gap-8">
+        <a href="#home" class="mobile-nav-link text-2xl font-semibold no-underline transition-all duration-300 hover:scale-110">Home</a>
+        <a href="#about" class="mobile-nav-link text-2xl font-semibold no-underline transition-all duration-300 hover:scale-110">About</a>
+        <a href="#experiences" class="mobile-nav-link text-2xl font-semibold no-underline transition-all duration-300 hover:scale-110">Experiences</a>
+        <a href="#contact" class="mobile-nav-link text-2xl font-semibold no-underline transition-all duration-300 hover:scale-110">Contact</a>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero-section min-h-screen pt-24 md:pt-[120px] px-4 flex justify-center items-center" id="home">
+        <div class="w-full max-w-[1200px]">
+            <div class="flex flex-col-reverse md:flex-row justify-between items-center gap-10 md:gap-20">
+
+                <!-- Profile Image -->
+                <div class="w-full md:w-auto flex justify-center">
+                    <img src="resources/profilepic.png" 
+                         alt="Nicollette Libunao" 
+                         class="profile-pic w-[245px] h-[355px] sm:w-[280px] sm:h-[400px] md:w-[350px] md:h-[550px] object-cover object-[center_top] transition-all duration-300 ease-in-out hover:scale-105 drop-shadow-[0_16px_30px_rgba(0,0,0,0.25)]">
+                </div>
+                
+                <!-- Text Content -->
+                <div class="w-full md:w-auto text-center md:text-left">
+                    <div class="fade-in-up delay-1 text-[13px] sm:text-[15px] tracking-wider uppercase opacity-70 mb-1.5">
+                        Hi! I'm
+                    </div>
+                    <h1 class="fade-in-up delay-2 font-jost font-black text-[50px] sm:text-[60px] md:text-[clamp(60px,10vw,100px)] leading-[1.1] tracking-wide uppercase mb-6">
+                        NICOLLETTE<br>
+                        <span class="block md:ml-[180px]">LIBUNAO</span>
+                    </h1>
+
+                    <!-- Social Icons -->
+                    <div class="fade-in-up delay-3 flex gap-[18px] justify-center md:justify-start mb-[26px] md:ml-[180px]">
+                        <a href="https://www.instagram.com/ms.libunao" target="_blank" aria-label="Instagram" class="text-lg sm:text-xl opacity-75 transition-all duration-[250ms] ease-in-out hover:opacity-100 hover:-translate-y-0.5">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.facebook.com/ms.libunao" target="_blank" aria-label="Facebook" class="text-lg sm:text-xl opacity-75 transition-all duration-[250ms] ease-in-out hover:opacity-100 hover:-translate-y-0.5">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@libzscg" target="_blank" aria-label="TikTok" class="text-lg sm:text-xl opacity-75 transition-all duration-[250ms] ease-in-out hover:opacity-100 hover:-translate-y-0.5">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=nicslibunao@gmail.com" target="_blank" class="text-lg sm:text-xl opacity-75 transition-all duration-[250ms] ease-in-out hover:opacity-100 hover:-translate-y-0.5">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://discord.com/users/1463498711857496065" target="_blank" aria-label="Discord" class="text-lg sm:text-xl opacity-75 transition-all duration-[250ms] ease-in-out hover:opacity-100 hover:-translate-y-0.5">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                        <a href="https://github.com/libunaonics" target="_blank" aria-label="Github" class="text-lg sm:text-xl opacity-75 transition-all duration-[250ms] ease-in-out hover:opacity-100 hover:-translate-y-0.5">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+
+                    <!-- Hire Button -->
+                    <button id="hireBtn" class="hire-btn fade-in-up delay-3 mx-auto md:mx-0 md:ml-[180px] px-9 py-3 rounded-full border-none cursor-pointer text-[13px] font-semibold tracking-wider transition-all duration-[250ms] ease-in-out bg-[#1e1e1e] text-white hover:-translate-y-0.5 hover:shadow-[0_10px_24px_rgba(0,0,0,0.582)]">
+                        Hire me
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section-->
+    <section id="about" class="min-h-screen flex justify-center items-center py-20 px-4">
+        <div class="w-full max-w-[1200px] text-center">
+            <h2 class="font-black text-[clamp(40px,8vw,70px)] mb-8 uppercase">About Me</h2>
+            <p class="text-lg opacity-75"> about me section. okeeer sunod na ni sya T_T.</p>
+        </div>
+    </section>
+
+    <!-- Experiences Section-->
+    <section id="experiences" class="min-h-screen flex justify-center items-center py-20 px-4">
+        <div class="w-full max-w-[1200px] text-center">
+            <h2 class="font-black text-[clamp(40px,8vw,70px)] mb-8 uppercase">Experiences</h2>
+            <p class="text-lg opacity-75"> experiences section. okeeer sunod na ni sya T_T.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="min-h-screen flex justify-center items-center py-20 px-4">
+        <div class="w-full max-w-[800px]">
+            <!-- Section Title -->
+            <h2 class="font-black text-[clamp(28px,8vw,70px)] text-center mb-16 uppercase tracking-tight" style="font-family: 'Roboto', sans-serif;">
+                <span class="contact-title-first">Let's Get in</span> <span class="contact-title-second">Touch</span>
+            </h2>
+
+            <!--Contact Info-->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                <!-- Phone Card -->
+                <div class="bg-white/10 backdrop-blur-sm rounded-3xl p-6 transition-all duration-300 hover:bg-white/15 hover:-translate-y-1 border border-white/20 shadow-lg hover:shadow-2xl">
+                    <div class="flex flex-col items-center text-center">
+                        <i class="fas fa-phone text-3xl mb-4 opacity-90"></i>
+                        <h3 class="font-semibold text-lg mb-2">Phone Number</h3>
+                        <p class="text-sm opacity-75">+63602602240</p>
+                    </div>
+                </div>
+
+                <!-- Email Card -->
+                <div class="bg-white/10 backdrop-blur-sm rounded-3xl p-6 transition-all duration-300 hover:bg-white/15 hover:-translate-y-1 border border-white/20 shadow-lg hover:shadow-2xl">
+                    <div class="flex flex-col items-center text-center">
+                        <i class="fas fa-envelope text-3xl mb-4 opacity-90"></i>
+                        <h3 class="font-semibold text-lg mb-2">Email</h3>
+                        <p class="text-sm opacity-75">nicslibunao@gmail.com</p>
+                    </div>
+                </div>
+
+                <!-- Address Card -->
+                <div class="bg-white/10 backdrop-blur-sm rounded-3xl p-6 transition-all duration-300 hover:bg-white/15 hover:-translate-y-1 border border-white/20 shadow-lg hover:shadow-2xl">
+                    <div class="flex flex-col items-center text-center">
+                        <i class="fas fa-map-marker-alt text-3xl mb-4 opacity-90"></i>
+                        <h3 class="font-semibold text-lg mb-2">Address</h3>
+                        <p class="text-sm opacity-75">Juan Luna Brgy. 29-C, Davao City, Davao del Sur, Philippines</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="bg-white/10 backdrop-blur-sm rounded-3xl p-6 md:p-12 border border-white/20 shadow-lg">
+                <form id="contactForm" class="space-y-6">
+
+                    <!-- Name Input -->
+                    <div>
+                        <label for="name" class="block text-sm font-medium mb-2 opacity-90">Name</label>
+                        <input 
+                            type="text" 
+                            id="name" 
+                            name="name"
+                            autocomplete="name"
+                            class="contact-input w-full px-4 py-3 rounded-2xl bg-white/5 border border-white/20 backdrop-blur-sm transition-all duration-300 focus:outline-none focus:border-white/40 focus:bg-white/10"
+                            required
+                        >
+                    </div>
+
+                    <!-- Contact No. Input -->
+                    <div>
+                        <label for="contactNo" class="block text-sm font-medium mb-2 opacity-90">Contact No.</label>
+                        <input 
+                            type="tel" 
+                            id="contactNo" 
+                            name="contactNo"
+                            autocomplete="tel"
+                            pattern="[0-9]*"
+                            class="contact-input w-full px-4 py-3 rounded-2xl bg-white/5 border border-white/20 backdrop-blur-sm transition-all duration-300 focus:outline-none focus:border-white/40 focus:bg-white/10"
+                            required
+                        >
+                        <p id="contact-warning" class="text-red-500 text-sm mt-1 hidden">Contact number must be numeric only.</p>
+                    </div>
+
+                    <!-- Email Input -->
+                    <div>
+                        <label for="email" class="block text-sm font-medium mb-2 opacity-90">Email</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email"
+                            autocomplete="email"
+                            class="contact-input w-full px-4 py-3 rounded-2xl bg-white/5 border border-white/20 backdrop-blur-sm transition-all duration-300 focus:outline-none focus:border-white/40 focus:bg-white/10"
+                            required
+                        >
+                    </div>
+
+                    <!-- Message Input -->
+                    <div>
+                        <label for="message" class="block text-sm font-medium mb-2 opacity-90">Message</label>
+                        <textarea 
+                            id="message" 
+                            name="message"
+                            autocomplete="off"
+                            rows="5"
+                            class="contact-input w-full px-4 py-3 rounded-2xl bg-white/5 border border-white/20 backdrop-blur-sm resize-y transition-all duration-300 focus:outline-none focus:border-white/40 focus:bg-white/10"
+                            required
+                        ></textarea>
+                    </div>
+
+                    <button 
+                        type="submit"
+                        class="submit-btn w-full py-4 rounded-2xl font-semibold text-base tracking-wide transition-all duration-300 hover:-translate-y-1"
+                    >
+                        Send Message
+                    </button>
+                </form>
+            </div>
+
+            <!-- Toggle Submissions Button -->
+            <div class="mt-8 flex justify-center">
+                <button 
+                    id="toggleSubmissions"
+                    class="toggle-submissions-btn flex items-center gap-2 px-6 py-3 rounded-2xl bg-white/10 hover:bg-white/15 backdrop-blur-sm border border-white/20 transition-all duration-300 hover:-translate-y-1 shadow-lg hover:shadow-2xl"
+                >
+                    <i class="fas fa-list text-lg"></i>
+                    <span class="font-semibold text-sm">View Submissions</span>
+                    <i class="fas fa-chevron-down text-sm"></i>
+                </button>
+            </div>
+
+            <!-- Submissions Table -->
+            <div id="submissionsContainer" class="mt-8 hidden overflow-hidden transition-all duration-500">
+                <div class="bg-white/10 backdrop-blur-sm rounded-3xl p-6 border border-white/20 shadow-lg overflow-x-auto">
+                    <h3 class="text-xl font-bold mb-4 text-center">Form Submissions</h3>
+                    <table class="w-full text-sm">
+                        <thead>
+                            <tr class="border-b border-white/20">
+                                <th class="text-left py-3 px-2">Name</th>
+                                <th class="text-left py-3 px-2">Contact No.</th>
+                                <th class="text-left py-3 px-2">Email</th>
+                                <th class="text-left py-3 px-2">Message</th>
+                                <th class="text-left py-3 px-2">Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="submissionsTable"></tbody>
+                    </table>
+                    <button 
+                        id="clearSubmissions"
+                        class="mt-6 px-6 py-2 rounded-xl bg-red-500/80 hover:bg-red-500 text-white font-semibold transition-all duration-300"
+                    >
+                        Clear All Submissions
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle fixed bottom-9 right-9 w-12 h-12 rounded-full border-none cursor-pointer flex justify-center items-center transition-all duration-300 ease-in-out z-[1000] bg-black/85 text-white hover:scale-110 hover:rotate-12" id="themeToggle">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!--TOAST NOTIFICATION -->
+    <div id="toast"
+         class="fixed bottom-8 right-8 z-[2000] hidden bg-black/90 text-white px-6 py-4 rounded-2xl shadow-2xl backdrop-blur-lg flex items-center gap-3 transition-all duration-500">
+        <i class="fas fa-check-circle text-green-400 text-lg"></i>
+        <span id="toastText" class="text-sm font-medium tracking-wide">
+            Message sent successfully!
+        </span>
+    </div>
+
+    <!--CONFIRM CLEAR MODAL -->
+    <div id="confirmModal" class="fixed inset-0 z-[3000] hidden bg-black/50 backdrop-blur-sm flex items-center justify-center">
+        <div class="modal-box rounded-2xl shadow-2xl w-[90%] max-w-sm p-6 text-center">
+            <h3 class="text-lg font-semibold mb-3">Clear all submissions?</h3>
+            <p class="text-sm mb-6 opacity-75">
+                This action cannot be undone.
+            </p>
+            <div class="flex justify-center gap-4">
+                <button id="cancelClear"
+                    class="px-5 py-2 rounded-xl transition">
+                    Cancel
+                </button>
+                <button id="confirmClear"
+                    class="px-5 py-2 rounded-xl bg-red-500 hover:bg-red-600 text-white transition">
+                    OK
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+       
+        document.documentElement.style.scrollBehavior = 'smooth';
+
+        // Mobile Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : 'auto';
+        });
+
+       
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            });
+        });
+
+        // Hire button ripple effect
+        const hireBtn = document.getElementById('hireBtn');
+        hireBtn.addEventListener('click', function(e) {
+            const ripple = document.createElement('span');
+            ripple.classList.add('ripple-effect');
+            
+            const rect = this.getBoundingClientRect();
+            const size = Math.max(rect.width, rect.height);
+            const x = e.clientX - rect.left - size / 2;
+            const y = e.clientY - rect.top - size / 2;
+            
+            ripple.style.width = ripple.style.height = size + 'px';
+            ripple.style.left = x + 'px';
+            ripple.style.top = y + 'px';
+            
+            this.appendChild(ripple);
+            
+            setTimeout(() => {
+                ripple.remove();
+            }, 600);
+        });
+
+        // ===== TOAST FUNCTION =====
+        function showToast(message) {
+            const toast = document.getElementById('toast');
+            const toastText = document.getElementById('toastText');
+
+            toastText.textContent = message;
+            toast.classList.remove('hidden');
+
+            setTimeout(() => toast.classList.add('show'), 10);
+
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => toast.classList.add('hidden'), 500);
+            }, 3000);
+        }
+
+        // Local Storage Functions
+        function saveSubmission(formData) {
+            let submissions = [];
+            try {
+                const stored = localStorage.getItem('contactSubmissions');
+                if (stored) submissions = JSON.parse(stored);
+            } catch (error) {
+                submissions = [];
+            }
+            
+            const newSubmission = {
+                name: formData.name,
+                contactNo: formData.contactNo,
+                email: formData.email,
+                message: formData.message,
+                date: new Date().toLocaleString()
+            };
+            
+            submissions.push(newSubmission);
+            
+            try {
+                localStorage.setItem('contactSubmissions', JSON.stringify(submissions));
+            } catch (error) {
+                console.error('Error saving to localStorage:', error);
+            }
+            
+            displaySubmissions();
+        }
+
+        function displaySubmissions() {
+            let submissions = [];
+            try {
+                const stored = localStorage.getItem('contactSubmissions');
+                if (stored) submissions = JSON.parse(stored);
+            } catch (error) {
+                submissions = [];
+            }
+            
+            const tableBody = document.getElementById('submissionsTable');
+            
+            tableBody.innerHTML = '';
+            
+            if (submissions.length === 0) {
+                return;
+            }
+            
+            const reversedSubmissions = [...submissions].reverse();
+            
+            reversedSubmissions.forEach(submission => {
+                const row = document.createElement('tr');
+                row.className = 'border-b border-white/10 hover:bg-white/5 transition-colors';
+                row.innerHTML = `
+                    <td class="py-3 px-2">${submission.name}</td>
+                    <td class="py-3 px-2">${submission.contactNo}</td>
+                    <td class="py-3 px-2 break-all">${submission.email}</td>
+                    <td class="py-3 px-2">${submission.message.substring(0, 50)}${submission.message.length > 50 ? '...' : ''}</td>
+                    <td class="py-3 px-2 text-xs opacity-75 whitespace-nowrap">${submission.date}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        displaySubmissions();
+
+        // ===== TOGGLE SUBMISSIONS TABLE =====
+        const toggleBtn = document.getElementById('toggleSubmissions');
+        const submissionsContainer = document.getElementById('submissionsContainer');
+
+        toggleBtn.addEventListener('click', () => {
+            submissionsContainer.classList.toggle('hidden');
+            toggleBtn.classList.toggle('active');
+            
+            // Update button text
+            const btnText = toggleBtn.querySelector('span');
+            if (submissionsContainer.classList.contains('hidden')) {
+                btnText.textContent = 'View Submissions';
+            } else {
+                btnText.textContent = 'Hide Submissions';
+            }
+        });
+
+        // ===== CUSTOM CLEAR CONFIRM MODAL =====
+        const clearBtn = document.getElementById("clearSubmissions");
+        const modal = document.getElementById("confirmModal");
+        const cancelBtn = document.getElementById("cancelClear");
+        const confirmBtn = document.getElementById("confirmClear");
+
+        clearBtn.addEventListener("click", () => {
+            modal.classList.remove("hidden");
+            document.body.style.overflow = "hidden";
+        });
+
+        cancelBtn.addEventListener("click", closeModal);
+        modal.addEventListener("click", (e) => {
+            if (e.target === modal) closeModal();
+        });
+
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+                closeModal();
+            }
+        });
+
+        function closeModal() {
+            modal.classList.add("hidden");
+            document.body.style.overflow = "auto";
+        }
+
+        confirmBtn.addEventListener("click", () => {
+            localStorage.removeItem("contactSubmissions");
+            displaySubmissions();
+            submissionsContainer.classList.add('hidden');
+            toggleBtn.classList.remove('active');
+            toggleBtn.querySelector('span').textContent = 'View Submissions';
+            closeModal();
+            showToast("All submissions cleared successfully!");
+        });
+
+        // Contact form validation and submission
+        const contactForm = document.getElementById('contactForm');
+        const contactNoInput = document.getElementById('contactNo');
+        const contactWarning = document.getElementById('contact-warning');
+
+        // Numeric-only live validation
+        contactNoInput.addEventListener('input', function(e) {
+            const value = e.target.value;
+            const isNumeric = /^[0-9]*$/.test(value);
+            
+            if (!isNumeric && value !== '') {
+                contactWarning.classList.remove('hidden');
+                e.target.value = value.replace(/[^0-9]/g, '');
+            } else {
+                contactWarning.classList.add('hidden');
+            }
+        });
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value.trim(),
+                contactNo: document.getElementById('contactNo').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                message: document.getElementById('message').value.trim()
+            };
+            
+            if (!/^[0-9]+$/.test(formData.contactNo)) {
+                contactWarning.classList.remove('hidden');
+                return;
+            }
+            
+            saveSubmission(formData);
+            showToast("Message sent successfully!");
+            contactForm.reset();
+        });
+
+        // Loading screen
+        window.addEventListener('load', () => {
+            const loadingScreen = document.getElementById('loadingScreen');
+            setTimeout(() => {
+                loadingScreen.classList.add('opacity-0', 'invisible');
+                
+                document.querySelectorAll('.fade-in-up').forEach(el => {
+                    el.classList.add('animate');
+                });
+            }, 1500);
+        });
+
+        // Theme toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+        const icon = themeToggle.querySelector('i');
+        const fadeElements = document.querySelectorAll('.fade-in-up');
+        const navbar = document.getElementById('navbar');
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark');
+            body.classList.toggle('light');
+            icon.classList.toggle('fa-moon');
+            icon.classList.toggle('fa-sun');
+
+            const activeLink = document.querySelector('.nav-links a.active');
+            if (body.classList.contains('dark')) {
+                themeToggle.classList.remove('bg-black/85');
+                themeToggle.classList.add('bg-white/[0.18]');
+                if (activeLink) {
+                    activeLink.classList.remove('bg-black/80');
+                    activeLink.classList.add('bg-white/[0.2]');
+                }
+            } else {
+                themeToggle.classList.remove('bg-white/[0.18]');
+                themeToggle.classList.add('bg-black/85');
+                if (activeLink) {
+                    activeLink.classList.remove('bg-white/[0.2]');
+                    activeLink.classList.add('bg-black/80');
+                }
+            }
+
+            const hireBtn = document.querySelector('.hire-btn');
+            if (body.classList.contains('dark')) {
+                hireBtn.classList.remove('bg-[#1e1e1e]', 'text-white');
+                hireBtn.classList.add('bg-white', 'text-[#111]');
+            } else {
+                hireBtn.classList.remove('bg-white', 'text-[#111]');
+                hireBtn.classList.add('bg-[#1e1e1e]', 'text-white');
+            }
+
+            const profilePic = document.querySelector('.profile-pic');
+            if (body.classList.contains('dark')) {
+                profilePic.classList.remove('drop-shadow-[0_16px_30px_rgba(0,0,0,0.25)]');
+                profilePic.classList.add('drop-shadow-[0_16px_30px_rgba(255,255,255,0.18)]');
+            } else {
+                profilePic.classList.remove('drop-shadow-[0_16px_30px_rgba(255,255,255,0.18)]');
+                profilePic.classList.add('drop-shadow-[0_16px_30px_rgba(0,0,0,0.25)]');
+            }
+
+            fadeElements.forEach(el => {
+                el.classList.remove('animate');          
+                void el.offsetWidth;   
+                el.classList.add('animate');             
+            });
+        });
+
+        // Navigation
+        const navLinks = document.querySelectorAll('nav a, .mobile-nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const desktopNavLinks = document.querySelectorAll('nav .nav-links a');
+                desktopNavLinks.forEach(l => {
+                    l.classList.remove('active', 'bg-black/80', 'bg-white/[0.2]', 'text-white');
+                });
+                
+                const targetId = this.getAttribute('href');
+                const desktopLink = document.querySelector(`nav .nav-links a[href="${targetId}"]`);
+                if (desktopLink) {
+                    desktopLink.classList.add('active');
+                    if (body.classList.contains('dark')) {
+                        desktopLink.classList.add('bg-white/[0.2]', 'text-white');
+                    } else {
+                        desktopLink.classList.add('bg-black/80', 'text-white');
+                    }
+                }
+
+                const targetSection = document.querySelector(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+                navbar.classList.remove('py-1.5');
+                navbar.classList.add('py-3');
+                
+                if (body.classList.contains('dark')) {
+                    navbar.classList.remove('bg-white/5');
+                    navbar.classList.add('bg-[#2A3740]/90', 'shadow-[0_4px_20px_rgba(0,0,0,0.1)]');
+                } else {
+                    navbar.classList.remove('bg-white/5');
+                    navbar.classList.add('bg-white/85', 'shadow-[0_4px_20px_rgba(0,0,0,0.1)]');
+                }
+            } else {
+                navbar.classList.remove('scrolled', 'py-3', 'bg-white/85', 'bg-[#2A3740]/90', 'shadow-[0_4px_20px_rgba(0,0,0,0.1)]');
+                navbar.classList.add('py-1.5', 'bg-white/5');
+            }
+
+            const sections = document.querySelectorAll('section, .hero-section');
+            const scrollPos = window.scrollY + 100;
+            const desktopNavLinks = document.querySelectorAll('nav .nav-links a');
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+
+                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                    desktopNavLinks.forEach(link => {
+                        link.classList.remove('active', 'bg-black/80', 'bg-white/[0.2]', 'text-white');
+                        
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                            if (body.classList.contains('dark')) {
+                                link.classList.add('bg-white/[0.2]', 'text-white');
+                            } else {
+                                link.classList.add('bg-black/80', 'text-white');
+                            }
+                        }
+                    }); 
+                }
+            });
+        });
+    </script>
+</body>
+</html>
