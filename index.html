@@ -3,54 +3,97 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  
+  <!-- icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gabarito:wght@400..900&family=Georama:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  
+  <!-- tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-  <title>Jake</title>
+  <!-- icon -->
+  <link rel="icon" type="image/x-icon" href="Resources/Logo.png">
+
+  <!-- Title -->
+  <title>Jake Maunas</title>
 </head>
-<body>
 
-  <nav class="menu" id="menu">
-    <i class="fa-solid fa-xmark" id="menu-close"></i>
+<body class="m-0 p-0 dark:bg-[#111]">
+  <!-- Mobile navigation -->
+   <nav class="fixed top-0 left-0
+    w-screen h-screen
+    bg-white dark:bg-[#111]
+    flex flex-col justify-center gap-8
+    translate-x-full
+    pointer-events-none
+    transition-[transform,opacity] duration-[400ms] ease-in-out
+    z-[9999]
+    font-poppins" id="menu">
+    <i class="fa-solid fa-xmark absolute top-8 right-8 text-[2rem] cursor-pointer text-[#333] dark:text-[#f0f0f0]" id="menu-close"></i>
 
-    <a href="#" class="activel">HOME</a>
-    <span></span>
-    <a href="#">SKILLS</a>
-    <span></span>
-    <a href="#">PROJECTS</a>
-    <span></span>
-    <a href="#">CONTACT</a>
-    <span></span>
+    <a href="#" class="activel pl-8 text-[#5F5F5F] font-normal text-[2.5rem] dark:text-[#f7f7f7]">HOME</a>
+    <span class="w-full h-[1px] self-stretch bg-[#6b6464]"></span>
+    <a href="#" class="pl-8 text-[#5F5F5F] font-normal text-[2.5rem] dark:text-[#dddddd]">SKILLS</a>
+    <span class="w-full h-[1px] self-stretch bg-[#6b6464]"></span>
+    <a href="#" class="pl-8 text-[#5F5F5F] font-normal text-[2.5rem] dark:text-[#dddddd]">PROJECTS</a>
+    <span class="w-full h-[1px] self-stretch bg-[#6b6464]"></span>
+    <a href="#" class="pl-8 text-[#5F5F5F] font-normal text-[2.5rem] dark:text-[#dddddd]">CONTACT</a>
+    <span class="w-full h-[1px] self-stretch bg-[#6b6464]"></span>
   </nav>
 
-  <header>
-    <h1>Jake</h1>
-    <section class="navigation-button">
-      
-      <span class="nav-indicator"></span>
 
-      <a href="#" class="active">HOME</a>
-      <a href="#">SKILLS</a>
-      <a href="#">PROJECTS</a>
-      <a href="#">CONTACT</a>
+  <!-- Header -->
+  <header class="fixed z-50 flex items-center justify-center w-full h-20 px-12 bg-white/50 backdrop-blur-md dark:bg-black/50">
+    <h1 class="absolute left-8 text-[1.3rem] font-georama font-semibold text-[#0D0D0D] transition-all duration-500 max-xl:gap-text-[1.2rem] max-lg:text-[1rem] dark:text-[#f1f1f1] max-md:text-[1.4rem]">
+      JAKE
+    </h1>
 
-      <i class="fa-solid fa-bars" id="menu-toggle"></i>
-
+    <section class="relative flex gap-20 transition-all duration-500 navigation-button max-xl:gap-16 max-lg:gap-14 max-md:hidden">
+      <span class="nav-indicator absolute bottom-0 left-0 h-0.5 w-0 bg-black transition-[transform,width] duration-300 ease-linear max-sm:hidden dark:bg-white"></span>
+      <a href="#" class="active relative text-[1rem] font-normal font-poppins text-[#101010] pb-0.5 transition-all duration-500 max-xl:gap-text-[.9rem] max-lg:text-[.8rem] dark:text-[#f1f1f1]">HOME</a>
+      <a href="#" class="relative text-[1rem] font-normal font-poppins text-[#101010] pb-0.5 transition-all duration-500 max-xl:gap-text-[.9rem] max-lg:text-[.8rem] dark:text-[#f1f1f1]">SKILLS</a>
+      <a href="#" class="relative text-[1rem] font-normal font-poppins text-[#101010] pb-0.5 transition-all duration-500 max-xl:gap-text-[.9rem] max-lg:text-[.8rem] dark:text-[#f1f1f1]">PROJECTS</a>
+      <a href="#" class="relative text-[1rem] font-normal font-poppins text-[#101010] pb-0.5 transition-all duration-500 max-xl:gap-text-[.9rem] max-lg:text-[.8rem] dark:text-[#f1f1f1]">CONTACT</a>
     </section>
-  </header>
 
-  <section class="About-Section">
-    <h1>UX DESIGN & FULL-STACK WEB DEVELOPER</h1>
+    <section class="absolute flex items-center justify-between right-10 max-md:gap-12">
+      <i class="fa-solid fa-lightbulb text-[#161616] text-[1.5rem] cursor-pointer dark:text-[#f0f0f0] max-xl:gap-text-[1.3rem] max-lg:text-[1rem] max-md:text-[1.5rem] transition-all duration-500" id="themeToggle"></i>
+      <i class="fa-solid fa-bars max-sm:right-0 text-[24px] text-[#000] dark:text-[#f0f0f0] hover:cursor-pointer 
+       block md:hidden" id="menu-toggle"></i>
+    </section>
 
-    <section class="developer-detail">
-      <div id="picture-border">
-        <img src="pme.png" alt="" id="picture">
+  </header>  
+
+  <!-- Hero Section -->
+  <section id="Hero-Section" class="flex flex-col items-center justify-between">
+
+    <!-- Title -->
+     <section id="Title">
+      <h1 class="text-[5rem] font-black font-gabarito text-[#454545] mx-52 my-28 transition-all duration-500
+       dark:text-[#c0c0c0] max-xl:mx-36 max-xl:text-[4.3rem] max-lg:mx-28 max-lg:text-[3.8rem] max-md:mx-20 max-md:text-[3rem]">
+      UX DESIGN & FULL-STACK WEB DEVELOPER
+     </section>
+
+     <!-- Detail -->
+     <section class="flex items-center justify-between gap-6 font-normal transition-all duration-500 mx-52 font-poppins max-xl:mx-40 max-lg:mx-28 max-md:flex-col">
+      <!-- picture -->
+      <div class="flex-none inline-block p-[0.2rem] rounded-[90%] border-[1px] border-black dark:border-white">
+        <img src="Resources/pme.png" alt=""
+        class="block object-cover rounded-[90%] w-[120px] h-[120px] max-sm:w-[150px] max-sm:h-[150px] max-xl:w-[110px] max-xl:h-[110px] max-lg:w-[100px] max-lg:h-[100px] max-md:w-[150px] max-md:h-[150px]">
       </div>
+      
+      <!-- Separator -->
+      <span class="self-stretch bg-[#6b6464] w-[2px] max-md:hidden"></span>
 
-      <span id="separator"></span>
-
-      <section class="detail">
-        <span>I'm Jake Julius Maunas</span>
+      <!-- About -->
+       <section class="text-[0.9rem] text-justify font-normal font-poppins max-sm:text-[0.8rem] max-md:pt-4 dark:gray-200 transition-all duration-300 dark:text-[#e7e7e7]">
+        <span class="text-[1rem] font-semibold italic max-sm:text-[0.9rem] dark:text-[#f1f1f1] transition-all duration-300">
+          I'm Jake Julius Maunas
+        </span>
         <p>
           with a strong foundation in building responsive, user-friendly applications 
           from front end to back end. I work with modern web technologies such as HTML, 
@@ -62,84 +105,78 @@
           practical, reliable, and aligned with real-world user needs.
         </p>
       </section>
-    </section>
+     </section>
+  </section>
 
+  <!-- contact -->
+  <section id="Contact" class="container flex flex-col justify-center min-h-screen px-6 py-20 mx-auto mb-20">
+    <h2 class="mb-12 text-3xl font-bold text-center text-gray-800 dark:text-[#d6d6d6]">
+      Contact Me
+    </h2>
+    <form class='w-full max-w-lg mx-auto lg:max-w-xl' id='contact-form' method='POST' name='contact'>
+      <input type="hidden" name="form-name" value="contact">
+      <div class="mb-6">
+      <input
+        id="form-field"
+        name="name"
+        type="text"
+        placeholder="Your Name"
+        class="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500 bg-inherit dark:text-white"
+        required/>
+      </div>
+      <div class="mb-6">
+        <input
+          id="form-field"
+          type="email"
+          name="email"
+          placeholder="Imong Email"
+          class="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500 bg-inherit dark:text-white"
+          required/>
+        </div>
+        <div class="mb-6">
+          <textarea
+            id="form-field"
+            name="message"
+            rows="4"
+            placeholder="Your Message"
+            class="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500 bg-inherit dark:text-white"
+            required></textarea>
+          </div>
+            <button
+              type="submit"
+              class="w-full px-6 py-3 mt-4 text-xs font-medium tracking-widest text-gray-200 transition duration-300 bg-gray-800 border border-transparent rounded-md dark:text-gray-800 dark:bg-gray-200 cta-dark xl:mt-28 hover:bg-white dark:hover:bg-black hover:text-gray-800 dark:hover:text-gray-200 hover:border hover:border-gray-800 dark:border-gray-200 md:px-12 md:text-sm"
+              >
+              SEND MESSAGE
+              </button>
+            </form>
+            <div
+                id="form-message"
+                class="w-full h-10 max-w-lg px-4 py-2 mx-auto mt-6 text-sm font-medium rounded opacity-0 lg:max-w-xl"
+                aria-hidden="true"
+            ></div>
+    </form>
   </section>
 
   <footer>
 
   </footer>
-
-  <script>
-    const nav = document.querySelector('.navigation-button');
-    const links = nav.querySelectorAll('.navigation-button a');
-    const indicator = nav.querySelector('.nav-indicator');
-
-    function moveIndicator(el) {
-      indicator.style.width = el.offsetWidth + 'px';
-      indicator.style.transform = `translateX(${el.offsetLeft}px)`;
-    }
-
-    let activeLink = nav.querySelector('.active') || links[0];
-    moveIndicator(activeLink);
-
-    links.forEach(link => {
-      link.addEventListener('click', () => {
-        links.forEach(l => l.classList.remove('active'));
-        links.forEach(l => {l.style.fontWeight = "normal";});
-        link.classList.add('active');
-        link.style.fontWeight = "bold";
-        activeLink = link;
-        moveIndicator(activeLink);
-      });
-    });
-
-    window.addEventListener('resize', () => {
-      moveIndicator(nav.querySelector('.active'));
-    });
-
-    const toggle = document.getElementById("menu-toggle");
-    const menu = document.getElementById("menu");
-    const closeBtn = document.getElementById("menu-close");
-
-    toggle.addEventListener("click", () => {
-      menu.classList.toggle("active");
-    });
-    closeBtn.addEventListener("click", () => {
-      menu.classList.remove("active");
-    });
-
-    menu.addEventListener("click", (e) => {
-      if (e.target === menu) {
-        menu.classList.remove("active");
-      }
-    });
-
-
-
-    const nav1 = document.getElementById("menu");
-    const links1 = nav1.querySelectorAll("a");
-    let activeLink1 = nav1.querySelector(".activel") || links[0];
-    activeLink1.style.fontWeight = "900";
-    activeLink1.style.color = "#000"
-
-    links1.forEach(link => {
-    link.addEventListener("click", () => {
-      links1.forEach(l => {
-        l.classList.remove("activel");
-        l.style.fontWeight = "400";
-        l.style.color = "#5F5F5F";
-      });
-
-      link.classList.add("activel");
-      link.style.fontWeight = "900";
-      link.style.color = "#000"
-      activeLink1 = link;
-
-      menu.classList.remove("active");
-    });
-    });
-
-  </script>
 </body>
+<!-- script -->
+<script src="Toggle.js"></script>
+<script src="Nav.js"></script>
+<script src="Contact.js"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        fontFamily: {
+          poppins: ['Poppins', 'sans-serif'],
+          georama: ['Georama', 'sans-serif'],
+          gabarito: ['Gabarito', 'sans-serif'],
+        }
+      }
+    }
+  }
+</script>
 </html>
