@@ -1,102 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JB De Vila</title>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Playfair+Display:ital,wght@0,400;0,700;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="favicon-img" href="favicon-jb.png">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JB De Vila</title>
+  <link rel="icon" href="favicon-jb.png" />
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <nav>
-        <div class="logo"><img src="favicon.png" alt="DUTS" class="favicon-img"> </div>
-        <div class="nav-links">
-            <a href="index.html#home">Home</a>
-            <a href="index.html#about">About</a>
-            <a href="index.html#contact">Contact</a>
-        </div>
 
-    </nav>
+<body class="pt-20 font-serif text-white bg-[midnightblue] scroll-smooth">
 
-   <section class="hero" id="home">
-  <div class="hero-content">
+<nav class="fixed top-0 left-0 w-full h-20 bg-[#1b1f6b] z-50">
+  <div class="relative h-full max-w-full">
 
-    <div class="hero-left">
-      <p class="subtitle">Welcome to My Portfolio</p>
-      <p class="intro">Hi! I'm</p>
+    <img
+      src="favicon.png"
+      class="absolute left-12 top-2 h-16"
+      alt="JB Logo"
+    />
 
-      <h2 class="full">
-        <span class="fs">Full Stack</span>
-        <span class="dev">Developer</span>
-      </h2>
-
-      <p class="stack">
-        A Full Stack Web Developer is a comprehensive architect 
-        who designs the interactive user interface and constructs 
-        the server-side infrastructure and databases required.
-      </p>
-    </div>
-
-    <div class="hero-right">
-      <h1 class="name">
-        <div class="name1">JB</div>
-        <div class="name2">DE VILA</div>
-      </h1>
+    <div class="absolute right-12 top-7 flex gap-10 text-white text-lg">
+      <a href="#home" class="hover:underline">Home</a>
+      <a href="#about" class="hover:underline">About</a>
+      <a href="#contact" class="hover:underline">Contact</a>
     </div>
 
   </div>
+</nav>
+
+
+<section
+  id="home"
+  class="relative pt-20 min-h-screen bg-cover bg-center"
+  style="background-image:
+    linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),
+    url('https://e0.pxfuel.com/wallpapers/475/184/desktop-wallpaper-portfolio-background-portfolio-background-portfolio-and-career-portfolio.jpg');"
+>
+
+
+  <p class="absolute top-[120px] left-[210px] text-white text-5xl hidden md:block">
+    Hi! I'm
+  </p>
+
+  <div
+    class="absolute top-[150px] left-[380px]
+           text-[200px] font-bold text-blue-500 leading-none
+           hidden md:block">
+    JB
+  </div>
+
+  <div
+    class="absolute top-[320px] left-[650px]
+           text-[170px] font-bold text-blue-500 leading-none
+           hidden md:block">
+    DE VILA
+  </div>
+
+  <div
+    class="absolute top-[430px] left-[60px]
+           text-[80px] text-blue-600 hidden md:block">
+    Full Stack
+  </div>
+
+  <div
+    class="absolute top-[500px] left-[60px]
+           text-[80px] text-yellow-400 hidden md:block">
+    Developer
+  </div>
+
+  <p
+    class="absolute top-[600px] left-[60px] max-w-xl
+           text-lg tracking-widest text-white/50 hidden md:block">
+    A Full Stack Web Developer is a comprehensive architect who designs the
+    interactive user interface and constructs the server-side infrastructure
+    and databases required.
+  </p>
+
+  <div class="md:hidden px-6 pt-24 text-white">
+    <p class="text-3xl mb-4">Hi! I'm</p>
+    <h1 class="text-6xl font-bold text-blue-400 leading-tight">JB</h1>
+    <h2 class="text-5xl font-bold text-blue-400 mb-6">DE VILA</h2>
+
+    <p class="text-3xl text-blue-300">Full Stack</p>
+    <p class="text-3xl text-yellow-400 mb-6">Developer</p>
+
+    <p class="text-sm text-white/60">
+      A Full Stack Web Developer is a comprehensive architect who designs the
+      interactive user interface and constructs the server-side infrastructure
+      and databases required.
+    </p>
+  </div>
+
 </section>
 
-     
-    <section class="about" id="about">
-  <div class="about-container">
 
-    <span class="section-label">About</span>
-    <h2>Some words about myself</h2>
+<section id="about" class="bg-white text-[midnightblue] px-6 md:px-16 py-20 scroll-mt-20">
+  <div class="max-w-5xl mx-auto">
 
-    <p class="about-text">
+    <span class="text-2xl tracking-widest uppercase text-blue-600">
+      About
+    </span>
+
+    <h2 class="text-3xl mt-3 mb-5 font-bold">
+      Some words about myself
+    </h2>
+
+    <p class="max-w-3xl text-2xl leading-loose opacity-90 mb-16">
       I’m a web developer who enjoys turning ideas into functional, visually
       engaging digital experiences. I focus on writing clean, maintainable code
       while paying close attention to design, usability, and performance.
       I’m always eager to learn new tools and improve my craft with every project.
     </p>
 
-    <div class="skills-row">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg">
+    <div class="flex flex-wrap gap-10 mb-12 items-center">
+      <img class="w-14 h-14 hover:scale-110 transition" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg">
+      <img class="w-14 h-14 hover:scale-110 transition" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg">
+      <img class="w-14 h-14 hover:scale-110 transition" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg">
+      <img class="w-14 h-14 hover:scale-110 transition" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg">
+      <img class="w-14 h-14 hover:scale-110 transition" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg">
+      <img class="w-14 h-14 hover:scale-110 transition" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg">
+      <img class="w-14 h-14 hover:scale-110 transition" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg">
     </div>
 
-    <div class="skills-row">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg">
-      <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg">
+    <div class="flex flex-wrap gap-10 items-center">
+      <img class="w-14 h-14 hover:scale-110 transition" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg">
+      <img class="w-14 h-14 hover:scale-110 transition" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg">
+      <img class="w-14 h-14 hover:scale-110 transition" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg">
+      <img class="w-14 h-14 hover:scale-110 transition" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg">
     </div>
 
   </div>
 </section>
 
+<section id="contact" class="bg-white text-[midnightblue] px-6 py-20 scroll-mt-20">
+  <div class="max-w-xl mx-auto text-center">
 
-  <section class="contact" id="contact">
-  <div class="contact-container">
-    <h2>Contact Me</h2>
+    <h2 class="text-4xl font-bold mb-10 tracking-wide">
+      Contact Me
+    </h2>
 
-    <form class="contact-form">
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea placeholder="Your Message" rows="6" required></textarea>
-      <button type="submit">SEND MESSAGE</button>
+    <form class="space-y-5">
+      <input type="text" placeholder="Your Name"
+        class="w-full p-4 rounded-md border bg-gray-100 focus:bg-white focus:border-[midnightblue] outline-none">
+
+      <input type="email" placeholder="Your Email"
+        class="w-full p-4 rounded-md border bg-gray-100 focus:bg-white focus:border-[midnightblue] outline-none">
+
+      <textarea rows="6" placeholder="Your Message"
+        class="w-full p-4 rounded-md border bg-gray-100 focus:bg-white focus:border-[midnightblue] outline-none"></textarea>
+
+      <button
+        class="w-full py-4 bg-[midnightblue] text-white font-bold tracking-widest rounded-md hover:bg-blue-900 transition">
+        SEND MESSAGE
+      </button>
     </form>
+
   </div>
 </section>
-
 
 </body>
 </html>
