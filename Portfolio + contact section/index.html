@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -616,6 +616,32 @@
         .toggle-submissions-btn.active i {
             transform: rotate(180deg);
         }
+
+        /* ===== INTERACTIVE CONTACT CARDS ===== */
+        .contact-card {
+            cursor: pointer;
+            position: relative;
+        }
+
+        .contact-card::after {
+          
+            position: absolute;
+            bottom: 8px;
+            right: 12px;
+            font-size: 10px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-card:hover::after {
+            opacity: 0.5;
+        }
+
+        .contact-card:active {
+            transform: scale(0.98) translateY(-1px);
+        }
     </style>
 </head>
 
@@ -768,16 +794,16 @@
             <!--Contact Info-->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
                 <!-- Phone Card -->
-                <div class="bg-white/10 backdrop-blur-sm rounded-3xl p-6 transition-all duration-300 hover:bg-white/15 hover:-translate-y-1 border border-white/20 shadow-lg hover:shadow-2xl">
+                <div class="contact-card bg-white/10 backdrop-blur-sm rounded-3xl p-6 transition-all duration-300 hover:bg-white/15 hover:-translate-y-1 border border-white/20 shadow-lg hover:shadow-2xl" data-action="copy-phone">
                     <div class="flex flex-col items-center text-center">
                         <i class="fas fa-phone text-3xl mb-4 opacity-90"></i>
                         <h3 class="font-semibold text-lg mb-2">Phone Number</h3>
-                        <p class="text-sm opacity-75">+63602602240</p>
+                        <p class="text-sm opacity-75">09    602602240</p>
                     </div>
                 </div>
 
                 <!-- Email Card -->
-                <div class="bg-white/10 backdrop-blur-sm rounded-3xl p-6 transition-all duration-300 hover:bg-white/15 hover:-translate-y-1 border border-white/20 shadow-lg hover:shadow-2xl">
+                <div class="contact-card bg-white/10 backdrop-blur-sm rounded-3xl p-6 transition-all duration-300 hover:bg-white/15 hover:-translate-y-1 border border-white/20 shadow-lg hover:shadow-2xl" data-action="copy-email">
                     <div class="flex flex-col items-center text-center">
                         <i class="fas fa-envelope text-3xl mb-4 opacity-90"></i>
                         <h3 class="font-semibold text-lg mb-2">Email</h3>
@@ -786,7 +812,7 @@
                 </div>
 
                 <!-- Address Card -->
-                <div class="bg-white/10 backdrop-blur-sm rounded-3xl p-6 transition-all duration-300 hover:bg-white/15 hover:-translate-y-1 border border-white/20 shadow-lg hover:shadow-2xl">
+                <div class="contact-card bg-white/10 backdrop-blur-sm rounded-3xl p-6 transition-all duration-300 hover:bg-white/15 hover:-translate-y-1 border border-white/20 shadow-lg hover:shadow-2xl" data-action="open-map">
                     <div class="flex flex-col items-center text-center">
                         <i class="fas fa-map-marker-alt text-3xl mb-4 opacity-90"></i>
                         <h3 class="font-semibold text-lg mb-2">Address</h3>
@@ -988,6 +1014,63 @@
                 ripple.remove();
             }, 600);
         });
+
+        // ===== INTERACTIVE CONTACT CARDS =====
+        const contactCards = document.querySelectorAll('.contact-card');
+        
+        contactCards.forEach(card => {
+            card.addEventListener('click', function() {
+                const action = this.getAttribute('data-action');
+                
+                if (action === 'copy-phone') {
+                    const phoneNumber = '09602602240';
+                    copyToClipboard(phoneNumber, 'Phone number copied!');
+                } 
+                else if (action === 'copy-email') {
+                    const email = 'nicslibunao@gmail.com';
+                    copyToClipboard(email, 'Email copied!');
+                } 
+                else if (action === 'open-map') {
+                    const address = 'Juan Luna Brgy. 29-C, Davao City, Davao del Sur, Philippines';
+                    const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
+                    window.open(mapUrl, '_blank');
+                    showToast('Opening location in Google Maps...');
+                }
+            });
+        });
+
+        // Copy to clipboard  
+        function copyToClipboard(text, message) {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text).then(() => {
+                    showToast(message);
+                }).catch(() => {
+                    fallbackCopyToClipboard(text, message);
+                });
+            } else {
+                fallbackCopyToClipboard(text, message);
+            }
+        }
+
+        // Fallback for older browsers
+        function fallbackCopyToClipboard(text, message) {
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            textArea.style.position = 'fixed';
+            textArea.style.left = '-999999px';
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            
+            try {
+                document.execCommand('copy');
+                showToast(message);
+            } catch (err) {
+                showToast('Failed to copy. Please try again.');
+            }
+            
+            document.body.removeChild(textArea);
+        }
 
         // ===== TOAST FUNCTION =====
         function showToast(message) {
@@ -1210,46 +1293,89 @@
         const fadeElements = document.querySelectorAll('.fade-in-up');
         const navbar = document.getElementById('navbar');
 
+        // Function to apply theme colors to all elements
+        function applyThemeColors() {
+            const activeLink = document.querySelector('.nav-links a.active');
+            const hireBtn = document.querySelector('.hire-btn');
+            const profilePic = document.querySelector('.profile-pic');
+            const isScrolled = window.scrollY > 50;
+
+            if (body.classList.contains('dark')) {
+                // Theme toggle button
+                themeToggle.classList.remove('bg-black/85');
+                themeToggle.classList.add('bg-white/[0.18]');
+                
+                // Active nav link
+                if (activeLink) {
+                    activeLink.classList.remove('bg-black/80');
+                    activeLink.classList.add('bg-white/[0.2]', 'text-white');
+                }
+                
+                // Hire button
+                if (hireBtn) {
+                    hireBtn.classList.remove('bg-[#1e1e1e]', 'text-white');
+                    hireBtn.classList.add('bg-white', 'text-[#111]');
+                }
+                
+                // Profile pic shadow
+                if (profilePic) {
+                    profilePic.classList.remove('drop-shadow-[0_16px_30px_rgba(0,0,0,0.25)]');
+                    profilePic.classList.add('drop-shadow-[0_16px_30px_rgba(255,255,255,0.18)]');
+                }
+                
+                // Navbar background (depends on scroll position)
+                if (isScrolled) {
+                    navbar.classList.remove('bg-white/5', 'bg-white/85');
+                    navbar.classList.add('bg-[#2A3740]/90', 'shadow-[0_4px_20px_rgba(0,0,0,0.1)]');
+                } else {
+                    navbar.classList.remove('bg-white/85', 'bg-[#2A3740]/90', 'shadow-[0_4px_20px_rgba(0,0,0,0.1)]');
+                    navbar.classList.add('bg-white/5');
+                }
+            } else {
+                // Theme toggle button
+                themeToggle.classList.remove('bg-white/[0.18]');
+                themeToggle.classList.add('bg-black/85');
+                
+                // Active nav link
+                if (activeLink) {
+                    activeLink.classList.remove('bg-white/[0.2]');
+                    activeLink.classList.add('bg-black/80', 'text-white');
+                }
+                
+                // Hire button
+                if (hireBtn) {
+                    hireBtn.classList.remove('bg-white', 'text-[#111]');
+                    hireBtn.classList.add('bg-[#1e1e1e]', 'text-white');
+                }
+                
+                // Profile pic shadow
+                if (profilePic) {
+                    profilePic.classList.remove('drop-shadow-[0_16px_30px_rgba(255,255,255,0.18)]');
+                    profilePic.classList.add('drop-shadow-[0_16px_30px_rgba(0,0,0,0.25)]');
+                }
+                
+                // Navbar background (depends on scroll position)
+                if (isScrolled) {
+                    navbar.classList.remove('bg-white/5', 'bg-[#2A3740]/90');
+                    navbar.classList.add('bg-white/85', 'shadow-[0_4px_20px_rgba(0,0,0,0.1)]');
+                } else {
+                    navbar.classList.remove('bg-white/85', 'bg-[#2A3740]/90', 'shadow-[0_4px_20px_rgba(0,0,0,0.1)]');
+                    navbar.classList.add('bg-white/5');
+                }
+            }
+        }
+
+        // Apply theme colors on page load
+        applyThemeColors();
+
         themeToggle.addEventListener('click', () => {
             body.classList.toggle('dark');
             body.classList.toggle('light');
             icon.classList.toggle('fa-moon');
             icon.classList.toggle('fa-sun');
 
-            const activeLink = document.querySelector('.nav-links a.active');
-            if (body.classList.contains('dark')) {
-                themeToggle.classList.remove('bg-black/85');
-                themeToggle.classList.add('bg-white/[0.18]');
-                if (activeLink) {
-                    activeLink.classList.remove('bg-black/80');
-                    activeLink.classList.add('bg-white/[0.2]');
-                }
-            } else {
-                themeToggle.classList.remove('bg-white/[0.18]');
-                themeToggle.classList.add('bg-black/85');
-                if (activeLink) {
-                    activeLink.classList.remove('bg-white/[0.2]');
-                    activeLink.classList.add('bg-black/80');
-                }
-            }
-
-            const hireBtn = document.querySelector('.hire-btn');
-            if (body.classList.contains('dark')) {
-                hireBtn.classList.remove('bg-[#1e1e1e]', 'text-white');
-                hireBtn.classList.add('bg-white', 'text-[#111]');
-            } else {
-                hireBtn.classList.remove('bg-white', 'text-[#111]');
-                hireBtn.classList.add('bg-[#1e1e1e]', 'text-white');
-            }
-
-            const profilePic = document.querySelector('.profile-pic');
-            if (body.classList.contains('dark')) {
-                profilePic.classList.remove('drop-shadow-[0_16px_30px_rgba(0,0,0,0.25)]');
-                profilePic.classList.add('drop-shadow-[0_16px_30px_rgba(255,255,255,0.18)]');
-            } else {
-                profilePic.classList.remove('drop-shadow-[0_16px_30px_rgba(255,255,255,0.18)]');
-                profilePic.classList.add('drop-shadow-[0_16px_30px_rgba(0,0,0,0.25)]');
-            }
+            // Apply theme colors
+            applyThemeColors();
 
             fadeElements.forEach(el => {
                 el.classList.remove('animate');          
@@ -1284,6 +1410,11 @@
                 if (targetSection) {
                     targetSection.scrollIntoView({ behavior: 'smooth' });
                 }
+                
+                // Apply theme colors after navigation
+                setTimeout(() => {
+                    applyThemeColors();
+                }, 100);
             });
         });
 
@@ -1327,7 +1458,10 @@
                                 link.classList.add('bg-black/80', 'text-white');
                             }
                         }
-                    }); 
+                    });
+                    
+                    
+                    applyThemeColors();
                 }
             });
         });
