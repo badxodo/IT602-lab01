@@ -503,7 +503,7 @@
             transform: translateX(0);
         }
 
-        /* Hamburger menu (for mobile and pc)*/
+        /* Hamburger menu (for mobile and desktop)*/
         .hamburger-line {
             transition: all 0.3s ease-in-out;
         }
@@ -876,20 +876,28 @@
 
             <!-- Submissions Table -->
             <div id="submissionsContainer" class="mt-8 hidden overflow-hidden transition-all duration-500">
-                <div class="bg-white/10 backdrop-blur-sm rounded-3xl p-6 border border-white/20 shadow-lg overflow-x-auto">
+                <div class="bg-white/10 backdrop-blur-sm rounded-3xl p-4 sm:p-6 border border-white/20 shadow-lg">
                     <h3 class="text-xl font-bold mb-4 text-center">Form Submissions</h3>
-                    <table class="w-full text-sm">
-                        <thead>
-                            <tr class="border-b border-white/20">
-                                <th class="text-left py-3 px-2">Name</th>
-                                <th class="text-left py-3 px-2">Contact No.</th>
-                                <th class="text-left py-3 px-2">Email</th>
-                                <th class="text-left py-3 px-2">Message</th>
-                                <th class="text-left py-3 px-2">Date</th>
-                            </tr>
-                        </thead>
-                        <tbody id="submissionsTable"></tbody>
-                    </table>
+                    
+                    <!-- Desktop Table (hidden on mobile) -->
+                    <div class="hidden sm:block overflow-x-auto">
+                        <table class="w-full text-sm">
+                            <thead>
+                                <tr class="border-b border-white/20">
+                                    <th class="text-left py-3 px-2">Name</th>
+                                    <th class="text-left py-3 px-2">Contact No.</th>
+                                    <th class="text-left py-3 px-2">Email</th>
+                                    <th class="text-left py-3 px-2">Message</th>
+                                    <th class="text-left py-3 px-2">Date</th>
+                                </tr>
+                            </thead>
+                            <tbody id="submissionsTable"></tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- Mobile Cards (hidden on desktop) -->
+                    <div id="submissionsCards" class="sm:hidden space-y-4"></div>
+                    
                     <button 
                         id="clearSubmissions"
                         class="mt-6 px-6 py-2 rounded-xl bg-red-500/80 hover:bg-red-500 text-white font-semibold transition-all duration-300"
@@ -1036,8 +1044,10 @@
             }
             
             const tableBody = document.getElementById('submissionsTable');
+            const cardsContainer = document.getElementById('submissionsCards');
             
             tableBody.innerHTML = '';
+            cardsContainer.innerHTML = '';
             
             if (submissions.length === 0) {
                 return;
@@ -1046,6 +1056,7 @@
             const reversedSubmissions = [...submissions].reverse();
             
             reversedSubmissions.forEach(submission => {
+                // Desktop Table Row
                 const row = document.createElement('tr');
                 row.className = 'border-b border-white/10 hover:bg-white/5 transition-colors';
                 row.innerHTML = `
@@ -1056,6 +1067,33 @@
                     <td class="py-3 px-2 text-xs opacity-75 whitespace-nowrap">${submission.date}</td>
                 `;
                 tableBody.appendChild(row);
+                
+                // Mobile Card
+                const card = document.createElement('div');
+                card.className = 'bg-white/5 rounded-2xl p-4 border border-white/10 space-y-3';
+                card.innerHTML = `
+                    <div class="flex justify-between items-start gap-3">
+                        <span class="text-xs opacity-60 uppercase tracking-wider">Name</span>
+                        <span class="font-medium text-right">${submission.name}</span>
+                    </div>
+                    <div class="flex justify-between items-start gap-3">
+                        <span class="text-xs opacity-60 uppercase tracking-wider">Contact</span>
+                        <span class="text-right">${submission.contactNo}</span>
+                    </div>
+                    <div class="flex justify-between items-start gap-3">
+                        <span class="text-xs opacity-60 uppercase tracking-wider">Email</span>
+                        <span class="text-right break-all text-sm">${submission.email}</span>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <span class="text-xs opacity-60 uppercase tracking-wider">Message</span>
+                        <span class="text-sm opacity-90">${submission.message}</span>
+                    </div>
+                    <div class="flex justify-between items-center pt-2 border-t border-white/10">
+                        <span class="text-xs opacity-60 uppercase tracking-wider">Date</span>
+                        <span class="text-xs opacity-75">${submission.date}</span>
+                    </div>
+                `;
+                cardsContainer.appendChild(card);
             });
         }
 
